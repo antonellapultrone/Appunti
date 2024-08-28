@@ -1,5 +1,5 @@
 # Appunti
-![Logo-Appunti](https://www.canva.com/design/DAGPGoBqZYk/YZ42xGEwnQhg03di1VglQw/edit?utm_content=DAGPGoBqZYk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton) 
+![Logo-Appunti](https://imgur.com/7mdwPTa) 
 
 
 
