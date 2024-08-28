@@ -1,5 +1,5 @@
 # Appunti
-![Logo-Appunti](https://imgur.com/7mdwPTa) 
+![Logo-Appunti](https://i.imgur.com/7mdwPTa.png 
 
 
 
