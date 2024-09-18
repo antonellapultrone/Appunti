@@ -10,6 +10,7 @@
     background-color: #9a51db;
     color: white;
     border-radius: 8px;
+    align-self: flex-start;
 }
 
 .filtros h3 {
