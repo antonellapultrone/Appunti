@@ -1,0 +1,109 @@
+.resultados-busqueda {
+    display: flex;
+    margin: 20px;
+}
+
+/* Filtros */
+.filtros {
+    width: 20%;
+    padding: 20px;
+    background-color: #9a51db;
+    color: white;
+    border-radius: 8px;
+}
+
+.filtros h3 {
+    margin-bottom: 20px;
+}
+
+.filtros label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.filtros select, .filtros input[type="checkbox"] {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border-radius: 4px;
+    border: none;
+}
+
+.filtrar-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #5b2481;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filtrar-btn:hover {
+    background-color: #773fb1;
+}
+
+/* Resultados */
+.resultados {
+    width: 75%;
+    margin-left: 20px;
+}
+
+.resultados h2 {
+    color: #5b2481;
+}
+
+.grilla-resultados {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.resultado-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    text-align: center;
+}
+
+.resultado-card img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.resultado-card h4 {
+    color: #5b2481;
+    margin-top: 10px;
+}
+
+.reservar-btn {
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #5b2481;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.reservar-btn:hover {
+    background-color: #773fb1;
+}
+
+/* Paginación */
+.paginacion {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.paginacion a {
+    margin: 0 5px;
+    padding: 10px;
+    color: #5b2481;
+    text-decoration: none;
+}
+
+.paginacion a:hover {
+    text-decoration: underline;
+}
