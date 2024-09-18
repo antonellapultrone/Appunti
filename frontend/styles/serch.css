@@ -52,6 +52,7 @@
 
 .resultados h2 {
     color: #5b2481;
+    margin: 1rem;
 }
 
 .grilla-resultados {
@@ -107,4 +108,33 @@
 
 .paginacion a:hover {
     text-decoration: underline;
+}
+
+/*Barra de busqueda*/
+
+.search-bar {
+    display: flex;
+    justify-content:start;
+    flex-wrap: wrap;    
+    gap: 1rem;
+    background-color: #5A189A;
+    padding: 2rem 1rem;
+    border-radius: .75rem;
+}
+.search-bar input, .search-bar button {
+    font-size: 12pt;
+    padding: .5rem;
+    border: 1px solid #ddd;
+}
+.search-bar input {
+    border-radius: 5px;
+}
+.search-bar button {
+    background-color: #10002B;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+.search-bar button:hover {
+    background-color: #250066;
 }
