@@ -104,24 +104,24 @@ h2{
     color: #10002B;
 }
 h3{
-    padding-bottom: 1rem;
+    padding: 1rem 0;
 }
 section p {
-        padding: 0.5rem 5rem;
+    padding: 0.5rem 5rem;
     
 }
 .article-detalle{
- display: flex;
- box-sizing: border-box;
- padding: 7rem 3rem;
- gap: 3%;
+    display: flex;
+    box-sizing: border-box;
+    padding: 3rem;
+    gap: 3%;
 }
 .section-description-reserva {
-max-width: 70%;
+    max-width: 70%;
 }
 .detalle-galeria{
- border-radius: 1rem;
- width: 100%;
+    border-radius: 1rem;
+    width: 100%;
 }
 .section-info-reserva{
     color:#10002B
@@ -131,6 +131,7 @@ max-width: 70%;
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    padding-top: 0.5rem;
 }
 #select-date div{
     display: flex;
@@ -147,9 +148,21 @@ max-width: 70%;
     font-size: 12px;
 }
 
+.section-info-reserva{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: fit-content;
+    padding: 1.5rem;
+    background-color: rgba(90, 24, 154, 0.5);
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 1px #10002B ;
+   
+}
 .section-info-reserva input, button {
     padding: .5rem;
     border: 1px solid #ddd;
+    box-shadow: 0 1px 1px #10002B;
 }
 .section-info-reserva input {
     border-radius: 5px;
@@ -163,7 +176,7 @@ max-width: 70%;
 }
 #reservarButton{
     color: white;
-    background-color: #10002B;
+    background-color:#5A189A;
 }
 
 #agregarReservas{
@@ -180,16 +193,7 @@ max-width: 70%;
     padding: 1rem 4rem;
     gap: 1rem;
 }
-.section-info-reserva{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    height: fit-content;
-    padding: 1.5rem;
-    background-color: rgba(90, 24, 154, 0.5);
-    border-radius: 0.5rem;
-   
-}
+
 #select-date{
     display: flex;
     flex-direction: column;
