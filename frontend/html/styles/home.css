@@ -155,7 +155,7 @@ header {
     margin: 10px 0;
 }
 .card button {
-    font-size: 12pt;
+    font-size: 14pt;
     padding: .5rem;
     border: none;
     background-color: #10002B;
@@ -271,6 +271,10 @@ header {
 }
 .icon-category img{
     height: 3rem;
+    transition:  0.2s ease-in-out;
+}
+.icon-category img:hover{
+    transform: scale(1.2);
 }
 .btn-category p{
     font-size: 16pt;
