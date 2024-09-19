@@ -1,0 +1,31 @@
+header {
+    background-color: #10002B; /*2C003E*/
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.logo img {
+    height: 5rem;
+}
+.search-section img{
+    height: 8rem;
+    margin-bottom: 2rem;
+}
+.header-buttons ul {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    list-style: none;
+    background-color: #10002B;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+.header-buttons li{
+    font-size: 16pt;
+    padding: .5rem;
+}
+.header-buttons li:hover {
+    background-color: #5C2D91;
+}
