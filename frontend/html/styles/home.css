@@ -131,7 +131,6 @@ header {
     height: 300px;
     object-fit: cover;
     margin: -1rem -1rem .5rem;
-    transition: 0.2s ease-in-out;
 }
 .card .btn-favorito {
     background-color: transparent;
@@ -167,8 +166,8 @@ header {
 .card button:hover {
     background-color: #8E5DC2;
 }
-.card .btn-favorito img:hover{
-    background-color: transparent;
+.card .btn-favorito:hover{
+    background-color: #44444467;
 }
 .ver-mas {
     font-size: 20pt;
