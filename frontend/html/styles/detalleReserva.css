@@ -104,7 +104,6 @@ h2{
     color: #10002B;
 }
 h3{
-    padding: 3rem;
     padding-bottom: 1rem;
 }
 section p {
@@ -114,24 +113,65 @@ section p {
 .article-detalle{
  display: flex;
  box-sizing: border-box;
- padding: 7rem;
- gap: 8%;
+ padding: 7rem 3rem;
+ gap: 3%;
 }
 .section-description-reserva {
 max-width: 70%;
 }
 .detalle-galeria{
  border-radius: 1rem;
- height: 35rem;
+ width: 100%;
+}
+.section-info-reserva{
+    color:#10002B
+}
+
+#select-date label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+#select-date div{
+    display: flex;
+}
+#select-date div{
+    gap: 0.1rem;
+}
+.precio-por-hora{
+    color:#f5f5f5;
+    font-size: 4rem;
+    font-weight: 100;
+}
+.politica-cancelacion {
+    font-size: 12px;
+}
+
+.section-info-reserva input, button {
+    padding: .5rem;
+    border: 1px solid #ddd;
+}
+.section-info-reserva input {
+    border-radius: 5px;
 }
 .section-info-reserva button {
-    background-color: #10002B;
-    color: white;
     cursor: pointer;
     border-radius: 1rem;
     padding: 0.5rem;
     margin-top: 0.5rem;
     width: 100%;
+}
+#reservarButton{
+    color: white;
+    background-color: #10002B;
+}
+
+#agregarReservas{
+    color:#10002B;
+    background-color: #f5f5f5;
+}
+.section-info-reserva p {
+    padding: 1rem 0;
 }
 .detalle-galeria-button{
     display: flex;
@@ -144,11 +184,15 @@ max-width: 70%;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    height: 40rem;
-    padding: 1rem;
-    background-color: #8b5cb8;
+    height: fit-content;
+    padding: 1.5rem;
+    background-color: rgba(90, 24, 154, 0.5);
     border-radius: 0.5rem;
    
+}
+#select-date{
+    display: flex;
+    flex-direction: column;
 }
 /* footer */
 footer {

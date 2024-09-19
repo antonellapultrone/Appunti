@@ -60,18 +60,31 @@
         </section> 
         <section class="section-info-reserva">
             <h2>Nombre de Servicio</h2>
-            <p>Precio: <strong>$ 0.000</strong>  por hora</p>
+            <p><strong class="precio-por-hora">$0.000</strong></p> 
+            <p>por hora</p>
             <p>Total: $ 0.000</p>
             <h3>Fecha de Reserva</h3>
-                <div id="select-date" >
-                    <input type="date">
-                    <label for=""></label>
-                    <input type="time">
-                    <label for=""></label>
-                    <p><strong>Política de cancelación:</strong> Cancelación gratis hasta 24 horas antes. Reembolso completo con anticipación.</p>
-                    <button>Reservar ahora</button>
-                    <button>Agregar a reservas</button>
-                </div> 
+                <form id="select-date" >
+                    
+                        <label for="input-fecha-inicio">Inicio:</label>
+                    <div>    
+                        <input type="date">
+                        <label for="input-fecha-inicio"></label>
+                        <input type="time">
+                        <label for="input-fecha-inicio"></label>
+                    </div>
+                    
+                        <label for="input-fecha-fin">Fin:</label>
+                    <div>
+                        <input type="date">
+                        <label for=""></label>
+                        <input type="time">
+                        <label for=""></label>
+                    </div>
+                    <p class="politica-cancelacion"><strong>Política de cancelación:</strong> Cancelación gratis hasta 24 horas antes. Reembolso completo con anticipación.</p>
+                    <button id="reservarButton">Reservar ahora</button>
+                    <button id="agregarReservas">Agregar a reservas</button>
+                </form> 
         </section>
     </article>  
  <!-- HTML for the Footer -->
