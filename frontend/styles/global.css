@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url(./body.css);
 @import url(./footer.css);
 @import url(./header.css);
-@import url(./body.css);
-@import url(./serch.css)
+@import url(./card.css);

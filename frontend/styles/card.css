@@ -1,0 +1,51 @@
+.card {
+    background-color: #5A189A;
+    color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 400px;
+    height: min-content;
+    text-align: left;
+    padding: 1rem;
+    position: relative;
+}
+.card img {
+    width: 120%;
+    height: 300px;
+    object-fit: cover;
+    margin: -1rem -1rem .5rem;
+}
+.card .btn-favorito {
+    background-color: transparent;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 1;
+    width: max-content;
+}
+.card .btn-favorito img{
+    margin: .1rem;
+    width: 3rem;
+    height: 3rem;
+}
+.card p {
+    font-size: 20pt;
+    margin: 10px 0;
+}
+.card p span{
+    font-size: 14pt;
+    margin: 10px 0;
+}
+.card button {
+    font-size: 14pt;
+    padding: .5rem;
+    border: none;
+    background-color: #10002B;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+    float: right;
+}
+.card button:hover {
+    background-color: #8E5DC2;
+}
