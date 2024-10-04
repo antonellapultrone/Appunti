@@ -1,0 +1,148 @@
+.container-principal{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    padding: 5rem;
+}
+.container-principal h1{
+    font-family: 'Staatliches', sans-serif;
+    font-size: 90pt;
+    font-weight: 400;
+    color: #10002B;
+}
+.container-principal p{
+    width: 50%;
+    margin: 0 auto;
+    font-size: 30pt;
+    background-color: #f1f1f186;
+    border-radius: 1rem;
+}
+.buscador{
+    background-color: #5A189A;
+    padding: 2rem;
+    border-radius: .5rem;
+    box-shadow: 0 0 10px #5e5e5e;
+    width: 70%;
+    margin: auto;
+}
+.buscador form{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: center;
+}
+.buscador form div{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+.buscador form div label{
+    text-align: left;
+    color: #ffffff;
+}
+.buscador form div{
+    padding: 1rem;
+    width: 25%;
+    border-radius: 1rem;
+    font-size: 12pt;
+    padding: 1rem;
+    flex-grow: 1;
+}
+.buscador form div input{
+    border-radius: 1rem;
+    font-size: 12pt;
+    padding: 1rem;
+    flex-grow: 1;
+}
+.buscador form div select{
+    border-radius: 1rem;
+    font-size: 12pt;
+    padding: 1rem;
+    flex-grow: 1;
+}
+.buscador form button{
+    border-radius: 3rem;
+    padding: 1rem;
+    background-color: #10002B;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    flex-grow: 1;
+    height: 4rem;
+    margin-top: 1.5rem;
+}
+.buscador form button:hover{
+    background-color: #1b0049af;
+}
+.buscador form button img{
+    width: 2rem;
+}
+/* Descubre tu zona */
+#section-descubreTuZona{
+    background-color: #10002B;
+    padding: 4rem;
+}
+#section-descubreTuZona h2{
+    font-size: 30pt;
+    font-weight: 400;
+    color: #ddd;
+    text-align: center;
+}
+#section-descubreTuZona a{
+    display: block;
+    font-size: 25pt;
+    width: min-content;
+    text-wrap: nowrap;
+    margin: 3em auto 1rem;
+    text-align: center;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #59189a;
+    padding: 1rem 1.5rem;
+    border-radius: 3rem;
+}
+/* publicidad */
+#section-publicidad{
+    padding: 2rem;
+}
+.container-publicidad{
+    display: flex;
+    gap: 2rem;
+}
+.container-publicidad div{
+    background-color: #a26bda;
+    width: 50%;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+/* categorias */
+#section-categorias{
+    background-color: #59189a85;
+    margin: 2rem;
+}
+.container-categorias{
+    display: flex;
+    gap: 2rem;
+}
+.container-categorias h2{
+    font-size: 30pt;
+    text-align: center;
+}
+#section-categorias button{
+    background-color: #59189a;
+    padding: 1rem;
+    margin: 1rem;
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0 10px #5e5e5e;;
+}
+#section-categorias button:hover{
+    background-color: #a26bda;
+}
+#section-categorias button:last-child{
+    transform: rotate(180deg);
+}
+#section-categorias button img{
+    width: 3rem;
+}
