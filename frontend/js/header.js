@@ -1,9 +1,8 @@
 const body = document.querySelector('body');
+let arrayString = ['', 'Promos', 'Categorias', 'Mis Reservas', 'Iniciar Sesion'];
+let arraysImg = ['../assets/img/mago-pesc (2).svg','https://img.icons8.com/?size=100&id=a99zM4y8YPut&format=png&color=ffffff', 'https://img.icons8.com/?size=100&id=Ah8SLaXAg94W&format=png&color=ffffff', 'https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff', 'https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff']
 
-function renderNav(){
-    let arrayString = ['', 'Promos', 'Categorias', 'Mis Reservas', 'Iniciar Sesion'];
-    let arraysImg = ['../assets/img/mago-pesc (2).svg','https://img.icons8.com/?size=100&id=a99zM4y8YPut&format=png&color=ffffff', 'https://img.icons8.com/?size=100&id=Ah8SLaXAg94W&format=png&color=ffffff', 'https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff', 'https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff']
-
+function renderNav(images, nombre){
     let header = document .createElement('header')
     let nav = document.createElement('nav');
     header.appendChild(nav);
@@ -14,12 +13,12 @@ function renderNav(){
         let li = document.createElement('li');
         li.innerHTML = `
                         <a href="">
-                            <img src="${arraysImg[i]}" alt="">
-                        ${arrayString[i]}</a>
+                            <img src="${images[i]}" alt="">
+                        ${nombre[i]}</a>
                         `
         ul.appendChild(li);
     }
     body.appendChild(header);
 };
-renderNav();
+renderNav(arraysImg, arrayString);
 

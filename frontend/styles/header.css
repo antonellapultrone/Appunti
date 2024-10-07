@@ -2,16 +2,16 @@ nav {
     background-color: #10002B; /*2C003E*/
     padding: 20px;
 }
-ul{
+header nav ul{
     display: flex;
     gap: 4rem;
     justify-content: space-between;
     list-style: none;
 }
-li{
+nav ul li{
     align-content: center;
 }
-li a{
+nav ul li a{
     display: flex;
     flex-direction: column;
     text-decoration: none;
@@ -19,14 +19,14 @@ li a{
     align-items: center;
     color: #ffffff;
 }
-li a img{
+nav ul li a img{
     width: 40px;
     margin-bottom: .5rem;
 }
-li:first-child{
+nav ul li:first-child{
     margin-right: auto;
 }
-li:first-child a img{
+nav ul li:first-child a img{
     width: 80px;
     margin-bottom: 0;
 }
