@@ -1,9 +1,16 @@
+.container-cards{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+   }
+
 .card {
     background-color: #5A189A;
     color: #FFFFFF;
     border-radius: 10px;
     overflow: hidden;
-    width: 400px;
+    width: 18rem;
     height: min-content;
     text-align: left;
     padding: 1rem;
@@ -11,7 +18,7 @@
 }
 .card img {
     width: 120%;
-    height: 300px;
+    height: 14rem;
     object-fit: cover;
     margin: -1rem -1rem .5rem;
 }

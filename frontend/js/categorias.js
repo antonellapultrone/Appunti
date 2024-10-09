@@ -23,6 +23,6 @@ renderBtnCategorias(categorias, imagenes);
 
 const btn = document.querySelectorAll('a');
 
-btn.addEventListener('click', function(event) {
+//btn.addEventListener('click', function(event) {
     console.log(this.textContent);
-})
+//})
