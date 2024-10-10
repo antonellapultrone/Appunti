@@ -1,7 +1,4 @@
-const rootDescubreZona = document.getElementById("section-descubreTuZona");
-
 export const cardJson = [
-    service1=  
         {
             id:1,
             nombre: "cancha futbol",
@@ -51,4 +48,3 @@ export function renderCards(root ,cardJson){
     console.log(root);
     root.appendChild(div);
 }
-renderCards(rootDescubreZona, cardJson);
