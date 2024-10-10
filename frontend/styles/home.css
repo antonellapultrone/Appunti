@@ -134,13 +134,6 @@
     margin: 0 5rem;
     width: 100%;
 }
-.btn-Category a{
-    text-align: center;
-    color: #10002B;
-}
-.btn-Category a:hover{
-    color: #f9f9f9;
-}
 .btn-Category div{
     background-color: #c4c4c4;
     border-radius: 50%;
@@ -168,20 +161,22 @@
     font-size: 30pt;
     text-align: center;
 }
-#section-categorias button{
+.buttons-carrusel{
     background-color: #59189a;
     padding: 1rem;
     margin: 1rem;
     border-radius: 50%;
     border: none;
-    box-shadow: 0 0 10px #5e5e5e;;
+    box-shadow: 0 0 10px #5e5e5e;
 }
-#section-categorias button:hover{
+.buttons-carrusel:hover{
     background-color: #a26bda;
 }
-#section-categorias button:last-child{
-    transform: rotate(180deg);
-}
-#section-categorias button img{
+.buttons-carrusel img{
     width: 3rem;
+}
+.container-buttons{
+    margin: auto;
+    width: min-content;
+    text-wrap: nowrap;
 }

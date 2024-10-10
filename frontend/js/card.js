@@ -1,6 +1,6 @@
-const card= document.getElementById("section-descubreTuZona");
+const rootDescubreZona = document.getElementById("section-descubreTuZona");
 
-const cardJson = [
+export const cardJson = [
     service1=  
         {
             id:1,
@@ -31,7 +31,7 @@ const cardJson = [
             favorito: false
         }
 ]
-function renderCards(cardJson){
+export function renderCards(root ,cardJson){
     const div = document.createElement('div');
     div.setAttribute('class',"container-cards");
     for (let i = 0; i < cardJson.length; i++) {
@@ -43,11 +43,12 @@ function renderCards(cardJson){
                             <div>
                                 <h3>${cardJson[i].nombre}</h3>
                                 <p>${cardJson[i].descripcion}</p>
-                                <button>Reservar</button>
                             </div>
+                            <button class="btn-reservar">Reservar</button>
         `
         div.appendChild(article);
     }
-    card.appendChild(div);
+    console.log(root);
+    root.appendChild(div);
 }
-renderCards(cardJson);
+renderCards(rootDescubreZona, cardJson);
