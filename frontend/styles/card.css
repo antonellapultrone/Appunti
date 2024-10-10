@@ -3,21 +3,24 @@
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-evenly;
+    gap: 2rem;
+    margin-bottom: 2rem;
 }
 .card {
     background-color: #5A189A;
     color: #FFFFFF;
     border-radius: 10px;
     overflow: hidden;
-    width: 18rem;
-    height: 25rem;
+    width: 30em;
+    height: 40em;
     text-align: left;
     padding: 1rem;
     position: relative;
 }
+
 .card img {
     width: 120%;
-    height: 14rem;
+    height: 50%;
     object-fit: cover;
     margin: -1rem -1rem .5rem;
 }
@@ -34,17 +37,21 @@
     width: 3rem;
     height: 3rem;
 }
+.card h3{
+    font-size: 30pt;
+    font-weight: 600;
+}
 .card p {
     font-size: 20pt;
     margin: 10px 0;
 }
 .card p span{
-    font-size: 14pt;
+    font-size: 18pt;
     margin: 10px 0;
 }
 .btn-reservar {
-    font-size: 14pt;
-    padding: .5rem;
+    font-size: 16pt;
+    padding: 1rem;
     margin: 1rem;
     border: none;
     background-color: #10002B;

@@ -88,6 +88,7 @@
     font-weight: 400;
     color: #ddd;
     text-align: center;
+    margin-bottom: 2rem;
 }
 #section-descubreTuZona a{
     display: block;
@@ -130,8 +131,9 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    text-align: center;
     gap: 3rem;
-    margin: 0 5rem;
+    margin: 0 5rem 2rem;
     width: 100%;
 }
 .btn-Category div{
@@ -155,6 +157,7 @@
 }
 .btn-Category p{
     font-weight: 600;
+    font-size: 16pt;
     margin-top: 1rem;
 }
 .container-categorias h2{

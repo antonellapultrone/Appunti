@@ -39,6 +39,8 @@ export function renderCards(root ,cardJson){
                             <button class = "btn-favorito"><img src="../assets/img/star.png" alt=""></button>
                             <div>
                                 <h3>${cardJson[i].nombre}</h3>
+                                <!-- traer ubicacion del objeto -->
+                                <p><span>Ubicacion</span></p>
                                 <p>${cardJson[i].descripcion}</p>
                             </div>
                             <button class="btn-reservar">Reservar</button>
