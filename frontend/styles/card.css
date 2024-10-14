@@ -1,10 +1,13 @@
 .container-cards{
     display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 2rem;
     margin-bottom: 2rem;
     overflow: hidden;
+}
+.cards-wrapper {
+    display: flex; /* Mantiene las tarjetas en una fila */
+    justify-content: space-evenly;
+    gap: 2rem;
+    transition: transform 0.5s ease-in-out; /* Transición suave */
 }
 .card {
     background-color: #5A189A;
@@ -16,6 +19,7 @@
     text-align: left;
     padding: 1rem;
     position: relative;
+    flex-shrink: 0;
 }
 .card img {
     width: 120%;
