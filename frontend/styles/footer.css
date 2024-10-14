@@ -1,4 +1,3 @@
-
 footer {
     background-color: #B3B3B3;
     padding: 2rem;
@@ -46,6 +45,9 @@ footer {
 .footer-container ul li a{
     text-decoration: none;
     color: #10002b;
+}
+.footer-container ul li a:hover{
+    text-decoration: underline;
 }
 .copy{
     text-align: center;
