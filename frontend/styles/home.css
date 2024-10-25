@@ -19,12 +19,13 @@
     border-radius: 1rem;
 }
 .buscador{
-    background-color: #5A189A;
+    position: sticky;
+    top: 142px;
+    z-index: 10;
+    background-color: #23163b;
     padding: 2rem;
-    border-radius: .5rem;
-    box-shadow: 0 0 10px #5e5e5e;
-    width: 70%;
-    margin: auto;
+    width: 100%;
+    border-radius: 0 0 3rem 3rem;
 }
 .buscador form{
     display: flex;
