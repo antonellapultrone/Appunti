@@ -8,40 +8,40 @@ export function renderButtonsCarrusel(root, carouselId) {
     root.appendChild(div);
 }
 export function carrusel(carouselId) {
-  const carousel = document.getElementById(carouselId).querySelector('.cards-wrapper');
-  const btnIzq = document.getElementById(`${carouselId}-btn-izq`);
-  const btnDer = document.getElementById(`${carouselId}-btn-der`);
+    const carousel = document.getElementById(carouselId).querySelector('.cards-wrapper');
+    const btnIzq = document.getElementById(`${carouselId}-btn-izq`);
+    const btnDer = document.getElementById(`${carouselId}-btn-der`);
 
-  let currentCardIndex = 0;
-  const cards = Array.from(carousel.children);
-  const visibleCardsCount = 4; // Cantidad de tarjetas visibles
-  const totalCards = cards.length; // Total de tarjetas
+    let currentCardIndex = 0;
+    const cards = Array.from(carousel.children);
+    const visibleCardsCount = 4; // Cantidad de tarjetas visibles
+    const totalCards = cards.length; // Total de tarjetas
 
-  const cardWidth = 600; // Ancho de cada tarjeta
+    const cardWidth = 600; // Ancho de cada tarjeta
 
-  // Función para mover el carrusel
-  const moveCarousel = (index) => {
-      carousel.style.transform = `translateX(${-index * cardWidth}px)`;
-  };
+    // Función para mover el carrusel
+    const moveCarousel = (index) => {
+        carousel.style.transform = `translateX(${-index * cardWidth}px)`;
+    };
 
-  // Mover a la izquierda
-  btnIzq.addEventListener('click', () => {
-      currentCardIndex--;
-      if (currentCardIndex < 0) {
-          currentCardIndex = totalCards - visibleCardsCount; // Volver al final
-      }
-      moveCarousel(currentCardIndex);
-  });
+    // Mover a la izquierda
+    btnIzq.addEventListener('click', () => {
+        currentCardIndex--;
+        if (currentCardIndex < 0) {
+            currentCardIndex = totalCards - visibleCardsCount; // Volver al final
+        }
+        moveCarousel(currentCardIndex);
+    });
 
-  // Mover a la derecha
-  btnDer.addEventListener('click', () => {
-      currentCardIndex++;
-      if (currentCardIndex >= totalCards - visibleCardsCount + 1) {
-          currentCardIndex = 0; // Volver al inicio
-      }
-      moveCarousel(currentCardIndex);
-  });
+    // Mover a la derecha
+    btnDer.addEventListener('click', () => {
+        currentCardIndex++;
+        if (currentCardIndex >= totalCards - visibleCardsCount + 1) {
+            currentCardIndex = 0; // Volver al inicio
+        }
+        moveCarousel(currentCardIndex);
+    });
 
-  // Inicializar el carrusel en la posición correcta
-  moveCarousel(currentCardIndex);
+    // Inicializar el carrusel en la posición correcta
+    moveCarousel(currentCardIndex);
 }
