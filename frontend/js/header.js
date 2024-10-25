@@ -1,6 +1,6 @@
 export const menuData = [
     {
-        name: "",
+        name: "Home",
         img: "../assets/img/mago-pesc (2).svg"
     },
     {

@@ -1,3 +1,8 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
 nav {
     background-color: #10002B; /*2C003E*/
     padding: 20px;
