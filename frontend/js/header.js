@@ -27,7 +27,29 @@ export function renderNav(root, menuItems) {
     let ul = document.createElement('ul');
     nav.appendChild(ul);
 
-    for(let i  = 0; i < menuItems.length; i++){
+    for(let i  = 0; i < 1; i++){
+        let li = document.createElement('li');
+        li.innerHTML = `
+                        <a href="">
+                            <img src="${menuItems[i].img}" alt="">
+                            ${menuItems[i].name}
+                        </a>
+                        `;
+        ul.appendChild(li);
+    }
+    let divBuscador = document.createElement('div')
+    divBuscador.setAttribute('class', 'buscador');
+    divBuscador.innerHTML = `
+            <form action="">
+                <div>
+                    <label for="ubicacion">Ubicacion</label>
+                <input id="ubicacion" type="text" placeholder="Caballito">
+                </div>
+                <button><img src="https://img.icons8.com/?&id=132&format=png&color=ffffff" alt=""></button>
+            </form>
+    `
+    ul.appendChild(divBuscador);
+    for(let i  = 1; i < menuItems.length; i++){
         let li = document.createElement('li');
         li.innerHTML = `
                         <a href="">
