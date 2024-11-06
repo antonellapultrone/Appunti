@@ -4,16 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro en Appunti</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js"></script>
+    <link rel="stylesheet" href="./styles/register.css">
+    <script src="./js/app.js"></script>
 </head>
 <body>
     <!-- Barra de navegación -->
     <header>
-        <div class="logo">Appunti</div>
-        <div class="nav-buttons">
-            <button onclick="toggleLogin()">Iniciar sesión</button>
-            <button onclick="toggleRegister()">Registrarse</button>
+        <div class="logo">
+            <img src="./assets/img/mago-pesc (2).svg" alt="">
         </div>
     </header>
 
@@ -21,18 +19,16 @@
     <div class="main-container">
         <!-- Mensaje de bienvenida -->
         <div class="welcome-container">
-            <h2>BIENVENIDO</h2>
+            <h2>REGISTRATE</h2>
             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. </p>
             <div class="social-icons">
-                <img src="facebook-icon.png" alt="Facebook" class="icon">
-                <img src="google-icon.png" alt="Google" class="icon">
-                <img src="linkedin-icon.png" alt="LinkedIn" class="icon">
+                <img src="https://img.icons8.com/?size=100&id=118467&format=png&color=000000" alt="Facebook" class="icon">
+                <img src="https://img.icons8.com/?size=100&id=60984&format=png&color=000000" alt="Google" class="icon">
             </div>
         </div>
 
         <!-- Formulario de registro -->
         <div class="form-container">
-            <h2>Formulario de Registro</h2>
             <form id="registerForm" onsubmit="return validateForm()">
                 <label for="firstName">Nombre:</label>
                 <input type="text" id="firstName" name="firstName" required>
@@ -49,7 +45,8 @@
                 <label for="confirmPassword">Repite Contraseña:</label>
                 <input type="password" id="confirmPassword" name="confirmPassword" required>
 
-                <button type="submit">Registrarse</button>
+                <button class="btn-register" type="submit">Registrarse</button>
+                <a href="./login.html">¿Ya tienes una cuenta?</a>
             </form>
             <p id="formMessage"></p>
         </div>
