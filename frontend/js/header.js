@@ -20,10 +20,9 @@ export const menuData = [
         img: "https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff"
     }
 ]
-const header = document.querySelector('header');
 export function renderNav(root, menuItems) {
     let nav = document.createElement('nav');
-    header.appendChild(nav);
+    root.appendChild(nav);
     let ul = document.createElement('ul');
     nav.appendChild(ul);
 
@@ -41,9 +40,7 @@ export function renderNav(root, menuItems) {
     divBuscador.setAttribute('class', 'buscador');
     divBuscador.innerHTML = `
             <form action="">
-                <div>
                 <input id="ubicacion" type="text" placeholder="Caballito">
-                </div>
                 <button><img src="https://img.icons8.com/?&id=132&format=png&color=ffffff" alt=""></button>
             </form>
     `
@@ -58,5 +55,4 @@ export function renderNav(root, menuItems) {
                         `;
         ul.appendChild(li);
     }
-    root.appendChild(header);
 }

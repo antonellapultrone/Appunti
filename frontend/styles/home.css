@@ -22,62 +22,36 @@
     position: sticky;
     top: 142px;
     z-index: 10;
-    background-color: #23163b;
     padding: 2rem;
     width: 100%;
     border-radius: 0 0 3rem 3rem;
 }
 .buscador form{
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     gap: 2rem;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 }
-.buscador form div{
-    display: flex;
-    flex-direction: column;
-    gap: .5rem;
-}
-.buscador form div label{
-    text-align: left;
-    color: #ffffff;
-}
-.buscador form div{
-    padding: 1rem;
-    width: 25%;
+.buscador form input{
     border-radius: 1rem;
     font-size: 12pt;
     padding: 1rem;
-    flex-grow: 1;
-}
-.buscador form div input{
-    border-radius: 1rem;
-    font-size: 12pt;
-    padding: 1rem;
-    flex-grow: 1;
-}
-.buscador form div select{
-    border-radius: 1rem;
-    font-size: 12pt;
-    padding: 1rem;
-    flex-grow: 1;
+    width: 100%;
 }
 .buscador form button{
-    border-radius: 3rem;
+    border-radius: 50%;
     padding: 1rem;
     background-color: #10002B;
     color: #ffffff;
     border: 2px solid #ffffff;
-    flex-grow: 1;
     height: 4rem;
-    margin-top: 1.5rem;
 }
 .buscador form button:hover{
     background-color: #1b0049af;
 }
 .buscador form button img{
-    width: 2rem;
+    width: 30px;
 }
 /* Descubre tu zona */
 #section-descubreTuZona{
