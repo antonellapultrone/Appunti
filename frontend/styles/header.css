@@ -5,15 +5,13 @@ header{
 }
 nav {
     background-color: #10002B;
-    height: min-content;
-    padding: .5rem .5rem 0;
+    padding: 20px;
 }
 header nav ul{
     display: flex;
     gap: 4rem;
     justify-content: space-between;
     list-style: none;
-    margin: 0 2rem;
 }
 nav ul li{
     align-content: center;
@@ -27,13 +25,13 @@ nav ul li a{
     color: #ffffff;
 }
 nav ul li a img{
-    width: 25px;
+    width: 40px;
     margin-bottom: .5rem;
 }
 nav ul li:first-child{
     margin-right: auto;
 }
 nav ul li:first-child a img{
-    width: 40px;
+    width: 80px;
     margin-bottom: 0;
 }

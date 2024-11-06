@@ -1,8 +1,3 @@
-*{
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
-
 .container-principal{
     display: flex;
     flex-direction: column;
@@ -25,13 +20,16 @@
 }
 .buscador{
     position: sticky;
-    top: 100px;
+    top: 142px;
     z-index: 10;
+    background-color: #23163b;
+    padding: 2rem;
     width: 100%;
-    margin-bottom: 1rem;
+    border-radius: 0 0 3rem 3rem;
 }
 .buscador form{
     display: flex;
+    flex-wrap: wrap;
     gap: 2rem;
     justify-content: center;
     align-items: center;
@@ -39,19 +37,18 @@
 .buscador form div{
     display: flex;
     flex-direction: column;
+    gap: .5rem;
 }
 .buscador form div label{
     text-align: left;
     color: #ffffff;
-    width: min-content;
-    margin-bottom: .5rem;
-    margin-top: -.5rem;
 }
 .buscador form div{
     padding: 1rem;
-    width: min-content;
+    width: 25%;
     border-radius: 1rem;
     font-size: 12pt;
+    padding: 1rem;
     flex-grow: 1;
 }
 .buscador form div input{
@@ -59,7 +56,12 @@
     font-size: 12pt;
     padding: 1rem;
     flex-grow: 1;
-    width: 100%;
+}
+.buscador form div select{
+    border-radius: 1rem;
+    font-size: 12pt;
+    padding: 1rem;
+    flex-grow: 1;
 }
 .buscador form button{
     border-radius: 3rem;
@@ -69,8 +71,7 @@
     border: 2px solid #ffffff;
     flex-grow: 1;
     height: 4rem;
-    margin-top: 1rem;
-    max-width: min-content;
+    margin-top: 1.5rem;
 }
 .buscador form button:hover{
     background-color: #1b0049af;
