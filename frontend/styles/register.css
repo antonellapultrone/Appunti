@@ -178,5 +178,6 @@ a:hover{
     }
     .form-container{
         border-radius: 0 0 1rem 1rem;
+        padding: 1rem 3rem;
     }
 }
