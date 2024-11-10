@@ -8,7 +8,6 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
-
 body{
     background-image: url(../assets/img/3184565.jpg);
     background-repeat: no-repeat;
@@ -16,7 +15,6 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
-
 /* Barra de navegación */
 header {
     display: flex;
@@ -26,7 +24,6 @@ header {
     background-color: #10002B;
     color: white;
 }
-
 .logo {
     display: flex;
     align-items: center;
@@ -35,13 +32,11 @@ header {
     font-size: 25pt;
     font-weight: 100;
 }
-
 .logo img{
     width: 60px;
     margin-right: .5rem;
     
 }
-
 .nav-buttons{
     margin-left: 0px;
     padding: 10px 10px;
@@ -50,11 +45,9 @@ header {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .nav-buttons button:hover {
     background-color: #5A189A;
 }
-
 /* Contenedor principal */
 .main-container {
     display: flex;
@@ -63,7 +56,6 @@ header {
     flex-wrap: wrap;
     height: 738px;
 }
-
 /* Bienvenida y registro */
 .welcome-container {
     background-color: rgba(90, 24, 154, 0.7);
@@ -71,23 +63,19 @@ header {
     padding: 20px;
     border-radius: 1rem 0 0 1rem;
     text-align: center;
-    /* Nuevas propiedades para igualar tamaño */
     align-content: center;
-    max-width: 400px; /* Igual que el .form-container */
+    max-width: 400px;
     width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para uniformidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .social-icons {
     margin-top: 10px;
 }
-
 .icon {
     width: 30px;
     margin: 0 5px;
     cursor: pointer;
 }
-
 /* Formulario de registro */
 .form-container {
     background-color: #5A189A;
@@ -100,28 +88,21 @@ header {
     align-content: center;
     
 }
-
 h2 {
     font-family: 'Staatliches', sans-serif;
     font-weight: 400;
     font-size: 60pt;
     margin-bottom: 15px;
     color: #10002B;
-
 }
-
 p{
-font-size: 18pt;
+    font-size: 18pt;
 }
-
 label {
     display: block;
     margin-top: 2rem;
-
-    
+    color: #fff;
 }
-
-
 input[type="email"],
 input[type="password"] {
     width: 100%;
@@ -130,7 +111,6 @@ input[type="password"] {
     border: 1px solid #ccc;
     border-radius: 5px;
 }
-
 button {
     width: 100%;
     padding: 10px;
@@ -141,11 +121,9 @@ button {
     border-radius: 5px;
     cursor: pointer;
 }
-
 .login-btn:hover {
     background-color: #190142;
 }
-
 #formMessage {
     margin-top: 15px;
     text-align: center;

@@ -53,11 +53,9 @@ header {
     cursor: pointer;
     background-color: #5A189A;
 }
-
 .nav-buttons button:hover {
     background-color: #5A189A;
 }
-
 /* Contenedor principal */
 .main-container {
     display: flex;
@@ -66,7 +64,6 @@ header {
     flex-wrap: wrap;
     height: min-content;
 }
-
 /* Bienvenida y registro */
 .welcome-container {
     background-color: rgba(105, 34, 177, 0.7);
@@ -74,13 +71,11 @@ header {
     padding: 20px;
     border-radius: 1rem 0 0 1rem;
     text-align: center;
-    /* Nuevas propiedades para igualar tamaño */
     align-content: center;
-    max-width: 400px; /* Igual que el .form-container */
+    max-width: 400px;
     width: 80%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para uniformidad */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-
 .social-icons {
     margin-top: 3rem;
 }
