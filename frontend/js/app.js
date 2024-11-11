@@ -3,7 +3,7 @@ import { renderNav, menuData } from "./header.js";
 const header = document.querySelector('header');
 renderNav(header, menuData);
 import { renderCards, cardJson } from "./card.js";
-import { renderButtonsCarrusel, carrusel } from "./carrusel.js";
+import { renderButtonsCarrusel, initCarrusel } from "./carrusel.js";
 import { renderBtnCategorias, btnActive, categorias, imagenes} from "./categorias.js";
 //se crean los root corespondientes
 const rootDescubreZona = document.getElementById("section-descubreTuZona");
@@ -16,7 +16,7 @@ renderButtonsCarrusel(rootDescubreZona, 'carousel-1');
 renderBtnCategorias(categorias, imagenes);
 renderButtonsCarrusel(rootCategorias, 'carousel-2');
 //
-carrusel('carousel-1');
-carrusel('carousel-2');
+initCarrusel('carousel-1');
+initCarrusel('carousel-2');
 
 btnActive();

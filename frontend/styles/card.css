@@ -4,10 +4,14 @@
     overflow: hidden;
 }
 .cards-wrapper {
-    display: flex; /* Mantiene las tarjetas en una fila */
-    justify-content: space-evenly;
+    display: flex;
     gap: 2rem;
-    transition: transform 0.5s ease-in-out; /* Transición suave */
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+}
+.cards-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
 }
 .card {
     background-color: #5A189A;
