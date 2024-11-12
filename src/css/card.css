@@ -1,0 +1,78 @@
+.container-cards{
+    display: flex;
+    margin-bottom: 2rem;
+    overflow: hidden;
+}
+.cards-wrapper {
+    display: flex;
+    gap: 2rem;
+    overflow-x: scroll;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;/* IE and Edge */
+}
+.cards-wrapper::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera */
+}
+.card {
+    background-color: #5A189A;
+    color: #FFFFFF;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 30em;
+    height: 40em;
+    text-align: left;
+    padding: 1rem;
+    position: relative;
+    flex-shrink: 0;
+}
+.card img {
+    width: 120%;
+    height: 50%;
+    object-fit: cover;
+    margin: -1rem -1rem .5rem;
+}
+.card .btn-favorito {
+    background-color: transparent;
+    position: absolute;
+    top: 1px;
+    right: 1px;
+    z-index: 1;
+    width: max-content;
+    border: none;
+    border-radius: .5rem;
+    padding: 6px;
+    margin: .5rem;
+}
+.card .btn-favorito img{
+    margin: .1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.card h3{
+    font-size: 30pt;
+    font-weight: 600;
+}
+.card p {
+    font-size: 20pt;
+    margin: 10px 0;
+}
+.card p span{
+    font-size: 18pt;
+    margin: 10px 0;
+}
+.btn-reservar {
+    font-size: 16pt;
+    padding: 1rem;
+    margin: 1rem;
+    border: none;
+    background-color: #10002B;
+    color: white;
+    cursor: pointer;
+    border-radius: 1rem;
+    position: absolute;
+    bottom: 1px;
+    right: 1px;
+}
+.card button:hover {
+    background-color: #8E5DC2;
+}
