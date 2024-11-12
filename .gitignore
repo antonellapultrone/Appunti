@@ -1,0 +1,9 @@
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Node.js
+node_modules/
+
+# Archivos de configuración de entorno
+.env
