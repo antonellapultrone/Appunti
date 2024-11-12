@@ -11,4 +11,4 @@ package.json
 appunti.sql
 
 #Conexion
-conection.js
+src/js/conection.js
