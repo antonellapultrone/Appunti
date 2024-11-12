@@ -1,8 +1,6 @@
 function validateRegister() {
     const firstName = document.getElementById("firstName").value;
     console.log(firstName);
-    const lastName = document.getElementById("lastName").value;
-    const email = document.getElementById("email").value;
     const password = document.getElementById("password").value;
     const confirmPassword = document.getElementById("confirmPassword").value;
     const formMessage = document.getElementById("formMessage");
