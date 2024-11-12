@@ -11,7 +11,7 @@ conection.connect(function(err){
     if (err) {
         throw err;
     }else{
-        console.log("conexion exitosa");
+        console.log("Conexion a la Base de Datos 'Appunti' exitosa");
     }
 })
 

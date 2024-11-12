@@ -9,3 +9,6 @@ package.json
 
 #Base de datos
 appunti.sql
+
+#Conexion
+conection.js
