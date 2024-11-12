@@ -6,4 +6,4 @@ Thumbs.db
 node_modules/
 
 # Archivos de configuración de entorno
-.env
+scr/backend/credenciales.env
