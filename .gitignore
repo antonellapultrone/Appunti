@@ -6,3 +6,6 @@ Thumbs.db
 node_modules/
 package-lock.json
 package.json
+
+#Base de datos
+appunti.sql
