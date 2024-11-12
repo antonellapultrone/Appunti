@@ -35,12 +35,6 @@ header {
     width: 60px;
     margin-right: .5rem;
 }
-.logo p{
-    font-family: 'Staatliches', sans-serif;
-    font-size: 25pt;
-    font-weight: 100;
-    margin-top: 10px;
-}
 .nav-buttons{
     text-wrap: nowrap;
 }
@@ -127,9 +121,8 @@ input[type="password"] {
 }
 :is(input[type="text"], input[type="email"], input[type="password"]):focus{
     background-color: #acacac;
-    border: 2px solid #000;
 }
-.btn-register {
+.btn-form {
     width: 100%;
     padding: 1rem;
     margin: auto;
@@ -140,13 +133,19 @@ input[type="password"] {
     border-radius: 5px;
     cursor: pointer;
 }
-.btn-register:hover {
+.btn-form:hover {
     background-color: #190142;;
 }
 #formMessage {
+    font-weight: 600;
     margin-top: 15px;
     text-align: center;
-    color: red;
+    color: #fff;
+    padding: .5rem 1rem;
+    width: min-content;
+    margin: auto;
+    text-wrap: nowrap;
+    border-radius: 1rem;
 }
 a{
     display: block;
@@ -155,8 +154,9 @@ a{
     padding: 1rem;
     width: min-content;
     text-wrap: nowrap;
+    text-align: center;
     margin: auto;
-    margin-top: 2rem;
+    margin-top: 1rem;
     text-decoration: none;
 }
 a:hover{
@@ -174,5 +174,8 @@ a:hover{
     .form-container{
         border-radius: 0 0 1rem 1rem;
         padding: 1rem 3rem;
+    }
+    #formMessage{
+        margin-bottom: 2rem;
     }
 }

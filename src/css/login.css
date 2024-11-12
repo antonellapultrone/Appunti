@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(../css/register.css);
 
 /* Reset de márgenes y padding */
 * {
@@ -35,7 +36,6 @@ header {
 .logo img{
     width: 60px;
     margin-right: .5rem;
-    
 }
 .nav-buttons{
     margin-left: 0px;
@@ -68,25 +68,18 @@ header {
     width: 80%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
-.social-icons {
-    margin-top: 10px;
-}
-.icon {
-    width: 30px;
-    margin: 0 5px;
-    cursor: pointer;
-}
 /* Formulario de registro */
 .form-container {
     background-color: #5A189A;
-    padding:5rem;
     border-radius: 0 1rem 1rem 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 100%;
     justify-items: center;
     align-content: center;
-    
+}
+form{
+    width: 90%;
 }
 h2 {
     font-family: 'Staatliches', sans-serif;
@@ -95,37 +88,23 @@ h2 {
     margin-bottom: 15px;
     color: #10002B;
 }
-p{
-    font-size: 18pt;
-}
 label {
     display: block;
     margin-top: 2rem;
     color: #fff;
 }
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 15px;
-    background-color: #10002B;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-.login-btn:hover {
-    background-color: #190142;
-}
-#formMessage {
-    margin-top: 15px;
-    text-align: center;
-    color: red;
+
+@media (width < 1060px) {
+    .welcome-container {
+        max-width: 600px;
+        width: 100%;
+        border-radius: 1rem 1rem 0 0;
+    }
+    .form-container{
+        border-radius: 0 0 1rem 1rem;
+        padding: 1rem 3rem;
+    }
+    #formMessage{
+        margin-bottom: 2rem;
+    }
 }
