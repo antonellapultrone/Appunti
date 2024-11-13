@@ -19,8 +19,7 @@ Tecnologías Implementadas
 Frontend: HTML, CSS, JavaScript, React
 Backend: Node.js, Express, MySQL
 Autenticación y Seguridad: Implementación de JWT (JSON Web Tokens) para la autenticación segura de usuarios.
-Despliegue: [Indicar la plataforma de despliegue utilizada]
-Control de Versiones: Gestión del código mediante Git y GitHubs
+Control de Versiones: Gestión del código mediante Git y GitHub
 Autores
 Fundación Pescar: https://www.pescar.org.ar/
 Jóvenes Desarrolladores: 
