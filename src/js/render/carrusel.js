@@ -9,27 +9,14 @@ export function renderButtonsCarrusel(root, carouselId) {
 }
 
 export function initCarrusel(carouselId) {
-    // Primero verifica que el contenedor del carrusel existe
-    const carouselContainer = document.getElementById(carouselId);
-    if (!carouselContainer) {
-        console.error(`Error: No se encontró un elemento con el ID "${carouselId}".`);
-        return;
-    }
-
-    // Luego selecciona el contenedor de las tarjetas dentro del carrusel
-    const carousel = carouselContainer.querySelector('.cards-wrapper');
-    if (!carousel) {
-        console.error(`Error: No se encontró un elemento con la clase "cards-wrapper" dentro de #${carouselId}.`);
-        return;
-    }
-
-    // Selecciona los botones de desplazamiento usando el ID del carrusel
+    // Seleccionar el contenedor de las tarjetas y los botones
+    const carousel = document.getElementById(carouselId).querySelector('.cards-wrapper');
     const btnIzq = document.getElementById(`${carouselId}-btn-izq`);
     const btnDer = document.getElementById(`${carouselId}-btn-der`);
 
-    // Verifica si los botones existen en el DOM
-    if (!btnIzq || !btnDer) {
-        console.error(`Error: No se pudieron encontrar los botones de navegación para el carrusel "${carouselId}".`);
+    // Verifica si el contenedor y botones se seleccionaron correctamente
+    if (!carousel || !btnIzq || !btnDer) {
+        console.error('Error: No se pudo seleccionar el carrusel o los botones.');
         return;
     }
 
@@ -52,3 +39,4 @@ export function initCarrusel(carouselId) {
         });
     });
 }
+

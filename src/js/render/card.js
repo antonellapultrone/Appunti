@@ -1,3 +1,5 @@
+import conection from '../conection.js';
+export const cardJson = conection.consulta('select * from servicio');
 export function renderCards(root, cardJson, carouselId) {
     // Crear el contenedor del carrusel
     const carouselContainer = document.createElement('div');
