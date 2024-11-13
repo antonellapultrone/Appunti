@@ -1,5 +1,7 @@
-require('dotenv').config({path:('./credenciales.env')});
-let mysql = require('mysql2');
+import mysql from 'mysql2';
+import dotenv from 'dotenv';
+
+dotenv.config({ path: './credenciales.env' });
 
 const bd = mysql.createConnection({
     host: process.env.DB_HOST,
@@ -8,7 +10,6 @@ const bd = mysql.createConnection({
     password: process.env.DB_PASSWORD
 });
 
-// Definimos el objeto conection con los métodos conectarDataBase y cerrarDataBase
 const conection = {
     conectarDataBase() {
         bd.connect(function(err) {
@@ -19,7 +20,6 @@ const conection = {
             }
         });
     },
-
     cerrarDataBase() {
         bd.end(function(err) {
             if (err) {
@@ -29,8 +29,6 @@ const conection = {
             }
         });
     },
-
-    //REVISAR
     queryDataBase(query, callback) {
         bd.query(query, function(err, results) {
             if (err) {
@@ -40,26 +38,20 @@ const conection = {
             }
         });
     },
-
-    //datos busqueda
-    consulta(query){
-        conection.conectarDataBase();
-
-        conection.queryDataBase(query,(err, results) => {
+    consulta(query) {
+        this.conectarDataBase();
+        this.queryDataBase(query, (err, results) => {
             if (err) {
                 console.error('Error en la consulta:', err);
             } else {
                 console.log(results);
             }
         });
-        
-        conection.cerrarDataBase();
+        this.cerrarDataBase();
     },
-
-    insertUser(){
-        //alta de usuario
+    insertUser() {
+        // Alta de usuario
     }
 };
 
-// Exportamos conection como exportación por defecto
-module.exports = conection;
+export default conection;

@@ -1,29 +1,5 @@
-export const cardJson = [
-        {
-            id:1,
-            nombre: "cancha futbol",
-            descripcion: "Cancha al aire libre",
-            imagenes: "../assets/img/card-futbol1.jpg"
-        },
-        {
-            id:2,
-            nombre: "cancha Tenis",
-            descripcion: "Cancha de tenis al aire libre",
-            imagenes: "../assets/img/card-tenis1.png"
-        },
-        {
-            id:3,
-            nombre: "cancha futbol2",
-            descripcion: "Cancha al aire libre",
-            imagenes: "../assets/img/card-paddle1.jpg"
-        },
-        {
-            id:4,
-            nombre: "cancha Tenis2",
-            descripcion: "Cancha de tenis al aire libre",
-            imagenes: "../assets/img/card-tenis1.png"
-        }
-]
+import conection from '../conection.js';
+export const cardJson = conection.consulta('select * from servicio');
 export function renderCards(root, cardJson, carouselId) {
     // Crear el contenedor del carrusel
     const carouselContainer = document.createElement('div');
