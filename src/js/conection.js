@@ -31,7 +31,7 @@ const conection = {
     },
 
     //REVISAR
-    consulta(query, callback) {
+    queryDataBase(query, callback) {
         bd.query(query, function(err, results) {
             if (err) {
                 callback(err, null);
@@ -39,6 +39,21 @@ const conection = {
                 callback(null, results);
             }
         });
+    },
+
+    //datos busqueda
+    consulta(query){
+        conection.conectarDataBase();
+
+        conection.queryDataBase(query,(err, results) => {
+            if (err) {
+                console.error('Error en la consulta:', err);
+            } else {
+                console.log(results);
+            }
+        });
+        
+        conection.cerrarDataBase();
     },
 
     insertUser(){

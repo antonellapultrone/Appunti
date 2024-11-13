@@ -3,57 +3,25 @@ export const cardJson = [
             id:1,
             nombre: "cancha futbol",
             descripcion: "Cancha al aire libre",
-            img: "../assets/img/card-futbol1.jpg",
-            favorito: false
+            imagenes: "../assets/img/card-futbol1.jpg"
         },
         {
             id:2,
             nombre: "cancha Tenis",
             descripcion: "Cancha de tenis al aire libre",
-            img: "../assets/img/card-tenis1.png",
-            favorito: false
+            imagenes: "../assets/img/card-tenis1.png"
         },
         {
             id:3,
             nombre: "cancha futbol2",
             descripcion: "Cancha al aire libre",
-            img: "../assets/img/card-paddle1.jpg",
-            favorito: true
+            imagenes: "../assets/img/card-paddle1.jpg"
         },
         {
             id:4,
             nombre: "cancha Tenis2",
             descripcion: "Cancha de tenis al aire libre",
-            img: "../assets/img/card-tenis1.png",
-            favorito: false
-        },
-        {
-            id:1,
-            nombre: "cancha futbol",
-            descripcion: "Cancha al aire libre",
-            img: "../assets/img/card-futbol1.jpg",
-            favorito: false
-        },
-        {
-            id:2,
-            nombre: "cancha Tenis",
-            descripcion: "Cancha de tenis al aire libre",
-            img: "../assets/img/card-tenis1.png",
-            favorito: false
-        },
-        {
-            id:3,
-            nombre: "cancha futbol2",
-            descripcion: "Cancha al aire libre",
-            img: "../assets/img/card-futbol1.jpg",
-            favorito: true
-        },
-        {
-            id:4,
-            nombre: "cancha Tenis2",
-            descripcion: "Cancha de tenis al aire libre",
-            img: "../assets/img/card-tenis1.png",
-            favorito: false
+            imagenes: "../assets/img/card-tenis1.png"
         }
 ]
 export function renderCards(root, cardJson, carouselId) {
@@ -72,7 +40,7 @@ export function renderCards(root, cardJson, carouselId) {
         const article = document.createElement("article");
         article.setAttribute('class', "card");
         article.innerHTML = `
-            <img src="${card.img}" alt="Imagen de ${card.nombre}">
+            <img src="${card.imagenes}" alt="Imagen de ${card.nombre}">
             <button class="btn-favorito"><img src="../../assets/img/star.png" alt="Favorito"></button>
             <div>
                 <h3>${card.nombre}</h3>
