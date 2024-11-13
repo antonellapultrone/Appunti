@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('dotenv').config({path:('./credenciales.env')});
 let mysql = require('mysql2');
 
 const bd = mysql.createConnection({
