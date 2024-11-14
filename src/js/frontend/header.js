@@ -29,7 +29,7 @@ export function renderNav(root, menuItems) {
     for(let i  = 0; i < 1; i++){
         let li = document.createElement('li');
         li.innerHTML = `
-                        <a href="">
+                        <a href="../../views/register.html">
                             <img src="${menuItems[i].img}" alt="">
                             ${menuItems[i].name}
                         </a>
