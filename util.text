@@ -1,6 +1,0 @@
-PASO 1:
-    npm init -y
-PASO 2:
-    npm install express mysql2 dotenv
-PASO 3:
-    npm test //corre servidor express de home
