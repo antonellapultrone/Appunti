@@ -24,6 +24,7 @@ app.get('/api/cards', (req, res) => {
     });
 });
 
+
 // Si no se ha encontrado una ruta específica, servir el index.html
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '../../views/home.html')); // Servir index.html
