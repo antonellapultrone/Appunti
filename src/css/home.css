@@ -52,7 +52,7 @@
     color: #ffffff;
     border: 2px solid #ffffff;
     height: 40px;
-    width: 42.54px;
+    min-width: 40px;
     padding: 0;
 }
 .buscador form button:hover{
