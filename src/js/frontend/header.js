@@ -40,7 +40,7 @@ export function renderNav(root, menuItems) {
     divBuscador.setAttribute('class', 'buscador');
     divBuscador.innerHTML = `
             <form action="">
-                <input id="ubicacion" type="text" placeholder="Caballito">
+                <input id="ubicacion" type="text" placeholder="Busca reservas, servicios y mas...">
                 <button><img src="https://img.icons8.com/?&id=132&format=png&color=ffffff" alt=""></button>
             </form>
     `

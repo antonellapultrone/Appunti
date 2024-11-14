@@ -22,7 +22,7 @@
     position: sticky;
     top: 142px;
     z-index: 10;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     border-radius: 0 0 3rem 3rem;
 }
@@ -36,22 +36,32 @@
 .buscador form input{
     border-radius: 1rem;
     font-size: 12pt;
-    padding: 1rem;
+    padding: .5rem 2rem;
     width: 100%;
+    border: none;
 }
-.buscador form button{
+.buscador form input:focus{
+    outline: 2px solid #b48eda;
+}
+.buscador form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     border-radius: 50%;
-    padding: 1rem;
     background-color: #10002B;
     color: #ffffff;
     border: 2px solid #ffffff;
-    height: 4rem;
+    height: 40px;
+    width: 42.54px;
+    padding: 0;
 }
 .buscador form button:hover{
     background-color: #1b0049af;
 }
-.buscador form button img{
-    width: 30px;
+.buscador form button img {
+    width: 20px;
+    height: 20px;
+    margin: 0;
 }
 /* Descubre tu zona */
 #section-descubreTuZona{
