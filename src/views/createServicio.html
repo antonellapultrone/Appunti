@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Servicios</title>
+    <link rel="stylesheet" href="../css/createServicio.css">
+    <script src=""></script>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <header>
+        
+    </header>
+
+    <!--Registro de servicios-->
+    
+    <div class="container-principal">
+        <h2>REGISTRO DE SERVICIOS</h2>
+        
+        <!--Datos del servicio-->
+        <form action="" method="">
+
+            <div class="service-data">
+                <h3>Datos del servicio</h3>
+                
+                <div>
+                    <label for="nombre">Nombre del servicio</label><br>
+                    <input type="text" id="nombre_servicio" name="nombre_servicio" required>
+                </div>
+                
+                <div>
+                <label for="categoria">Categoria</label>
+                    <select name="categoria_servicio" id="categoria" required>
+                        <option value="deportes">Deportes</option>
+                        <option value="estetica">Estetica</option>
+                        <option value="comida">Comida</option>
+                        <option value="oficio">Oficio</option>
+                        <option value="vehiculos">Vehiculos</option>
+                        <option value="salud">Salud</option>
+                        <option value="bienestar">Bienestar</option>
+                        <option value="mascotas">Mascotas</option>
+                        <option value="eventos">Eventos</option>
+                        <option value="otros">Otros</option>
+                    </select><br><br>
+                </div>
+
+
+                <div>
+                    <label for="direccion">Direccion</label>
+                    <input type="text" id="direccion" name="direccion" required>
+                </div>
+
+                <div>
+                    <label for="ciudad">Ciudad</label>
+                    <input type="text" name="ciudad" id="ciudad" required> <br><br>
+                </div>
+
+                <div>
+                    <label for="telefono">Telefono de contacto</label>
+                    <input type="tel" id="telefono" name="telefono" pattern="" placeholder="(011) 1234 - 5678" required>
+                </div>
+
+                <div>
+                    <label for="email">Correo electronico</label>
+                    <input type="email" id="email" name="email" required> <br><br>
+                </div>
+
+                <div>
+                    <label for="descripcion">Descripcion del servicio</label>
+                    <textarea name="descripcion" id="descripcion"></textarea> <br><br>
+                </div>
+
+                <div>
+                    <label for="dias">Dias de atencion</label><br>
+                    <textarea name="dias" id="dias" rows="4" cols="50" placeholder="Ejemplo: Lunes, Miercoles, Viernes"></textarea>
+                </div>
+
+                <div>
+                    <label for="horarios">Horario de atencion</label>
+                    <textarea name="horarios" id="horarios" rows="4" cols="50" placeholder="9:00 AM a 6:00 PM"></textarea>
+                </div>
+            </div>
+
+        <!-- Precios del servicio-->
+
+            <div class="price-service">
+                <h3>Precios del servicio</h3>
+
+                <div>
+                    <label for="precio_hora">Precio por hora</label>
+                        <select name="precio_hora" id="preciohora">
+                            <option value="0"></option>
+                            <option value="0"></option>
+                            <option value="0"></option>
+                        </select>
+                </div>
+
+                    <!-- Opción Cancelación Gratuita -->
+                
+                <div class="">
+                    <label class="label" for="cancelacion_gratuita">Cancelación Gratuita:</label>
+                    <label class="switch">
+                    <input type="checkbox" id="cancelacion_gratuita" name="cancelacion_gratuita">
+                    <span class="slider"></span>
+                    </label>
+                </div>
+                
+
+                <div>
+                    <label for="precio_minimo">Precio minimo</label>
+                        <select name="precio_minimo" id="precio_minimo">
+                                <option value="0"></option>
+                                <option value="0"></option>
+                                <option value="0"></option>
+                        </select>
+                </div>
+
+
+                <div>
+                    <label for="descuento">Descuento(%)</label>
+                        <select name="descuento" id="descuento">
+                                <option value="%"></option>
+                                <option value="%"></option>
+                                <option value="%"></option>
+                        </select>
+                </div>
+            </div>
+            
+        
+
+        <!--Imagenes del servicio-->
+
+        
+            <div class="image-upload">
+                <h3>Imagenes del servicio</h3>
+                <div>
+                    <label for="image">Subir Imágenes (2 minimo):</label>
+                    <input type="file" id="image" name="image[]" accept="image/*" multiple onchange="previewImages()">
+                </div>
+                <div class="image-preview" id="image-preview"></div>
+            </div><br>
+
+
+        <!-- Botones de Enviar y Cancelar -->
+
+            <div class="buttons">
+                <button class="cancel-btn" type="button">Cancelar</button>
+                <button class="submit" type="submit">Publicar</button>
+            </div>
+        </form>
+        <footer>
+            
+        </footer>
+</body>
+</html>
