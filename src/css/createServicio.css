@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Reset de márgenes y padding */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+body{
+    background-image: url(../assets/img/3184565.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+}
+h2{
+    margin: .5rem;
+    font-family: 'Staatliches', sans-serif;
+    background-color: #59189a8a;
+    border-radius: 10px;
+    text-align: center;
+    width: min-content;
+    text-wrap: nowrap;
+    width: 100%;
+    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    color: #10002B;
+}
+
+
+h3{
+    background-color: #5A189A;
+    border-radius: 10px;
+    font-family: 'Montserrat', sans-serif;
+    width: min-content;
+    text-wrap: nowrap;
+    width:100%;
+    text-align: start;
+    padding-left: 3rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+
+div.container-principal form{
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 10px;
+    color: #fff; 
+}
+
+div.service-data{
+    background-color: #59189a8a;
+    margin-bottom: 20px;
+    border-radius: 10px;
+}
+
+div.price-service{
+    border-radius: 10px;
+    background-color: #59189a8a;
+    margin-bottom: 20px;
+}
+
+div.image-upload{
+    height: 300px;;
+    border-radius: 10px;
+    background-color: #59189a8a;
+}
+
+div.buttons{
+    justify-self: end;
+    margin-top: 10px;
+}
+
+button.submit{
+    margin-left: 30px;
+    margin-bottom: 30px;
+    color: #fff;
+    border-radius: 10px;
+    background-color: #5A189A;
+    width: 100px;
+    height:30px;
+    border:none;
+    font-weight: 600;
+}
+
+button.cancel-btn{
+    margin-left: 30px;
+    margin-bottom: 30px;
+    color: #10002B;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    width: 100px;
+    height:30px;
+    border:none;  
+    font-weight: 600;  
+}
