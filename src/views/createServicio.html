@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Servicios</title>
-    <link rel="stylesheet" href="../css/createServicio.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <script type="module" src="../js/render/createService.js"></script>
     <script src=""></script>
 </head>
 <body>
@@ -15,13 +16,13 @@
 
     <!--Registro de servicios-->
     
-    <div class="container-principal">
+    <div class="main-container">
         <h2>REGISTRO DE SERVICIOS</h2>
         
         <!--Datos del servicio-->
         <form action="" method="">
 
-            <div class="service-data">
+            <div class="container-data">
                 <h3>Datos del servicio</h3>
                 
                 <div>
@@ -84,7 +85,7 @@
 
         <!-- Precios del servicio-->
 
-            <div class="price-service">
+            <div class="container-price">
                 <h3>Precios del servicio</h3>
 
                 <div>
@@ -133,7 +134,7 @@
         <!--Imagenes del servicio-->
 
         
-            <div class="image-upload">
+            <div class="container-image">
                 <h3>Imagenes del servicio</h3>
                 <div>
                     <label for="image">Subir Imágenes (2 minimo):</label>
@@ -146,12 +147,13 @@
         <!-- Botones de Enviar y Cancelar -->
 
             <div class="buttons">
-                <button class="cancel-btn" type="button">Cancelar</button>
-                <button class="submit" type="submit">Publicar</button>
+                <button class="cancel-btn" type="button" id="cancelado">Cancelar</button>
+                <button class="submit" type="submit" id="enviado">Publicar</button>
             </div>
         </form>
+        </div>
         <footer>
-            
+            <script src="../js/render/footer.js"></script>
         </footer>
 </body>
 </html>

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
 /* Reset de márgenes y padding */
 * {
     box-sizing: border-box;
@@ -10,33 +9,21 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-
-body{
-    background-image: url(../assets/img/3184565.jpg);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    display: flex;
-    justify-content: center;
-    justify-self: center;
-}
-
-
 h2{
-    margin: .5rem;
     font-family: 'Staatliches', sans-serif;
     background-color: #59189a8a;
     border-radius: 10px;
     text-align: center;
     width: min-content;
     text-wrap: nowrap;
-    width: 100%;
+    width: 45%;
     font-size: 30px;
     display: flex;
     justify-content: center;
     justify-self: center;
     color: #10002B;
+    padding: .5rem 0px .5rem 0px;
+    margin-top: 2rem;
 }
 
 
@@ -52,25 +39,34 @@ h3{
     height: 40px;
     display: flex;
     align-items: center;
-    font-weight: 400;
-    font-size: 16px;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
 }
 
+div.main-container{
+    max-width: 100%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-div.container-principal form{
+div.main-container form{
     font-family: 'Montserrat', sans-serif;
     margin-top: 10px;
     color: #fff;
-    max-width: 580px;
+    max-width: 45%;
 }
 
-div.service-data{
+div.container-data{
     margin-bottom: 20px;
-    background-color: #59189a8a;
+    background-color: #9a63d1da;
     border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding-bottom: 30px;
 }
 
 input, select, label{
@@ -80,24 +76,24 @@ input, select, label{
 }
 
 
-div.service-data div{
+div.container-data div{
     flex: 0 0 50%; /* Ancho del 50% menos un margen */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-bottom: 30px;
-    
+    padding-bottom: 20px;
 }
 
 
-div.price-service{
+
+div.container-price{
     border-radius: 10px;
-    background-color: #59189a8a;
+    background-color: #9a63d1da;
     margin-bottom: 20px;
     flex-wrap: wrap;
     display: flex;
 }
 
-div.price-service div{
+div.container-price div{
     flex: 0 0 50%; /* Ancho del 50% menos un margen */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
@@ -110,10 +106,17 @@ div.price-service div{
     flex-direction: row;
 }
 
-div.image-upload{
+div.container-image{
     height: 300px;
     border-radius: 10px;
-    background-color: #59189a8a;
+    background-color: #9a63d1da;
+}
+
+div.container-image div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-self: center;    
 }
 
 div.buttons{
@@ -143,4 +146,18 @@ button.cancel-btn{
     height:30px;
     border:none;  
     font-weight: 600;  
+}
+
+#enviado:hover{
+    cursor: pointer;
+    background-color: #10002B;
+    scale: 102%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+#cancelado:hover{
+    cursor: pointer;
+    background-color: #c6c5c5;
+    scale: 102%;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
 }
