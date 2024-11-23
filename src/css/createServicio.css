@@ -9,6 +9,8 @@
     padding: 0;
     font-family: 'Montserrat', sans-serif;
 }
+
+
 body{
     background-image: url(../assets/img/3184565.jpg);
     background-repeat: no-repeat;
@@ -19,6 +21,8 @@ body{
     justify-content: center;
     justify-self: center;
 }
+
+
 h2{
     margin: .5rem;
     font-family: 'Staatliches', sans-serif;
@@ -56,23 +60,58 @@ h3{
 div.container-principal form{
     font-family: 'Montserrat', sans-serif;
     margin-top: 10px;
-    color: #fff; 
+    color: #fff;
+    max-width: 580px;
 }
 
 div.service-data{
-    background-color: #59189a8a;
     margin-bottom: 20px;
+    background-color: #59189a8a;
     border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+input, select, label{
+    width: 100%;
+    height: 70%;
+    margin-top: .5rem;
+}
+
+
+div.service-data div{
+    flex: 0 0 50%; /* Ancho del 50% menos un margen */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 30px;
+    
+}
+
 
 div.price-service{
     border-radius: 10px;
     background-color: #59189a8a;
     margin-bottom: 20px;
+    flex-wrap: wrap;
+    display: flex;
+}
+
+div.price-service div{
+    flex: 0 0 50%; /* Ancho del 50% menos un margen */
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+    padding-bottom: 30px;
+    
+}
+
+.cancelacion{
+    display: flex;
+    flex-direction: row;
 }
 
 div.image-upload{
-    height: 300px;;
+    height: 300px;
     border-radius: 10px;
     background-color: #59189a8a;
 }

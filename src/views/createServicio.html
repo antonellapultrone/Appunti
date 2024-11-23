@@ -30,7 +30,7 @@
                 </div>
                 
                 <div>
-                <label for="categoria">Categoria</label>
+                <label for="categoria">Categoria</label> <br>
                     <select name="categoria_servicio" id="categoria" required>
                         <option value="deportes">Deportes</option>
                         <option value="estetica">Estetica</option>
@@ -42,7 +42,7 @@
                         <option value="mascotas">Mascotas</option>
                         <option value="eventos">Eventos</option>
                         <option value="otros">Otros</option>
-                    </select><br><br>
+                    </select>
                 </div>
 
 
@@ -52,8 +52,8 @@
                 </div>
 
                 <div>
-                    <label for="ciudad">Ciudad</label>
-                    <input type="text" name="ciudad" id="ciudad" required> <br><br>
+                    <label for="ciudad">Ciudad</label><br>
+                    <input type="text" name="ciudad" id="ciudad" required> 
                 </div>
 
                 <div>
@@ -63,22 +63,22 @@
 
                 <div>
                     <label for="email">Correo electronico</label>
-                    <input type="email" id="email" name="email" required> <br><br>
+                    <input type="email" id="email" name="email" required>
                 </div>
 
                 <div>
                     <label for="descripcion">Descripcion del servicio</label>
-                    <textarea name="descripcion" id="descripcion"></textarea> <br><br>
+                    <textarea name="descripcion" id="descripcion" cols="73" rows="5" required ></textarea>
                 </div>
 
                 <div>
-                    <label for="dias">Dias de atencion</label><br>
-                    <textarea name="dias" id="dias" rows="4" cols="50" placeholder="Ejemplo: Lunes, Miercoles, Viernes"></textarea>
+                    <label for="dias">Dias de atencion</label>
+                    <input name="dias" id="dias" rows="4" cols="50" placeholder="Ejemplo: Lunes, Miercoles, Viernes"></input>
                 </div>
 
                 <div>
                     <label for="horarios">Horario de atencion</label>
-                    <textarea name="horarios" id="horarios" rows="4" cols="50" placeholder="9:00 AM a 6:00 PM"></textarea>
+                    <input name="horarios" id="horarios" rows="4" cols="50" placeholder="9:00 AM a 6:00 PM"></input>
                 </div>
             </div>
 
@@ -88,7 +88,7 @@
                 <h3>Precios del servicio</h3>
 
                 <div>
-                    <label for="precio_hora">Precio por hora</label>
+                    <label for="precio_hora">Precio por hora</label><br>
                         <select name="precio_hora" id="preciohora">
                             <option value="0"></option>
                             <option value="0"></option>
@@ -98,7 +98,7 @@
 
                     <!-- Opción Cancelación Gratuita -->
                 
-                <div class="">
+                <div class="cancelacion">
                     <label class="label" for="cancelacion_gratuita">Cancelación Gratuita:</label>
                     <label class="switch">
                     <input type="checkbox" id="cancelacion_gratuita" name="cancelacion_gratuita">
@@ -108,7 +108,7 @@
                 
 
                 <div>
-                    <label for="precio_minimo">Precio minimo</label>
+                    <label for="precio_minimo">Precio minimo</label> <br>
                         <select name="precio_minimo" id="precio_minimo">
                                 <option value="0"></option>
                                 <option value="0"></option>
@@ -125,6 +125,7 @@
                                 <option value="%"></option>
                         </select>
                 </div>
+                
             </div>
             
         
