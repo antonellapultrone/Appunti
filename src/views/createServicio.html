@@ -6,7 +6,6 @@
     <title>Registro de Servicios</title>
     <link rel="stylesheet" href="../css/global.css">
     <script type="module" src="../js/render/createService.js"></script>
-    <script src=""></script>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -26,12 +25,12 @@
                 <h3>Datos del servicio</h3>
                 
                 <div>
-                    <label for="nombre">Nombre del servicio</label><br>
+                    <label for="nombre">Nombre del servicio</label>
                     <input type="text" id="nombre_servicio" name="nombre_servicio" required>
                 </div>
                 
                 <div>
-                <label for="categoria">Categoria</label> <br>
+                <label for="categoria">Categoria</label> 
                     <select name="categoria_servicio" id="categoria" required>
                         <option value="deportes">Deportes</option>
                         <option value="estetica">Estetica</option>
@@ -53,7 +52,7 @@
                 </div>
 
                 <div>
-                    <label for="ciudad">Ciudad</label><br>
+                    <label for="ciudad">Ciudad</label>
                     <input type="text" name="ciudad" id="ciudad" required> 
                 </div>
 
@@ -69,7 +68,7 @@
 
                 <div>
                     <label for="descripcion">Descripcion del servicio</label>
-                    <textarea name="descripcion" id="descripcion" cols="73" rows="5" required ></textarea>
+                    <textarea name="descripcion" id="descripcion" cols="60" rows="4" required ></textarea>
                 </div>
 
                 <div>
@@ -89,7 +88,7 @@
                 <h3>Precios del servicio</h3>
 
                 <div>
-                    <label for="precio_hora">Precio por hora</label><br>
+                    <label for="precio_hora">Precio por hora</label>
                         <select name="precio_hora" id="preciohora">
                             <option value="0"></option>
                             <option value="0"></option>
@@ -109,7 +108,7 @@
                 
 
                 <div>
-                    <label for="precio_minimo">Precio minimo</label> <br>
+                    <label for="precio_minimo">Precio minimo</label> 
                         <select name="precio_minimo" id="precio_minimo">
                                 <option value="0"></option>
                                 <option value="0"></option>
@@ -141,7 +140,7 @@
                     <input type="file" id="image" name="image[]" accept="image/*" multiple onchange="previewImages()">
                 </div>
                 <div class="image-preview" id="image-preview"></div>
-            </div><br>
+            </div>
 
 
         <!-- Botones de Enviar y Cancelar -->

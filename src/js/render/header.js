@@ -56,3 +56,5 @@ export function renderNav(root, menuItems) {
         ul.appendChild(li);
     }
 }
+
+/*Agregar un boton para ir para atras */
