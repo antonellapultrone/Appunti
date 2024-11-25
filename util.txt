@@ -1,0 +1,6 @@
+PASO 1:
+    npm init
+PASO 2:
+    npm install express mysql dotenv
+PASO 3:
+    npm test
