@@ -1,27 +1,25 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-
-
+body{
+    background-image: url(../assets/img/3184565.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 h2{
     font-family: 'Staatliches', sans-serif;
     background-color: #59189a8a;
     border-radius: 10px;
     text-align: center;
-    width: min-content;
     text-wrap: nowrap;
-    width: 45%;
     font-size: 30px;
-    display: flex;
-    justify-content: center;
-    justify-self: center;
     color: #10002B;
-    padding: .5rem 0px .5rem 0px;
+    padding: .5rem;
     margin-top: 2rem;
-    min-width: min-content;
+    width: 100%;
 }
-
-
 h3{
     background-color: #5A189A;
     border-radius: 10px;
@@ -38,94 +36,127 @@ h3{
     font-size: 18px;
     margin-bottom: 0.5rem;
 }
-
-input:not(#image), select{
-    height: 35px;
+input:not(#image),
+select,
+textarea{
     border-radius: 10px;
-    border-style:solid;
+    border: none;
+    outline: none;
+    padding: .5rem;
+    margin-top: .5rem;
+    transition: .3s ease-in-out;
+    width: 100%;
 }
-
-
-div.main-container{
-    max-width: 100%;
+:is(input:not(#image),select,textarea):hover{
+    box-shadow: 2px 2px 15px 2px #4444448c;
+}
+:is(input:not(#image),select,textarea):focus{
+    background-color:#e7e7e7;
+    border: 1px solid #585858;
+}
+textarea{
+    height: 5rem;
+    resize: vertical;
+}
+.main-container{
+    max-width: 50%;
+    margin: auto;
     align-items: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
-
-div.main-container form{
+.main-container form{
     font-family: 'Montserrat', sans-serif;
     margin-top: 10px;
     color: #fff;
-    max-width: 45%;
+    width: 100%;
 }
-
-div.container-data{
+.container-data{
     margin-bottom: 20px;
     background-color: #9a63d1da;
     border-radius: 10px;
-    display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     padding-bottom: 30px;
-    box-shadow: 0.5px 0.5px 30px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: 5px 10px 20px 2px #cecece;
 }
-
-
-div.container-data div{
+.contenedor-input{
+    padding: 0 1.5rem;
+}
+.form-group{
+    display: flex;
+    gap: 1rem;
+}
+.input-container{
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    flex:  0 0 50%; /* Ancho del 50% menos un margen */
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    flex: 0 50%; /* Ancho del 50% menos un margen */
     width: 100%;
     margin-top: 1rem;
 }
-
-div.container-price{
+.input-container label{
+    text-wrap: nowrap;
+}
+.container-price{
     border-radius: 10px;
     background-color: #9a63d1da;
     margin-bottom: 20px;
     flex-wrap: wrap;
     display: flex;
+    box-shadow: 5px 10px 20px 2px #cecece;
 }
-
-
-div.container-price div{
-    flex: 0 0 50%; /* Ancho del 50% menos un margen */
+.container-price div{
+    flex: 0 50%; /* Ancho del 50% menos un margen */
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-bottom: 30px;
+    padding-bottom: 2rem;
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     width: 100%;
 }
-
-
-
-
-div.container-image{
+div.cancelacion{
+    flex-direction: row;
+    justify-content: space-around;
+    height: min-content;
+    width: min-content;
+    margin: auto;
+}
+.label{
+    margin: auto 0;
+}
+#cancelacion_gratuita{
+    width: 20px;
+    height: auto;
+}
+.label,
+#cancelacion_gratuita{
+    height: min-content;
+}
+.container-image{
+    display: flex;
+    flex-direction: column;
     height: 300px;
     border-radius: 10px;
     background-color: #9a63d1da;
+    box-shadow: 5px 10px 20px 2px #cecece;
 }
-
-div.container-image div{
+.container-image label{
+    padding-left: 1.5rem;
+    padding-top: 1rem;
+}
+.container-image div{
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-self: center;    
 }
-
-div.buttons{
+.buttons{
     justify-self: end;
     margin-top: 10px;
 }
-
-button.submit{
+.submit{
     margin-left: 30px;
     margin-bottom: 30px;
     color: #fff;
@@ -136,8 +167,7 @@ button.submit{
     border:none;
     font-weight: 600;
 }
-
-button.cancel-btn{
+.cancel-btn{
     margin-left: 30px;
     margin-bottom: 30px;
     color: #10002B;
@@ -148,17 +178,34 @@ button.cancel-btn{
     border:none;  
     font-weight: 600;  
 }
-
+#enviado,
+#cancelado{
+    transition: .3s ease-in-out;
+}
 #enviado:hover{
     cursor: pointer;
     background-color: #10002B;
-    scale: 102%;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    box-shadow: 5px 10px 20px 2px #cecece;
 }
-
 #cancelado:hover{
     cursor: pointer;
     background-color: #c6c5c5;
-    scale: 102%;
-    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transform: scale(1.1);
+    box-shadow: 5px 10px 20px 2px #cecece;
+}
+#image{
+    background-color: #5A189A;
+    padding: 3rem;
+    width: 85%;
+    border-radius: .5rem;
+    border: 3px dotted #fff;
+    margin: auto;
+    margin-top: 2rem;
+}
+
+@media screen and (width < 890) {
+    .form-group{
+        /* ajustar */
+    }
 }

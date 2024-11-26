@@ -6,6 +6,7 @@
     <title>Registro de Servicios</title>
     <link rel="stylesheet" href="../css/global.css">
     <script type="module" src="../js/render/createService.js"></script>
+    <script type="module" src="../js/frontend/app.js"></script>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -24,61 +25,62 @@
             <div class="container-data">
                 <h3>Datos del servicio</h3>
                 
-                <div>
-                    <label for="nombre">Nombre del servicio</label>
-                    <input type="text" id="nombre_servicio" name="nombre_servicio" required>
-                </div>
-                
-                <div>
-                <label for="categoria">Categoria</label> 
-                    <select name="categoria_servicio" id="categoria" required>
-                        <option value="deportes">Deportes</option>
-                        <option value="estetica">Estetica</option>
-                        <option value="comida">Comida</option>
-                        <option value="oficio">Oficio</option>
-                        <option value="vehiculos">Vehiculos</option>
-                        <option value="salud">Salud</option>
-                        <option value="bienestar">Bienestar</option>
-                        <option value="mascotas">Mascotas</option>
-                        <option value="eventos">Eventos</option>
-                        <option value="otros">Otros</option>
-                    </select>
-                </div>
-
-
-                <div>
-                    <label for="direccion">Direccion</label>
-                    <input type="text" id="direccion" name="direccion" required>
-                </div>
-
-                <div>
-                    <label for="ciudad">Ciudad</label>
-                    <input type="text" name="ciudad" id="ciudad" required> 
-                </div>
-
-                <div>
-                    <label for="telefono">Telefono de contacto</label>
-                    <input type="tel" id="telefono" name="telefono" pattern="" placeholder="(011) 1234 - 5678" required>
-                </div>
-
-                <div>
-                    <label for="email">Correo electronico</label>
-                    <input type="email" id="email" name="email" required>
-                </div>
-
-                <div>
-                    <label for="descripcion">Descripcion del servicio</label>
-                    <textarea name="descripcion" id="descripcion" cols="60" rows="4" required ></textarea>
-                </div>
-
-                <div>
-                    <label for="dias">Dias de atencion</label>
-                    <input name="dias" id="dias" rows="4" cols="50" placeholder="Ejemplo: Lunes, Miercoles, Viernes"></input>
-                </div>
-
-                <div>
-                    <label for="horarios">Horario de atencion</label>
-                    <input name="horarios" id="horarios" rows="4" cols="50" placeholder="9:00 AM a 6:00 PM"></input>
+                <div class="contenedor-input">
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label for="nombre">Nombre del servicio</label>
+                            <input type="text" id="nombre_servicio" name="nombre_servicio" required>
+                        </div>
+                        <div class="input-container">
+                        <label for="categoria">Categoria</label> 
+                            <select name="categoria_servicio" id="categoria" required>
+                                <option value="deportes">Deportes</option>
+                                <option value="estetica">Estetica</option>
+                                <option value="comida">Comida</option>
+                                <option value="oficio">Oficio</option>
+                                <option value="vehiculos">Vehiculos</option>
+                                <option value="salud">Salud</option>
+                                <option value="bienestar">Bienestar</option>
+                                <option value="mascotas">Mascotas</option>
+                                <option value="eventos">Eventos</option>
+                                <option value="otros">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label for="direccion">Direccion</label>
+                            <input type="text" id="direccion" name="direccion" required>
+                        </div>
+                        <div class="input-container">
+                            <label for="ciudad">Ciudad</label>
+                            <input type="text" name="ciudad" id="ciudad" required> 
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label for="telefono">Telefono de contacto</label>
+                            <input type="tel" id="telefono" name="telefono" pattern="" placeholder="(011) 1234 - 5678" required>
+                        </div>
+                        <div class="input-container">
+                            <label for="email">Correo electronico</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                    </div>
+                    <div class="input-container">
+                        <label for="descripcion">Descripcion del servicio</label>
+                        <textarea name="descripcion" id="descripcion" cols="60" rows="4" required ></textarea>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-container">
+                            <label for="dias">Dias de atencion</label>
+                            <input name="dias" id="dias" rows="4" cols="50" placeholder="Ejemplo: Lunes, Miercoles, Viernes"></input>
+                        </div>
+                        <div class="input-container">
+                            <label for="horarios">Horario de atencion</label>
+                            <input name="horarios" id="horarios" rows="4" cols="50" placeholder="9:00 AM a 6:00 PM"></input>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -100,10 +102,7 @@
                 
                 <div class="cancelacion">
                     <label class="label" for="cancelacion_gratuita">Cancelación Gratuita:</label>
-                    <label class="switch">
                     <input type="checkbox" id="cancelacion_gratuita" name="cancelacion_gratuita">
-                    <span class="slider"></span>
-                    </label>
                 </div>
                 
 
@@ -152,7 +151,7 @@
         </form>
         </div>
         <footer>
-            <script src="../js/render/footer.js"></script>
+            <script src="../js/frontend/footer.js"></script>
         </footer>
 </body>
 </html>
