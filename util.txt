@@ -3,8 +3,13 @@ PASO 1:
 PASO 2:
     npm install express mysql dotenv
 PASO 3:
-    npm test
-
      npm install --save-dev nodemon
-     
      npm i body-parser
+PASO 5: modificar en package.json : 
+    abajo de main {} agregar   
+        "type": "module",
+    modificar script: 
+        "scripts": {
+            "start": "nodemon src/js/backend/server.js"
+        },
+
