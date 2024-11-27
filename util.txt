@@ -1,15 +1,15 @@
 PASO 1:
     npm init
 PASO 2:
-    npm install express mysql dotenv bcrypt validator
-PASO 3:
      npm install --save-dev nodemon
-     npm i body-parser
-PASO 5: modificar en package.json : 
-    abajo de main {} agregar   
+     npm i body-parser ????
+PASO 3: 
+    -modificar en package.json : 
+     abajo de main {} agregar   
         "type": "module",
+PASO 4:
     modificar script: 
         "scripts": {
-            "start": "nodemon src/js/backend/server.js"
+            "start": "nodemon src/js/backend/server.js",  // El comando para arrancar el servidor
+            "install-deps": "npm install express mysql dotenv bcrypt validator"  // Script para instalar dependencias
         },
-
