@@ -3,14 +3,14 @@ CREATE DATABASE appunti;
 USE appunti;
 
 CREATE TABLE reservas (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     Servicio INT,
     Cliente INT,
     Estado BOOLEAN
 );
 
 CREATE TABLE imagenes (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     Servicio INT,
     Imagen VARCHAR(255)
 );
@@ -22,7 +22,7 @@ CREATE TABLE favoritos (
 );
 
 CREATE TABLE usuario_emprendedor (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     mail VARCHAR(255),
     contraseña VARCHAR(255),
     servicio INT,
@@ -30,7 +30,7 @@ CREATE TABLE usuario_emprendedor (
 );
 
 CREATE TABLE servicio (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     precio DECIMAL(10, 2),
     descripcion TEXT,
