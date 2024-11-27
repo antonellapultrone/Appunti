@@ -4,3 +4,7 @@ PASO 2:
     npm install express mysql dotenv
 PASO 3:
     npm test
+
+     npm install --save-dev nodemon
+     
+     npm i body-parser

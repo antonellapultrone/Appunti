@@ -1,23 +1,29 @@
 export const menuData = [
     {
         name: "Home",
-        img: "../assets/icon/mago-pesc-light.png"
+        img: "../assets/icon/mago-pesc-light.png",
+        url:"../../views/home.html"
     },
     {
         name: "Promos",
-        img: "https://img.icons8.com/?size=100&id=a99zM4y8YPut&format=png&color=ffffff"
+        img: "https://img.icons8.com/?size=100&id=a99zM4y8YPut&format=png&color=ffffff",
+        url:"../../views/promos.html"
     },
     {
         name: "Categorias",
-        img: "https://img.icons8.com/?size=100&id=Ah8SLaXAg94W&format=png&color=ffffff"
+        img: "https://img.icons8.com/?size=100&id=Ah8SLaXAg94W&format=png&color=ffffff",
+        url:"../../views/categorias.html"
+    
     },
     {
         name: "Mis Reservas",
-        img: "https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff"
+        img: "https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff",
+        url:"../../views/mis-reservas.html"
     },
     {
-        name: "Iniciar Sesion",
-        img: "https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff"
+        name: "Registrarse",
+        img: "https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff",
+        url:"../../views/register.html"
     }
 ]
 export function renderNav(root, menuItems) {
@@ -29,7 +35,7 @@ export function renderNav(root, menuItems) {
     for(let i  = 0; i < 1; i++){
         let li = document.createElement('li');
         li.innerHTML = `
-                        <a href="../../views/register.html">
+                        <a href="${menuItems[i].url}">
                             <img src="${menuItems[i].img}" alt="">
                             ${menuItems[i].name}
                         </a>
@@ -48,7 +54,7 @@ export function renderNav(root, menuItems) {
     for(let i  = 1; i < menuItems.length; i++){
         let li = document.createElement('li');
         li.innerHTML = `
-                        <a href="">
+                        <a href="${menuItems[i].url}">
                             <img src="${menuItems[i].img}" alt="">
                             ${menuItems[i].name}
                         </a>

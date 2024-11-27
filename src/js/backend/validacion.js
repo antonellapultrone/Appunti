@@ -1,4 +1,4 @@
-function test(exp, var_){
+/*function test(exp, var_){
     const regex = new RegExp(exp);
     if(regex.test(var_)){
         return true;
@@ -35,9 +35,9 @@ function validateRegister() {
     formMessage.textContent = "¡Registro exitoso!";
     formMessage.style.backgroundColor = "green";
     return false;
-    } // Evita el envío real del formulario */
+    } // Evita el envío real del formulario 
 }
-/* function validateLogin() {
+ function validateLogin() {
     const email = document.getElementById("email").value;
     console.log(email);
     const password = document.getElementById("password").value;
@@ -53,14 +53,14 @@ function validateRegister() {
     formMessage.textContent = "Iniciando Sesion...";
     formMessage.style.backgroundColor = "green";
     return false; // Evita el envío real del formulario
-} */
+} 
 
 const boton = document.getElementById("btn");
 console.log(boton);
 
-/* boton.addEventListener('click', function(e) {
+ boton.addEventListener('click', function(e) {
     e.preventDefault();
     history.back();
-}) */
+}) 
 validateRegister();
-validateLogin()
+validateLogin()*/
