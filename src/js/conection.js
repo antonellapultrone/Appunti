@@ -12,26 +12,3 @@ export const pool = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0
 });
-
-const db = {
-    queryDataBase(query, callback) {
-        pool.query(query, function(err, results) {
-            if (err) {
-                callback(err, null);
-            } else {
-                callback(null, results);
-            }
-        });
-    },
-    
-    consulta(query) {
-        this.queryDataBase(query, (err, results) => {
-            if (err) {
-                console.error('Error en la consulta:', err);
-            } else {
-                console.log(results);
-            }
-        });
-    },
-
-};

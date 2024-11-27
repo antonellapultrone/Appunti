@@ -15,10 +15,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     const rootDescubreZona = document.getElementById("section-descubreTuZona");
     const rootCategorias = document.getElementById("section-categorias");
 
-    //const cardJson = await fetchCardData();
+    const cardJson = await fetchCardData();
 
-    /* renderCards(rootDescubreZona, cardJson, 'carousel-1');
-    renderCards(rootCategorias, cardJson, 'carousel-2'); */
+    renderCards(rootDescubreZona, cardJson, 'carousel-1');
+    renderCards(rootCategorias, cardJson, 'carousel-2');
 
     renderButtonsCarrusel(rootDescubreZona, 'carousel-1');
     renderButtonsCarrusel(rootCategorias, 'carousel-2');
