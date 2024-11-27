@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: './credenciales.env' });
 
-const pool = mysql.createPool({
+export const pool = mysql.createPool({
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
@@ -33,10 +33,5 @@ const db = {
             }
         });
     },
-    
-    insertUser() {
-        // Lógica de alta de usuario
-    }
-};
 
-export default db;
+};

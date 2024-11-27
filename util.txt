@@ -3,4 +3,8 @@ PASO 1:
 PASO 2:
     npm install express mysql dotenv
 PASO 3:
+    "test": "node src/js/backend/server.js" COPIAR EN PACKAGE.JSON (asi reconoce el comando test)
+PASO 4:
+    crear credenciales.env
+PASO 5:
     npm test

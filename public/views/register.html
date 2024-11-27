@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro en Appunti</title>
     <link rel="stylesheet" href="../css/register.css">
-    <script src="../js/backend/validacion.js"></script>
 </head>
 <body>
     <!-- Barra de navegación -->
@@ -29,7 +28,7 @@
 
         <!-- Formulario de registro -->
         <div class="form-container">
-            <form id="registerForm">
+            <form action="/validar" id="registerForm" method="post">
                 <label for="firstName">Nombre:</label>
                 <input type="text" id="firstName" name="firstName" required>
 
@@ -42,11 +41,11 @@
                 <label for="password">Contraseña:</label>
                 <input type="password" id="password" name="password" required>
 
-                <label for="confirmPassword">Repite Contraseña:</label>
-                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                <label for="confirmPass">Repite Contraseña:</label>
+                <input type="password" id="confirmPass" name="confirmPass" required>
 
-                <button class="btn-form" id="btn" type="submit">Registrarse</button>
-                <a href="./login.html">¿Ya tienes una cuenta?</a>
+                <button class="btn-form" id="register" type="submit">Registrarse</button>
+                <a href="login.html">¿Ya tienes una cuenta?</a>
             </form>
             <p id="formMessage"></p>
         </div>

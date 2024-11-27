@@ -1,6 +1,4 @@
-const footer = document.querySelector('footer');
-
-function renderFooter(){
+export function renderFooter(footer){
     const div = document.createElement('div');
     div.setAttribute('class', 'footer-container')
     div.innerHTML = `
@@ -42,4 +40,3 @@ function renderFooter(){
                     `
     footer.appendChild(p);
 }
-renderFooter();

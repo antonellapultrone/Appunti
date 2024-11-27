@@ -45,7 +45,7 @@ CREATE TABLE servicio (
 );
 
 CREATE TABLE usuario_cliente (
-    ID INT PRIMARY KEY,
+    ID INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(255),
     apellido VARCHAR(255),
     mail VARCHAR(255) UNIQUE,
