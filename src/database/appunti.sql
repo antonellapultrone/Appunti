@@ -24,7 +24,7 @@ CREATE TABLE favoritos (
 CREATE TABLE usuario_emprendedor (
     ID INT AUTO_INCREMENT PRIMARY KEY,
     mail VARCHAR(255),
-    contraseña VARCHAR(255),
+    contrasenia VARCHAR(255),
     servicio INT,
     telefono VARCHAR(20)
 );
@@ -49,7 +49,7 @@ CREATE TABLE usuario_cliente (
     nombre VARCHAR(255),
     apellido VARCHAR(255),
     mail VARCHAR(255) UNIQUE,
-    contraseña VARCHAR(255),
+    contrasenia VARCHAR(255),
     foto VARCHAR(255),
     reservas VARCHAR(255),
     favoritos VARCHAR(255),

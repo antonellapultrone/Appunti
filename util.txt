@@ -1,7 +1,7 @@
 PASO 1:
     npm init
 PASO 2:
-    npm install express mysql dotenv
+    npm install express mysql dotenv bcrypt validator
 PASO 3:
      npm install --save-dev nodemon
      npm i body-parser
