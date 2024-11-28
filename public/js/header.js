@@ -2,7 +2,7 @@ export const menuData = [
     {
         name: "Home",
         img: "../assets/icon/mago-pesc-light.png",
-        url:"../../views/home.html"
+        url:"/"
     },
     {
         name: "Promos",

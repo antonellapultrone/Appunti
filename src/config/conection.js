@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config({ path: './credenciales.env' });
 
-export const pool = mysql.createPool({
+const pool = mysql.createPool({
     host: process.env.DB_HOST,
     database: process.env.DB_NAME,
     user: process.env.DB_USER,
@@ -12,3 +12,5 @@ export const pool = mysql.createPool({
     connectionLimit: 10,
     queueLimit: 0,
 }).promise();
+
+export default pool;

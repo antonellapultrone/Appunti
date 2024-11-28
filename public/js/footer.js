@@ -29,7 +29,7 @@ export function renderFooter(footer){
                         <li><a href="">Politica de Privacidad</a></li>
                         <li><a href="">Terminos y condiciones</a></li>
                         <li><a href="">FAQ</a></li>
-                        <li><a href="">Sobre Nosotros</a></li>
+                        <li><a href="../views/nosotros.html">Sobre Nosotros</a></li>
                         <li><a href="">Contacto</a></li>
                     </ul>
                     `

@@ -2,7 +2,6 @@ PASO 1:
     npm init
 PASO 2:
      npm install --save-dev nodemon
-     npm i body-parser ????
 PASO 3: 
     -modificar en package.json : 
      abajo de main {} agregar   
@@ -10,6 +9,9 @@ PASO 3:
 PASO 4:
     modificar script: 
         "scripts": {
-            "start": "nodemon src/js/backend/server.js",  // El comando para arrancar el servidor
-            "install-deps": "npm install express mysql dotenv bcrypt validator"  // Script para instalar dependencias
+            "start": "nodemon src/server.js",
+            "install-deps": "npm install express mysql dotenv bcrypt validator express-validator"
         },
+PASO 5:
+    npm install-deps
+    npm start
