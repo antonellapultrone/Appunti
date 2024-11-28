@@ -11,7 +11,8 @@ app.use('/api/user', userRoutes); // Rutas
 
 export default app;
 
-/* API PARA LAS CARDS
+//API PARA LAS CARDS
+import pool from './config/conection.js';
 //api para obtener info de cards
 app.get('/api/cards', async (req, res) => {
     try {
@@ -22,4 +23,4 @@ app.get('/api/cards', async (req, res) => {
         console.error("Error en la consulta de cards:", err);
         res.status(500).send('Error en la base de datos');
     }
-}); */
+});
