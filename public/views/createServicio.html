@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Servicios</title>
     <link rel="stylesheet" href="../css/global.css">
-    <script type="module" src="../js/render/createService.js"></script>
-    <script type="module" src="../js/frontend/app.js"></script>
+    <script type="module" src="../js/app.js"></script>
 </head>
-<body>
+<body class="body-style">
     <!-- Barra de navegación -->
     <header>
         
@@ -20,11 +19,9 @@
         <h2>REGISTRO DE SERVICIOS</h2>
         
         <!--Datos del servicio-->
-        <form action="" method="">
-
+        <form action="/api/service//createService" method="post">
             <div class="container-data">
                 <h3>Datos del servicio</h3>
-                
                 <div class="contenedor-input">
                     <div class="form-group">
                         <div class="input-container">
@@ -83,9 +80,7 @@
                     </div>
                 </div>
             </div>
-
         <!-- Precios del servicio-->
-
             <div class="container-price">
                 <h3>Precios del servicio</h3>
 
@@ -126,12 +121,7 @@
                 </div>
                 
             </div>
-            
-        
-
         <!--Imagenes del servicio-->
-
-        
             <div class="container-image">
                 <h3>Imagenes del servicio</h3>
                 <div>
@@ -140,8 +130,6 @@
                 </div>
                 <div class="image-preview" id="image-preview"></div>
             </div>
-
-
         <!-- Botones de Enviar y Cancelar -->
 
             <div class="buttons">
