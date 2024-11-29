@@ -1,5 +1,6 @@
 import express from 'express';
 import userRoutes from './routes/usuario.routes.js';
+import serviceRoutes from './routes/service.routes.js';
 
 const app = express();
 
@@ -8,6 +9,7 @@ app.use(express.json()); // Parseo de JSON
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/user', userRoutes); // Rutas
+app.use('/api/service', serviceRoutes);
 
 export default app;
 
