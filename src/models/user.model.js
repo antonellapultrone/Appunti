@@ -29,8 +29,8 @@ export const createUser = async (data) => {
 };
 
 export const updateUser = async (id, data) => {
-    const { nombre, descripcion } = data;
-    await pool.query('UPDATE usuarios SET nombre = ?, descripcion = ? WHERE id = ?', [nombre, descripcion, id]);
+    const { nombre,apellido, email, password } = data;
+    await pool.query('UPDATE usuarios SET nombre = ?, apellido = ?, mail = ?, contrasenia = ? WHERE ID = ?', [nombre,apellido, email,password, id]);
 };
 
 export const deleteUser = async (id) => {
