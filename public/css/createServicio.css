@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
-body{
+.body-style{
     background-image: url(../assets/img/3184565.jpg);
     background-repeat: no-repeat;
     background-size: cover;

@@ -23,7 +23,8 @@ export const menuData = [
     {
         name: "Registrarse",
         img: "https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff",
-        url:"../../views/register.html"
+        /* url:"../../views/register.html" */
+        url:"../../views/myaccount.html"
     }
 ]
 export function renderNav(root, menuItems) {
