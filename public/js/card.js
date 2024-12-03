@@ -14,7 +14,9 @@ export function renderCards(root, cardJson, carouselId) {
         const article = document.createElement("article");
         article.setAttribute('class', "card");
         article.innerHTML = `
-            <img src="${card.imagenes}" alt="Imagen de ${card.nombre}">
+            <div class="img-contenedor">
+                <img src="${card.imagenes}" alt="Imagen de ${card.nombre}">
+            </div>
             <button class="btn-favorito"><img src="../../assets/img/star.png" alt="Favorito"></button>
             <div>
                 <h3>${card.nombre}</h3>

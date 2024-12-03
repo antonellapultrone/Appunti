@@ -107,6 +107,7 @@
     background-color: #59189a85;
     margin: 2rem;
     padding: 4rem;
+    border-radius: .5rem;
 }
 .container-categorias{
     display: flex;

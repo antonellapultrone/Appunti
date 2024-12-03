@@ -6,6 +6,9 @@
     background-image: url(../assets/img/3184565.jpg);
 }
 .data-user-style{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
     background-color: #5A189A;
     margin: 2rem;
     padding: 1rem;
@@ -17,20 +20,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    padding: 1rem;
 }
-.data-user a{
+.data-user a,
+.reserva-list a{
     color: #fff
 }
 .title{
     display: flex;
     gap: 1rem;
     border-bottom: 2px solid #fff;
+    padding: 1rem;
 }
 .title img:last-child{
     margin-left: auto;
-}
-.data-user-style div{
-    padding: 1rem;
 }
 .reserva-list{
     display: flex;
@@ -50,8 +53,68 @@
     top: 60px;
     right: 2rem;
 }
-
-.edit-btn:hover {
+.edit-btn:hover,
+.item-reserva div:last-child a:hover{
     background-color: #f3f3f3;
     color: #5A189A;
+}
+.reserva-list{
+    display: flex;
+    flex-direction: column;
+    background-color: #491380;
+    gap: .5rem;
+    border-radius: .5rem;
+    padding: 8px;
+}
+.item-reserva{
+    background-color: #5A189A;
+    display: flex;
+    gap: 3rem;
+    padding: .5rem;
+    transition: 0.3s ease-in-out;
+    border-radius: .5rem;
+}
+.item-reserva img{
+    width: 150px;
+    border-radius: .5rem;
+}
+.item-reserva:hover{
+    background-color: #3a1368;
+}
+.item-reserva div:last-child{
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .5rem;
+}
+.item-reserva div:last-child a{
+    padding: .5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+.date{
+    display: flex;
+    gap: 2rem;
+}
+#favoritos-contenedor{
+    padding: 1rem;
+    background-color: #3a1368;
+}
+#favoritos-contenedor .card{
+    height: 400px;
+    width: 300px;
+}
+#favoritos-contenedor .card h3 {
+    font-size: 18pt; /* Ajusta el tamaño a lo que desees */
+    font-weight: 500; /* Cambia si también quieres un peso diferente */
+    padding: 0;
+}
+
+#favoritos-contenedor .card p {
+    font-size: 12pt; /* Ajusta el tamaño del texto */
+    margin: 8px 0; /* Cambia el margen si es necesario */
 }
