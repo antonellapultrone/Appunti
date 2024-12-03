@@ -17,12 +17,16 @@ CREATE TABLE IF NOT EXISTS `appunti`.`servicios` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(255) NOT NULL,
   `precio` DECIMAL(10,2) NOT NULL,
+  `duracion_hora` INT NOT NULL,
   `descripcion` TEXT NOT NULL,
   `categoria` VARCHAR(100) NOT NULL,
-  `direccion` VARCHAR(100) NULL,
+  `ubicacion` VARCHAR(100) NULL,
   `ciudad` VARCHAR(100) NULL,
   `telefono` VARCHAR(15) NULL,
-  `estado` ENUM('activo', 'pausado') DEFAULT 'activo',
+  `dia_semana` ENUM('lunes a viernes', 'sabado', 'domingos y feriados') NOT NULL,
+  `hora_inicio` TIME NOT NULL,
+  `hora_fin` TIME NOT NULL,
+  `estado` ENUM('active', 'pause') NOT NULL,
   `usuario_ID` INT NOT NULL,
   FOREIGN KEY (`usuario_ID`) REFERENCES `usuarios`(`ID`) ON DELETE CASCADE,
   PRIMARY KEY (`ID`)
@@ -40,7 +44,6 @@ CREATE TABLE IF NOT EXISTS `appunti`.`favoritos` (
 CREATE TABLE IF NOT EXISTS `appunti`.`imagenes` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(255) NOT NULL,
-  `descripcion` VARCHAR(255) NULL,
   `servicio_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (`servicio_ID`) REFERENCES `servicios`(`ID`) ON DELETE CASCADE
@@ -59,12 +62,3 @@ CREATE TABLE IF NOT EXISTS `appunti`.`reservas` (
   FOREIGN KEY (`servicio_ID`) REFERENCES `servicios`(`ID`) ON DELETE CASCADE
 );
 
-CREATE TABLE IF NOT EXISTS `appunti`.`horarios` (
-  `ID` INT NOT NULL AUTO_INCREMENT,
-  `dia_semana` ENUM('lunes', 'martes', 'miercoles', 'jueves', 'viernes', 'sabado', 'domingo') NOT NULL,
-  `hora_inicio` TIME NOT NULL,
-  `hora_fin` TIME NOT NULL,
-  `servicio_ID` INT NOT NULL,
-  PRIMARY KEY (`ID`),
-  FOREIGN KEY (`servicio_ID`) REFERENCES `servicios`(`ID`) ON DELETE CASCADE
-);

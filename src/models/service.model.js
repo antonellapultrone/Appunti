@@ -53,16 +53,17 @@ export const createService = async (dataService) => {
         await connection.beginTransaction();
 
         // Insertar el servicio
-        const { nombre, precio, descripcion, categoria, direccion, telefono, estado} = dataService;
+        const { nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono,dia_semana, hora_inicio, hora_fin} = dataService;
 
         //llamar usuario logeado y obtener su id
-        let usuario_ID = 10
+        let usuario_ID = 1;
+        const estado = "active";
         //agregar estado aca y en la base de datos
         //ver horario en bd
         const [result] = await connection.query(
-            `INSERT INTO servicios (nombre, precio, descripcion, categoria, ubicacion, telefono, usuario_ID) 
-            VALUES (?, ?, ?, ?, ?, ?, ?)`,
-            [nombre, precio, descripcion, categoria, direccion, telefono, usuario_ID]
+            `INSERT INTO servicios (nombre, precio,duracion_hora, descripcion, categoria, ubicacion,ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [nombre, precio,duracion_hora, descripcion, categoria, ubicacion,ciudad, telefono,dia_semana,hora_inicio, hora_fin, estado, usuario_ID]
         );
         const servicio_ID = result.insertId;
 
@@ -70,8 +71,8 @@ export const createService = async (dataService) => {
         if (dataService.imagenes) {
             for (const imagen of dataService.imagenes) {
                 await connection.query(
-                    `INSERT INTO imagenes (url, descripcion, servicio_ID) VALUES (?, ?, ?)`,
-                    [imagen.url, imagen.descripcion, servicio_ID]
+                    `INSERT INTO imagenes (url,  servicio_ID) VALUES (?, ?)`,
+                    [imagen.url,  servicio_ID]
                 );
             }
         }

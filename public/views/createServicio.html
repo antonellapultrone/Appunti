@@ -30,7 +30,7 @@
                         </div>
                         <div class="input-container">
                         <label for="categoria">Categoria</label> 
-                            <select name="categoria_servicio" id="categoria" required>
+                            <select name="categoria" id="categoria" required>
                                 <option value="deportes">Deportes</option>
                                 <option value="estetica">Estetica</option>
                                 <option value="comida">Comida</option>
@@ -46,38 +46,55 @@
                     </div>
                     <div class="form-group">
                         <div class="input-container">
-                            <label for="direccion">Direccion</label>
-                            <input type="text" id="direccion" name="direccion" required>
+                            <label for="ubicacion">Dirección</label>
+                            <input type="text" id="ubicacion" name="ubicacion" required>
                         </div>
                         <div class="input-container">
                             <label for="ciudad">Ciudad</label>
-                            <input type="text" name="ciudad" id="ciudad" required> 
+                                    <select name="ciudad" id="ciudad" required>
+                                        <option value="Buenos Aires">Buenos Aires</option>
+                                        <option value="Rosario">Rosario</option>
+                                        <option value="Cordoba">Córdoba</option>
+                                        <option value="Mar del Plata">Mar del Plata</option>
+                                        <option value="San Miguel de Tucumán">San Miguel de Tucumán</option>
+                                        <option value="Salta">Salta</option>
+                                        <option value="Santa Fe">Santa Fe</option>
+                                        <option value="Corrientes">Corrientes</option>
+                                        <option value="Resistencia">Resistencia</option>
+                                        <option value="San Luis">San Luis</option>
+                                    </select>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="input-container">
-                            <label for="telefono">Telefono de contacto</label>
+                            <label for="telefono">Teléfono de contacto</label>
                             <input type="tel" id="telefono" name="telefono" placeholder="(011) 1234 - 5678" required>
                         </div>
                         <div class="input-container">
-                            <label for="email">Correo electronico</label>
+                            <label for="email">Correo electrónico</label>
                             <input type="email" id="email" name="email" required>
                         </div>
                     </div>
                     <div class="input-container">
-                        <label for="descripcion">Descripcion del servicio</label>
+                        <label for="descripcion">Descripción del servicio</label>
                         <textarea name="descripcion" id="descripcion"></textarea>
                     </div>
                     <div class="form-group">
                         <!-- cambiar a input day -->
                         <div class="input-container">
-                            <label for="dias">Dias de atencion</label>
-                            <input name="dias" id="dias" rows="4" cols="50" placeholder="Ejemplo: Lunes, Miercoles, Viernes"></input>
+                            <label for="dias">Dias de atención</label>
+                            <select name="dia_semana" id="dia_semana" required>
+                                <option value="lunes a viernes">lunes a viernes</option>
+                                <option value="sabado">sábado</option>
+                                <option value="domingos y feriados">domingos y feriados</option>
+                            </select>
                         </div>
                         <div class="input-container">
                             <!-- cambiar input a date -->
-                            <label for="horarios">Horario de atencion</label>
-                            <input name="horarios" id="horarios" rows="4" cols="50" placeholder="9:00 AM a 6:00 PM"></input>
+                            <label for="hora_inicio">Horario de apertura</label>
+                            <input name="hora_inicio" type="time" id="hora_inicio" rows="4" cols="50" ></input>
+                            <label for="hora_fin">Horario de cierre</label>
+                            <input name="hora_fin" type="time" id="hora_fin" rows="4" cols="50" ></input>
                         </div>
                     </div>
                 </div>
@@ -87,41 +104,38 @@
                 <h3>Precios del servicio</h3>
 
                 <div>
-                    <label for="precio_hora">Precio por hora</label>
-                        <select name="precio_hora" id="preciohora">
-                            <option value="0"></option>
-                            <option value="0"></option>
-                            <option value="0"></option>
-                        </select>
+                    <label for="precio">Precio</label>
+                    <input type="number" id="precio" name="precio" required>
                 </div>
 
                     <!-- Opción Cancelación Gratuita -->
                 
-                <div class="cancelacion">
-                    <label class="label" for="cancelacion_gratuita">Cancelación Gratuita:</label>
-                    <input type="checkbox" id="cancelacion_gratuita" name="cancelacion_gratuita">
-                </div>
-                
 
                 <div>
                     <!-- cambiar input -->
-                    <label for="precio_minimo">Precio minimo</label> 
-                        <select name="precio_minimo" id="precio_minimo">
-                                <option value="0"></option>
-                                <option value="0"></option>
-                                <option value="0"></option>
+                    <label for="duracion_hora">Duración</label> 
+                        <select name="duracion_hora" id="duracion_hora">
+                                <option value="1">1 Hora</option>
+                                <option value="2">2 Horas</option>
+                                <option value="3">3 Horas</option>
+                                <option value="4">4 Horas</option>
+                                <option value="5">5 Horas</option>
+                                <option value="6">6 Horas</option>
                         </select>
                 </div>
 
-
+<!--
                 <div>
+                    
                     <label for="descuento">Descuento(%)</label>
                         <select name="descuento" id="descuento">
                                 <option value="%"></option>
                                 <option value="%"></option>
                                 <option value="%"></option>
                         </select>
+                       
                 </div>
+                 --->
                 
             </div>
         <!--Imagenes del servicio-->
