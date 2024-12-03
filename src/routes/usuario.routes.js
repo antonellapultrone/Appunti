@@ -12,4 +12,6 @@ router.delete('/:id', UserController.deleteUser);
 router.post('/validateRegister', Validate.validateRegisterUser, UserController.createUser);
 router.post('/validateLogin', Validate.validateLoginUser, UserController.loginUser);
 
+router.get('/session', UserController.getUserSessionData);
+
 export default router;

@@ -18,53 +18,6 @@
     background-color: #f1f1f186;
     border-radius: 1rem;
 }
-.buscador{
-    position: sticky;
-    top: 142px;
-    z-index: 10;
-    width: 100%;
-    height: min-content;
-    border-radius: 0 0 3rem 3rem;
-    padding-bottom: 2rem;
-}
-.buscador form{
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 2rem;
-    justify-content: space-between;
-    align-items: center;
-}
-.buscador form input{
-    border-radius: 1rem;
-    font-size: 12pt;
-    padding: .5rem 2rem;
-    width: 100%;
-    border: none;
-    margin-top: 0 !important;
-}
-.buscador form input:focus{
-    outline: 2px solid #b48eda;
-}
-.buscador form button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background-color: #10002B;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    height: 40px;
-    min-width: 40px;
-    padding: 0;
-}
-.buscador form button:hover{
-    background-color: #1b0049af;
-}
-.buscador form button img {
-    width: 20px;
-    height: 20px;
-    margin: 0;
-}
 /* Descubre tu zona */
 #section-descubreTuZona{
     background-color: #10002B;

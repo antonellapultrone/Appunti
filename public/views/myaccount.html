@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="/css/global.css">
     <script type="module" src="/js/app.js"></script>
     <script type="module" src="/js/myaccount.js"></script>
+    <script type="module" src="/js/carrusel.js"></script>
     <title>Appunti - Mi Cuenta</title>
 </head>
 <body class="body-style">
@@ -21,28 +22,30 @@
                 <img src="" alt="flecha">
             </div>
             <div class="data-user">
-                <p>Nombre: </p>
-                <p>Dirección: </p>
-                <p>Fecha de nacimiento: </p>
-                <p>Ciudad: </p>
-                <p>Email: </p>
-                <p>Telefono: </p>
+                <p>Nombre: <span id="userName"></span></p>
+                <p>Dirección: <span id="userAddress"></span></p>
+                <p>Fecha de nacimiento: <!-- No se puede rellenar, dejar como está --> </p>
+                <p>Ciudad: <!-- No se puede rellenar, dejar como está --> </p>
+                <p>Email: <span id="userEmail"></span></p>
+                <p>Teléfono: <span id="userPhone"></span></p>
                 <a class="edit-btn" href="">Editar</a>
             </div>
         </div>
-        <!-- favorito -->
+        
+        <!-- Favoritos -->
         <div class="data-user-style">
             <div class="title">
                 <img src="" alt="icon">
                 <p>Favoritos</p>
                 <img src="" alt="flecha">
             </div>
-            <!-- render cards favoritos -->
+            <!-- Renderizar cards favoritos -->
             <div id="favoritos-contenedor">
                 
             </div>
         </div>
-        <!-- reservas -->
+        
+        <!-- Reservas -->
         <div class="data-user-style">
             <div class="title">
                 <img src="" alt="icon">
@@ -50,7 +53,7 @@
                 <img src="" alt="flecha">
             </div>
             <div class="reserva-list">
-                <div class=item-reserva>
+                <div class="item-reserva">
                     <img class="" src="../assets/img/cancha-padle.png" alt="img-reserva">
                     <div>
                         <div class="date">
@@ -66,7 +69,7 @@
                         <a href="">Pausar</a>
                     </div>
                 </div>
-                <div class=item-reserva>
+                <div class="item-reserva">
                     <img class="" src="../assets/img/card-futbol1.jpg" alt="img-reserva">
                     <div>
                         <div class="date">
@@ -84,32 +87,17 @@
                 </div>
             </div>
         </div>
-        <!-- publicaciones -->
+        
+        <!-- Publicaciones -->
         <div class="data-user-style">
             <div class="title">
                 <img src="" alt="icon">
-                <p>Reservas</p>
+                <p>Publicaciones</p>
                 <img src="" alt="flecha">
             </div>
             <div class="reserva-list">
-                <div class=item-reserva>
+                <div class="item-reserva">
                     <img class="" src="../assets/img/alliance-football-club-xtvnC2FuJSg-unsplash 1.png" alt="img-reserva">
-                    <div>
-                        <div class="date">
-                            <p>10/02/2024</p>
-                            <p>17:45</p>
-                        </div>
-                        <p>Nombre</p>
-                        <p>Precio</p>
-                    </div>
-                    <p>Reservas Activas <!-- numero --></p>
-                    <div>
-                        <a href="">Editar</a>
-                        <a href="">Pausar</a>
-                    </div>
-                </div>
-                <div class=item-reserva>
-                    <img class="" src="../assets/img/dan-gold-E6HjQaB7UEA-unsplash 1.png" alt="img-reserva">
                     <div>
                         <div class="date">
                             <p>10/02/2024</p>
