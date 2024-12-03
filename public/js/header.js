@@ -16,15 +16,14 @@ export const menuData = [
     
     },
     {
-        name: "Mis Reservas",
+        name: "Crear Servicio",
         img: "https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff",
-        url:"../../views/mis-reservas.html"
+        url:"../../views/createServicio.html"
     },
     {
         name: "Registrarse",
         img: "https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff",
-        /* url:"../../views/register.html" */
-        url:"../../views/myaccount.html"
+        url:"../../views/register.html"
     }
 ]
 export function renderNav(root, menuItems) {

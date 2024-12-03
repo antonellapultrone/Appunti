@@ -53,11 +53,16 @@ export const createService = async (dataService) => {
         await connection.beginTransaction();
 
         // Insertar el servicio
-        const { nombre, precio, descripcion, categoria, direccion, ciudad, telefono, estado, usuario_ID } = dataService;
+        const { nombre, precio, descripcion, categoria, direccion, telefono, estado} = dataService;
+
+        //llamar usuario logeado y obtener su id
+        let usuario_ID = 10
+        //agregar estado aca y en la base de datos
+        //ver horario en bd
         const [result] = await connection.query(
-            `INSERT INTO servicios (nombre, precio, descripcion, categoria, direccion, ciudad, telefono, estado, usuario_ID) 
-             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [nombre, precio, descripcion, categoria, direccion, ciudad, telefono, estado, usuario_ID]
+            `INSERT INTO servicios (nombre, precio, descripcion, categoria, ubicacion, telefono, usuario_ID) 
+            VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            [nombre, precio, descripcion, categoria, direccion, telefono, usuario_ID]
         );
         const servicio_ID = result.insertId;
 
@@ -72,14 +77,14 @@ export const createService = async (dataService) => {
         }
 
         // Insertar horarios
-        if (dataService.horarios) {
+        /* if (dataService.horarios) {
             for (const horario of dataService.horarios) {
                 await connection.query(
                     `INSERT INTO horarios (dia_semana, hora_inicio, hora_fin, servicio_ID) VALUES (?, ?, ?, ?)`,
                     [horario.dia_semana, horario.hora_inicio, horario.hora_fin, servicio_ID]
                 );
             }
-        }
+        } */
 
         await connection.commit();
         return servicio_ID;
@@ -98,9 +103,10 @@ export const updateService = async (id, dataService) => {
 
         // Actualizar servicio
         const { nombre, precio, descripcion, categoria, direccion, ciudad, telefono, estado } = dataService;
+        console.log(direccion);
         await connection.query(
-            `UPDATE servicios SET nombre = ?, precio = ?, descripcion = ?, categoria = ?, direccion = ?, ciudad = ?, telefono = ?, estado = ? 
-             WHERE ID = ?`,
+            `UPDATE servicios SET nombre = ?, precio = ?, descripcion = ?, categoria = ?, ubicacion = ?, ciudad = ?, telefono = ?, estado = ? 
+            WHERE ID = ?`,
             [nombre, precio, descripcion, categoria, direccion, ciudad, telefono, estado, id]
         );
 

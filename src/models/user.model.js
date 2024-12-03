@@ -11,12 +11,11 @@ export const getUserById = async (id) => {
 };
 
 export const createUser = async (data) => {
-    const {nombre, apellido, email,  password, confirmPass } = data;
-
+    const {nombre, apellido, email, password, confirmPass} = data;
     //pasar a validator
     if (password !== confirmPass) {
         return res.status(400).send("Las contraseñas no coinciden.");
-    } 
+    }
 
     const hashedPassword = await bcrypt.hash(password, 10);
 

@@ -24,6 +24,7 @@ footer {
 }
 .social-media{
     margin-top: 1rem;
+    display: flex;
 }
 .social-media h3 {
     margin-bottom: 10px;

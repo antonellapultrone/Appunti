@@ -22,9 +22,10 @@
     position: sticky;
     top: 142px;
     z-index: 10;
-    padding: 1rem;
     width: 100%;
+    height: min-content;
     border-radius: 0 0 3rem 3rem;
+    padding-bottom: 2rem;
 }
 .buscador form{
     display: flex;
@@ -39,6 +40,7 @@
     padding: .5rem 2rem;
     width: 100%;
     border: none;
+    margin-top: 0 !important;
 }
 .buscador form input:focus{
     outline: 2px solid #b48eda;

@@ -3,10 +3,10 @@ import pool from '../config/conection.js';
 import bcrypt from 'bcrypt';
 
 export const validateRegisterUser = [
-    body('firstName')
+    body('nombre')
         .isLength({ min: 2, max: 50 })
         .withMessage('El nombre debe tener entre 2 y 50 caracteres'),
-    body('lastName')
+    body('apellido')
         .notEmpty()
         .withMessage('El apellido es obligatorio'),
     body('email')

@@ -8,7 +8,15 @@
     background-position: center;
     background-attachment: fixed;
 }
-.container-data h2{
+.service-container{
+    max-width: 50%;
+    margin: auto;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.service-container h2{
     font-family: 'Staatliches', sans-serif;
     background-color: #59189a8a;
     border-radius: 10px;
@@ -17,7 +25,7 @@
     font-size: 30px;
     color: #10002B;
     padding: .5rem;
-    margin-top: 2rem;
+    margin: 1rem 0;
     width: 100%;
 }
 .container-price h3,
@@ -60,17 +68,8 @@ textarea{
     height: 5rem;
     resize: vertical;
 }
-.main-container{
-    max-width: 50%;
-    margin: auto;
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-.main-container form{
+.service-container form{
     font-family: 'Montserrat', sans-serif;
-    margin-top: 10px;
     color: #fff;
     width: 100%;
 }

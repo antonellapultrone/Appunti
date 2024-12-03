@@ -1,5 +1,4 @@
 import * as servicioModel from '../models/service.model.js';
-import pool from '../config/conection.js';
 
 export const getAllService = async (req,res) =>{
     try{
