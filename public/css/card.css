@@ -25,13 +25,18 @@
     position: relative;
     flex-shrink: 0;
 }
-.card img {
+.img-contenedor img {
     width: 120%;
     height: 50%;
     object-fit: cover;
-    margin: -1rem -1rem .5rem;
+    position: relative;
 }
-.card .btn-favorito {
+.img-contenedor{
+    height: 50%;
+    background-color: #8E5DC2;
+    margin: -1rem -1rem 0 -1rem;
+}
+.btn-favorito {
     background-color: transparent;
     position: absolute;
     top: 1px;
@@ -43,7 +48,7 @@
     padding: 6px;
     margin: .5rem;
 }
-.card .btn-favorito img{
+.btn-favorito img{
     margin: .1rem;
     width: 2.5rem;
     height: 2.5rem;

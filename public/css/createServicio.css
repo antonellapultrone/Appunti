@@ -8,7 +8,7 @@
     background-position: center;
     background-attachment: fixed;
 }
-h2{
+.container-data h2{
     font-family: 'Staatliches', sans-serif;
     background-color: #59189a8a;
     border-radius: 10px;
@@ -20,7 +20,9 @@ h2{
     margin-top: 2rem;
     width: 100%;
 }
-h3{
+.container-price h3,
+.container-image h3,
+.container-data h3{
     background-color: #5A189A;
     border-radius: 10px;
     font-family: 'Montserrat', sans-serif;
@@ -205,7 +207,7 @@ div.cancelacion{
 }
 
 @media screen and (width < 890) {
-    .form-group{
-        /* ajustar */
-    }
+    /* .form-group{
+        
+    }*/
 }

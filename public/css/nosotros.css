@@ -16,7 +16,7 @@
     border-radius: 8px;
     margin: 30px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
     text-align: center;
     text-justify: center;
     text-align-last:center;
