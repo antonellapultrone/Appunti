@@ -10,7 +10,7 @@ PASO 4:
     modificar script: 
         "scripts": {
             "start": "nodemon src/server.js",
-            "install-deps": "npm install express mysql dotenv bcrypt validator express-validator"
+            "install-deps": "npm install express mysql dotenv bcrypt validator express-validator express-session"
         },
 PASO 5:
     npm install-deps
