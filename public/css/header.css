@@ -3,10 +3,10 @@ header{
     top: 0;
     z-index: 10;
     height: min-content;
+    width: 100%;
 }
 nav {
     background-color: #10002B;
-    padding: 0 20px;
 }
 header nav ul{
     display: flex;
