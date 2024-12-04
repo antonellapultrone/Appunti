@@ -12,13 +12,13 @@ dotenv.config({ path: './credenciales.env' });
 // Middleware para manejar sesiones
 app.use(
     session({
-        secret: process.env.SESSION_SECRET, // Cambia esto por una cadena secreta
+        secret: process.env.JWT_SECRET,
         resave: false,
         saveUninitialized: true,
         cookie: {
-            secure: false, // Cambia a true si usas HTTPS
+            secure: process.env.NODE_ENV === 'production', // Solo usa `secure` en producción (HTTPS)
             maxAge: 24 * 60 * 60 * 1000, // 1 día
-        }, // Cambia a true si usas HTTPS
+        },
     })
 );
 // Middleware

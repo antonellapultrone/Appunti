@@ -1,30 +1,49 @@
-import * as Carrusel from './carrusel.js';
-import { renderCards } from "./card.js";
-import { getAllCards } from './carrusel.js';
+//no esta entrando aca
+import { renderButtonsCarrusel, initCarrusel } from './carrusel.js';
+import { renderCards, getAllCards } from './card.js';
 
-const rootFavoritos = document.getElementById("favoritos-contenedor");
-const cardJson = await getAllCards();
+document.addEventListener('DOMContentLoaded', async () => {
+    const rootFavoritos = document.getElementById("favoritos-contenedor");
+    const token = sessionStorage.getItem('token');
 
-renderCards(rootFavoritos, cardJson, 'favoritos');
-Carrusel.renderButtonsCarrusel(rootFavoritos, 'favoritos');
-Carrusel.initCarrusel('favoritos');
-
-document.addEventListener('DOMContentLoaded', () => {
-    fetchUserData();
-});
-
-async function fetchUserData() {
-    const token = localStorage.getItem('token'); // O sessionStorage
-    const response = await fetch('http://localhost:3000/api/users/session', {
-        headers: {
-            Authorization: `Bearer ${token}`,
-        },
-    });
-
-    if (response.ok) {
-        const userData = await response.json();
-        console.log(userData);
-    } else {
-        console.error('Error:', await response.json());
+    if (!token) {
+        console.error('Token no encontrado. Redirigiendo a login.');
+        window.location.href = 'http://localhost:3000/views/login.html'; // Corregir URL
+        return;
     }
-}
+
+    try {
+        // Verificar datos de sesión
+        const response = await fetch('/api/user/session', {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+        console.log(response);
+
+        if (response.ok) {
+            const userData = await response.json();
+            console.log('Datos del usuario:', userData);
+            document.getElementById('userName').innerText = userData.nombre || 'N/A';
+            document.getElementById('userLastName').innerText = userData.apellido || 'N/A';
+            document.getElementById('userAddress').innerText = userData.direccion || 'N/A';
+            document.getElementById('userEmail').innerText = userData.email || 'N/A';
+
+            // Cargar y renderizar las cards
+            const cardJson = await getAllCards();
+
+            if (rootFavoritos && cardJson) {
+                renderCards(rootFavoritos, cardJson, 'favoritos');
+                renderButtonsCarrusel(rootFavoritos, 'favoritos');
+                initCarrusel('favoritos');
+            } else {
+                console.error('Error: contenedor o datos de tarjetas no disponibles.');
+            }
+        } else {
+            //esta entrando aca
+            console.error('Error al obtener datos de sesión. Redirigiendo a login.');
+            //window.location.href = 'http://localhost:3000/views/login.html'; // Corregir URL'¿
+        }
+    } catch (error) {
+        console.error('Error al obtener los datos del usuario:', error);
+        window.location.href = 'http://localhost:3000/views/login.html'; // Corregir URL
+    }
+});

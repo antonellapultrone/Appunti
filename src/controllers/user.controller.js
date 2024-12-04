@@ -1,6 +1,5 @@
 import * as UsuarioModel from '../models/user.model.js';
 import pool from "../config/conection.js";
-//import session from 'express-session';
 import jwt from 'jsonwebtoken';
 import bcrypt from 'bcryptjs';
 import dotenv from 'dotenv'
@@ -56,62 +55,85 @@ export const deleteUser = async (req, res) => {
     }
 };
 
-export const loginUser = async (req, res) => {
-    try {
-        const { email, password } = req.body;
+/* export const loginUser = async (req, res) => {
+    const { email, password } = req.body;
 
-        // Verificar si el usuario existe
+    try {
         const [rows] = await pool.query("SELECT * FROM usuarios WHERE mail = ?", [email]);
         const user = rows[0];
+
         if (!user) {
-            return res.status(404).json({ message: 'Usuario no encontrado.' });
+            return res.status(401).json({ message: 'Credenciales incorrectas' });
         }
 
-        // Validar la contraseña (asumiendo que está cifrada)
-        const validPassword = bcrypt.compareSync(password, user.contrasenia);
-        if (!validPassword) {
-            return res.status(401).json({ message: 'Contraseña incorrecta.' });
+        // Verificar la contraseña
+        const passwordMatch = await bcrypt.compare(password, user.contrasenia);
+        if (!passwordMatch) {
+            return res.status(401).json({ message: 'Credenciales incorrectas' });
         }
 
-        // Crear el token JWT
+        // Generar un token JWT
         const token = jwt.sign(
-            {
-                id: user.ID,
+            { userId: user.id,email: user.mail }
+            ,process.env.SESSION_SECRET,
+            {expiresIn: '1h'});
+        // Enviar el token y los datos del usuario (sin contraseñas)
+        res.json({
+            token,
+            userData: {
+                id: user.id,
                 nombre: user.nombre,
-                apellido: user.apellido,
                 email: user.mail,
-                foto: user.foto,
                 direccion: user.direccion,
-                emprendimiento: user.emprendimiento,
             },
-            process.env.SESSION_SECRET,
-            { expiresIn: '1d' } // El token expira en 1 día
+        });
+    } catch (error) {
+        console.error('Error en loginUser:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
+    }
+};
+ */
+
+export const loginUser = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const [rows] = await pool.query('SELECT * FROM usuarios WHERE mail = ?', [email]);
+        if (rows.length === 0) {
+            return res.status(401).json({ message: 'Credenciales incorrectas' });
+        }
+
+        const user = rows[0];
+        const passwordMatch = await bcrypt.compare(password, user.contrasenia);
+        if (!passwordMatch) {
+            return res.status(401).json({ message: 'Credenciales incorrectas' });
+        }
+
+        // Generar el token
+        const token = jwt.sign(
+            { id: user.id, email: user.mail, nombre: user.nombre, apellido: user.apellido
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
         );
 
-        // Responder con el token
         res.json({ token });
     } catch (error) {
-        console.error('Error al iniciar sesión:', error);
-        res.status(500).json({ message: 'Error interno del servidor.' });
+        console.error('Error en login:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
     }
 };
 
-//ver esto para mostrar los datos de dal sesion en myaccount.html
+
+// Controlador para obtener datos del usuario autenticado
 export const getUserSessionData = (req, res) => {
-    if (req.user) {
-        res.json({
-            id: req.user.id,
-            nombre: req.user.nombre,
-            apellido: req.user.apellido,
-            email: req.user.email,
-            foto: req.user.foto,
-            direccion: req.user.direccion,
-            emprendimiento: req.user.emprendimiento,
-        });
-    } else {
-        res.status(401).json({ message: 'No hay sesión activa.' });
+    const user = req.user; // Dato adjuntado por `requireAuth`
+    if (!user) {
+        return res.status(401).json({ message: 'Usuario no autenticado' });
     }
+    res.json(user);
 };
+
 
 
 export const logoutUser  = (req, res) => {

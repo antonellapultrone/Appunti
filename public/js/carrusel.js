@@ -1,6 +1,3 @@
-import {renderCards} from './card.js'
-import {renderBtnCategorias, btnActive, categorias, imagenes} from './categorias.js'
-
 export function renderButtonsCarrusel(root, carouselId) {
     const div = document.createElement('div');
     div.setAttribute('class', 'container-buttons');
@@ -55,33 +52,3 @@ export function initCarrusel(carouselId) {
         });
     });
 }
-
-//ver si es especifico de carrusel
-export async function getAllCards() {
-    try {
-        const response = await fetch('/api/cards'); // Llama al endpoint del backend
-        if (!response.ok) throw new Error('Error en la solicitud');
-        return await response.json();
-    } catch (error) {
-        console.error('Error al obtener las tarjetas:', error);
-        return [];
-    }
-}
-
-document.addEventListener('DOMContentLoaded', async () => {
-    const rootDescubreZona = document.getElementById("section-descubreTuZona");
-    const rootCategorias = document.getElementById("section-categorias");
-    
-    const cardJson = await getAllCards();
-
-    renderCards(rootDescubreZona, cardJson, 'carousel-1');
-    renderCards(rootCategorias, cardJson, 'carousel-2');
-    renderButtonsCarrusel(rootDescubreZona, 'carousel-1');
-    renderButtonsCarrusel(rootCategorias, 'carousel-2');
-    initCarrusel('carousel-1');
-    initCarrusel('carousel-2');
-
-    // Si usas estas funciones, asegúrate de que estén definidas
-    renderBtnCategorias(categorias, imagenes);
-    btnActive();
-});

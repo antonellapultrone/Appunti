@@ -30,3 +30,14 @@ export function renderCards(root, cardJson, carouselId) {
 
     root.appendChild(carouselContainer); // Añadir el contenedor del carrusel al root
 }
+
+export async function getAllCards() {
+    try {
+        const response = await fetch('/api/cards'); // Llama al endpoint del backend
+        if (!response.ok) throw new Error('Error en la solicitud');
+        return await response.json();
+    } catch (error) {
+        console.error('Error al obtener las tarjetas:', error);
+        return [];
+    }
+}
