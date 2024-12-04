@@ -1,5 +1,11 @@
 import * as UsuarioModel from '../models/user.model.js';
 import pool from "../config/conection.js";
+//import session from 'express-session';
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+import dotenv from 'dotenv'
+
+dotenv.config({ path: './credenciales.env' });
 
 export const getAllUsers = async (req, res) => {
     try {
@@ -10,11 +16,11 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
-export const getUserById = async (req, res) => {
+export const getUserId = async (req, res) => {
     try {
-        const usuario = await UsuarioModel.getUserById(req.params.id);
+        const usuario = await UsuarioModel.getUserId(req.params.id);
         if (!usuario) {
-            return res.status(404).json({ message: 'Servicio no encontrado' });
+            return res.status(404).json({ message: 'Usuario no encontrado' });
         }
         res.json(usuario);
     } catch (error) {
@@ -24,7 +30,7 @@ export const getUserById = async (req, res) => {
 
 export const createUser = async (req, res) => {
     try {
-        const newUsuarioId = await UsuarioModel.createUser(req.body);
+        await UsuarioModel.createUser(req.body);
         /* res.status(201).json({ id: newUsuarioId }); */
         res.redirect('/views/login.html');
     } catch (error) {
@@ -52,53 +58,61 @@ export const deleteUser = async (req, res) => {
 
 export const loginUser = async (req, res) => {
     try {
-        const { email} = req.body;
-        // Recuperar información del usuario
+        const { email, password } = req.body;
+
+        // Verificar si el usuario existe
         const [rows] = await pool.query("SELECT * FROM usuarios WHERE mail = ?", [email]);
         const user = rows[0];
+        if (!user) {
+            return res.status(404).json({ message: 'Usuario no encontrado.' });
+        }
 
-        // Almacenar datos del usuario en la sesión del servidor
-        req.session.userId = user.ID;
-        req.session.userName = user.nombre;
-        req.session.userLastName = user.apellido;
-        req.session.userEmail = user.mail;
-        req.session.userPhoto = user.foto;
-        req.session.userAddress = user.direccion;
-        req.session.userEntrepreneur = user.emprendimiento;
+        // Validar la contraseña (asumiendo que está cifrada)
+        const validPassword = bcrypt.compareSync(password, user.contrasenia);
+        if (!validPassword) {
+            return res.status(401).json({ message: 'Contraseña incorrecta.' });
+        }
 
-        // Respuesta exitosa
-        res.redirect('/views/myaccount.html');
+        // Crear el token JWT
+        const token = jwt.sign(
+            {
+                id: user.ID,
+                nombre: user.nombre,
+                apellido: user.apellido,
+                email: user.mail,
+                foto: user.foto,
+                direccion: user.direccion,
+                emprendimiento: user.emprendimiento,
+            },
+            process.env.SESSION_SECRET,
+            { expiresIn: '1d' } // El token expira en 1 día
+        );
+
+        // Responder con el token
+        res.json({ token });
     } catch (error) {
         console.error('Error al iniciar sesión:', error);
-        res.status(500).json({ message: 'Ocurrió un error en el servidor.' });
+        res.status(500).json({ message: 'Error interno del servidor.' });
     }
 };
 
 //ver esto para mostrar los datos de dal sesion en myaccount.html
 export const getUserSessionData = (req, res) => {
-    // Recuperar datos del sessionStorage
-    const userId = sessionStorage.getItem('userId');
-    const userName = sessionStorage.getItem('userName');
-    const userLastName = sessionStorage.getItem('userLastName');
-    const userEmail = sessionStorage.getItem('userEmail');
-    const userPhoto = sessionStorage.getItem('userPhoto');
-    const userAddress = sessionStorage.getItem('userAddress');
-    const userEntrepreneur = sessionStorage.getItem('userEntrepreneur');
-
-    if (userId) {
+    if (req.user) {
         res.json({
-            id: userId,
-            nombre: userName,
-            apellido: userLastName,
-            email: userEmail,
-            foto: userPhoto,
-            direccion: userAddress,
-            emprendimiento: userEntrepreneur,
+            id: req.user.id,
+            nombre: req.user.nombre,
+            apellido: req.user.apellido,
+            email: req.user.email,
+            foto: req.user.foto,
+            direccion: req.user.direccion,
+            emprendimiento: req.user.emprendimiento,
         });
     } else {
         res.status(401).json({ message: 'No hay sesión activa.' });
     }
 };
+
 
 export const logoutUser  = (req, res) => {
     // Limpiar sessionStorage

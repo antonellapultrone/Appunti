@@ -10,17 +10,23 @@ const app = express();
 dotenv.config({ path: './credenciales.env' });
 
 // Middleware para manejar sesiones
-app.use(session({
-    secret: process.env.SESSION_SECRET, // Cambia esto por una cadena secreta
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // Cambia a true si usas HTTPS
-}));
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET, // Cambia esto por una cadena secreta
+        resave: false,
+        saveUninitialized: true,
+        cookie: {
+            secure: false, // Cambia a true si usas HTTPS
+            maxAge: 24 * 60 * 60 * 1000, // 1 día
+        }, // Cambia a true si usas HTTPS
+    })
+);
 // Middleware
 app.use(express.json()); // Parseo de JSON
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/api/user', userRoutes);
+app.use('/views', userRoutes);
 app.use('/api/service', serviceRoutes);
 app.get('/api/cards', cardsRoutes);
 app.use('/api/reserva', reservaRoutes);
