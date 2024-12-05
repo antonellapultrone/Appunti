@@ -11,6 +11,7 @@ CREATE TABLE IF NOT EXISTS `appunti`.`usuarios` (
   `foto` VARCHAR(255) NULL DEFAULT NULL,
   `direccion` VARCHAR(100) NULL DEFAULT NULL,
   `emprendimiento` BOOLEAN NULL DEFAULT FALSE,
+  `telefono` VARCHAR(20) NULL DEFAULT NULL,
   PRIMARY KEY (`ID`),
   UNIQUE INDEX `mail` (`mail` ASC) 
 );

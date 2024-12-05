@@ -8,24 +8,48 @@ export const getAllUsers = async () => {
 
 export const getUserId = async (id) => {
     const [rows] = await pool.query('SELECT * FROM usuarios WHERE id = ?', [id]);
-    return rows[0];
+    
+    // Devolver un objeto con valores por defecto si no existe
+    if (rows.length === 0) return null;
+    
+    return {
+        id: rows[0].ID,
+        nombre: rows[0].nombre || '',
+        apellido: rows[0].apellido || '',
+        mail: rows[0].mail || '',
+        direccion: rows[0].direccion || '',
+        telefono: rows[0].telefono || '',
+        fecha_nacimiento: rows[0].fecha_nacimiento || null,
+        foto: rows[0].foto || '',
+        emprendimiento: rows[0].emprendimiento || false
+    };
 };
 
 export const createUser = async (data) => {
-    const {nombre, apellido, email, fechaNacimiento, password, confirmPass} = data;
-    //pasar a validator
+    const {
+        nombre, 
+        apellido, 
+        email, 
+        fechaNacimiento, 
+        password, 
+        confirmPass, 
+        direccion = '', 
+        telefono = '',
+        emprendimiento = false
+    } = data;
+
+    // Validaciones previas
     if (password !== confirmPass) {
-        return res.status(400).send("Las contraseñas no coinciden.");
+        throw new Error("Las contraseñas no coinciden");
     }
-    console.log(apellido);
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const [result] = await pool.query(
-        "INSERT INTO usuarios (nombre, apellido, mail, fecha_nacimiento, contrasenia) VALUES (?, ?, ?, ?, ?)",
-        [nombre, apellido, email, fechaNacimiento, hashedPassword]
+        "INSERT INTO usuarios (nombre, apellido, mail, fecha_nacimiento, contrasenia, direccion, telefono, emprendimiento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)",
+        [nombre, apellido, email, fechaNacimiento, hashedPassword, direccion, telefono, emprendimiento]
     );
-    console.log("Usuario Registrado Correctamente");
+
     return result.insertId;
 };
 

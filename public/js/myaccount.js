@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     if (!token) {
         console.error('Token no encontrado. Redirigiendo a login.');
-        window.location.href = 'http://localhost:3000/views/login.html'; // Corregir URL
+        window.location.href = 'http://localhost:3000/views/login.html';
         return;
     }
 
@@ -28,31 +28,42 @@ document.addEventListener('DOMContentLoaded', async () => {
             throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
         }
 
-        if (response.ok) {
-            const userData = await response.json();
-            document.getElementById('userName').innerText = userData.nombre || 'N/A';
-            document.getElementById('userLastName').innerText = userData.apellido || 'N/A';
-            document.getElementById('userEmail').innerText = userData.email || 'N/A';
-            document.getElementById('userAddress').innerText = userData.direccion || 'N/A';
-            //document.getElementById('date').innerText = userData.fechaNacimiento || 'N/A';
+        const userData = await response.json();
 
-            // Cargar y renderizar las cards
-            const cardJson = await getAllCards();
+        // Función para manejar valores nulos o vacíos
+        const formatValue = (value) => {
+            return value && value.trim() !== '' ? value : 'N/A';
+        };
 
-            if (rootFavoritos && cardJson) {
-                renderCards(rootFavoritos, cardJson, 'favoritos');
-                renderButtonsCarrusel(rootFavoritos, 'favoritos');
-                initCarrusel('favoritos');
-            } else {
-                console.error('Error: contenedor o datos de tarjetas no disponibles.');
-            }
+        // Cargar datos del usuario con manejo de valores vacíos
+        document.getElementById('userName').innerText = formatValue(userData.nombre);
+        document.getElementById('userLastName').innerText = formatValue(userData.apellido);
+        document.getElementById('userEmail').innerText = formatValue(userData.email);
+        document.getElementById('userAddress').innerText = formatValue(userData.direccion);
+        
+        // Opcional: Agregar más campos si están disponibles
+        document.getElementById('userPhone').innerText = formatValue(userData.telefono);
+        
+        // Si tienes un campo para fecha de nacimiento
+        if (userData.fechaNacimiento) {
+            const fechaFormateada = new Date(userData.fechaNacimiento).toLocaleDateString('es-AR');
+            document.getElementById('userDate').innerText = formatValue(fechaFormateada);
         } else {
-            //esta entrando aca
-            console.error('Error al obtener datos de sesión. Redirigiendo a login.');
-            //window.location.href = 'http://localhost:3000/views/login.html'; // Corregir URL'¿
+            document.getElementById('userDate').innerText = 'N/A';
+        }
+
+        // Cargar y renderizar las cards de favoritos
+        const cardJson = await getAllCards();
+
+        if (rootFavoritos && cardJson) {
+            renderCards(rootFavoritos, cardJson, 'favoritos');
+            renderButtonsCarrusel(rootFavoritos, 'favoritos');
+            initCarrusel('favoritos');
+        } else {
+            console.error('Error: contenedor o datos de tarjetas no disponibles.');
         }
     } catch (error) {
         console.error('Error al obtener los datos del usuario:', error);
-        window.location.href = 'http://localhost:3000/views/login.html'; // Corregir URL
+        window.location.href = 'http://localhost:3000/views/login.html';
     }
 });
