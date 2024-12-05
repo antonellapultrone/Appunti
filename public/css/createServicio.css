@@ -204,6 +204,12 @@ div.cancelacion{
     margin: auto;
     margin-top: 2rem;
 }
+.message {
+    color: red; /* para errores */
+    color: green; /* para éxitos */
+    text-align: center;
+    margin: 10px 0;
+}
 
 @media screen and (width < 890) {
     /* .form-group{

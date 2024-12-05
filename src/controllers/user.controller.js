@@ -92,20 +92,36 @@ export const loginUser = async (req, res) => {
 
 
 // Controlador para obtener datos del usuario autenticado
-export const getUserSessionData = (req, res, next) => {
-    if (!req.user) {
-        return res.status(401).json({ message: 'Usuario no autenticado' });
-    }
-    
-    // Asegúrate de pasar el usuario al siguiente middleware
-    req.sessionUser = req.user;
-    
-    if (next) {
-        next();
-    } else {
-        res.json(req.user);
+// user.controller.js
+export const getUserSessionData = async (req, res) => {
+    try {
+        if (!req.user) {
+            console.error('Usuario no autenticado');
+            return res.status(401).json({ message: 'Usuario no autenticado' });
+        }
+
+        const [rows] = await pool.query('SELECT * FROM usuarios WHERE ID = ?', [req.user.id]);
+
+        if (rows.length === 0) {
+            console.error('Usuario no encontrado');
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        const user = rows[0];
+        const userData = {
+            id: user.ID,
+            nombre: user.nombre,
+            apellido: user.apellido,
+            email: user.mail,
+            direccion: user.direccion || '',
+        };
+        res.json(userData);
+    } catch (error) {
+        console.error('Error interno del servidor:', error.message);
+        res.status(500).json({ message: 'Error interno del servidor' });
     }
 };
+
 
 export const logoutUser  = (req, res) => {
     // Limpiar sessionStorage

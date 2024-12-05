@@ -7,12 +7,10 @@ const router = express.Router();
 
 router.get('/', serviceController.getAllService);
 router.get('/:id', serviceController.getServiceById);
-router.post('/createService', 
+router.post(
+    '/createService',
     requireAuth,  // Primero autentica
-    (req, res, next) => {
-        userController.getUserSessionData(req, res, next);
-    },
-    serviceController.createService
+    serviceController.createService  // Luego crea el servicio
 );
 router.put('/:id', serviceController.updateService);
 router.delete('/:id', serviceController.deleteService);

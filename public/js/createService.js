@@ -12,9 +12,9 @@ form.addEventListener('submit', async (event) => {
     
     const dataService = {
         nombre: document.getElementById('nombre').value,
-        precio: document.getElementById('precio').value,
-        duracion_hora: document.getElementById('duracion_hora').value,
-        descripcion: document.getElementById('descripcion').value,
+        precio: parseFloat(document.getElementById('precio').value),
+        duracion_hora: parseInt(document.getElementById('duracion_hora').value),
+        descripcion: document.getElementById('descripcion').value || '',
         categoria: document.getElementById('categoria').value,
         ubicacion: document.getElementById('ubicacion').value,
         ciudad: document.getElementById('ciudad').value,
@@ -23,6 +23,8 @@ form.addEventListener('submit', async (event) => {
         hora_inicio: document.getElementById('hora_inicio').value,
         hora_fin: document.getElementById('hora_fin').value,
     };
+
+    console.log('Datos a enviar:', dataService);
 
     try {
         const response = await fetch('/api/service/createService', {
@@ -33,18 +35,27 @@ form.addEventListener('submit', async (event) => {
             },
             body: JSON.stringify(dataService)
         });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            console.error('Error en la respuesta:', errorData);
-            return;
-        }
-
+    
         const result = await response.json();
-        console.log('Servicio creado:', result);
-        alert('Servicio creado correctamente');
+    
+        if (response.ok) {
+            console.log('Respuesta del servidor:', result);
+            
+            // Verifica exactamente qué devuelve el servidor
+            if (result.serviceId) {
+                console.log('Servicio creado con ID:', result.serviceId);
+                // Descomentar si quieres redirigir
+                // window.location.href = '/views/myaccount.html';
+            } else {
+                console.error('La respuesta no contiene un ID de servicio');
+                document.getElementById('formMessage').innerText = 'Error: Respuesta inesperada del servidor';
+            }
+        } else {
+            console.error('Error en la respuesta:', result);
+            document.getElementById('formMessage').innerText = result.message || 'Error al crear el servicio';
+        }
     } catch (error) {
         console.error('Error completo:', error);
-        alert('Error al crear el servicio');
+        document.getElementById('formMessage').innerText = 'Error al crear el servicio';
     }
 });

@@ -73,17 +73,8 @@ export const createService = async (dataService) => {
         [nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID]
     );
 
-    const servicio_ID = result.insertId;
-
-    // Insertar imágenes si existen
-    if (dataService.imagenes) {
-        for (const imagen of dataService.imagenes) {
-            await connection.query(
-                `INSERT INTO imagenes (url, servicio_ID) VALUES (?, ?)`,
-                [imagen.url, servicio_ID]
-            );
-        }
-    }
+    // Importante: retornar el ID del servicio insertado
+    return result.insertId;
 };
 
 export const updateService = async (id, dataService) => {

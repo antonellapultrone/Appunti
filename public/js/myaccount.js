@@ -15,8 +15,18 @@ document.addEventListener('DOMContentLoaded', async () => {
     try {
         // Verificar datos de sesión
         const response = await fetch('/api/user/session', {
-            headers: { Authorization: `Bearer ${token}` },
+            method: 'GET',
+            headers: { 
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
         });
+
+        if (!response.ok) {
+            const errorText = await response.text();
+            console.error('Error response text:', errorText);
+            throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+        }
 
         if (response.ok) {
             const userData = await response.json();
@@ -24,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             document.getElementById('userLastName').innerText = userData.apellido || 'N/A';
             document.getElementById('userEmail').innerText = userData.email || 'N/A';
             document.getElementById('userAddress').innerText = userData.direccion || 'N/A';
-            //document.getElementById('date').innerText = userData.direccion || 'N/A';
+            //document.getElementById('date').innerText = userData.fechaNacimiento || 'N/A';
 
             // Cargar y renderizar las cards
             const cardJson = await getAllCards();
