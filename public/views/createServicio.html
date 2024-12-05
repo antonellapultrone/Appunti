@@ -6,6 +6,7 @@
     <title>Registro de Servicios</title>
     <link rel="stylesheet" href="../css/global.css">
     <script type="module" src="../js/app.js"></script>
+    <script type="module" src="../js/createService.js"></script>
 </head>
 <body class="body-style">
     <!-- Barra de navegación -->
@@ -19,7 +20,7 @@
         <h2>REGISTRO DE SERVICIOS</h2>
         
         <!--Datos del servicio-->
-        <form action="/api/service/createService" method="post">
+        <form id="createServiceForm" method="post">
             <div class="container-data">
                 <h3>Datos del servicio</h3>
                 <div class="contenedor-input">
@@ -114,14 +115,14 @@
                 <div>
                     <!-- cambiar input -->
                     <label for="duracion_hora">Duración</label> 
-                        <select name="duracion_hora" id="duracion_hora">
-                                <option value="1">1 Hora</option>
-                                <option value="2">2 Horas</option>
-                                <option value="3">3 Horas</option>
-                                <option value="4">4 Horas</option>
-                                <option value="5">5 Horas</option>
-                                <option value="6">6 Horas</option>
-                        </select>
+                    <select name="duracion_hora" id="duracion_hora" required>
+                        <option value="1">1 Hora</option>
+                        <option value="2">2 Horas</option>
+                        <option value="3">3 Horas</option>
+                        <option value="4">4 Horas</option>
+                        <option value="5">5 Horas</option>
+                        <option value="6">6 Horas</option>
+                    </select>
                 </div>
             </div>
         <!--Imagenes del servicio-->
@@ -139,6 +140,7 @@
                 <button class="cancel-btn" type="button" id="cancelado">Cancelar</button>
                 <button class="submit" type="submit" id="enviado">Publicar</button>
             </div>
+            <div id="formMessage" class="message"></div>
         </form>
         </div>
         <footer>

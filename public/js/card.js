@@ -21,7 +21,7 @@ export function renderCards(root, cardJson, carouselId) {
             <div>
                 <h3>${card.nombre}</h3>
                 <p><span>Ubicación:</span> ${card.ubicacion}</p>
-                <p>${card.descripcion}</p>
+                <p class="description">${card.descripcion}</p>
             </div>
             <button class="btn-reservar">Reservar</button>
         `;
@@ -29,4 +29,15 @@ export function renderCards(root, cardJson, carouselId) {
     });
 
     root.appendChild(carouselContainer); // Añadir el contenedor del carrusel al root
+}
+
+export async function getAllCards() {
+    try {
+        const response = await fetch('/api/cards'); // Llama al endpoint del backend
+        if (!response.ok) throw new Error('Error en la solicitud');
+        return await response.json();
+    } catch (error) {
+        console.error('Error al obtener las tarjetas:', error);
+        return [];
+    }
 }

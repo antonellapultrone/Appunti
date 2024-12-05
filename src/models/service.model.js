@@ -49,53 +49,32 @@ export const getServiceById = async (id) => {
 };
 
 export const createService = async (dataService) => {
-    const connection = await pool.getConnection();
-    try {
-        await connection.beginTransaction();
+    // Desestructura con valores por defecto
+    const { 
+        nombre, 
+        precio, 
+        duracion_hora = 1,  // Valor por defecto de 1 hora
+        descripcion = '', 
+        categoria = '', 
+        ubicacion = '', 
+        ciudad = '', 
+        telefono = '', 
+        dia_semana = '', 
+        hora_inicio = '00:00', 
+        hora_fin = '23:59', 
+        usuario_ID 
+    } = dataService;
+    
+    const estado = true;
 
-        // Insertar el servicio
-        const { nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono,dia_semana, hora_inicio, hora_fin} = dataService;
+    const [result] = await pool.query(
+        `INSERT INTO servicios (nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID) 
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+        [nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID]
+    );
 
-        //llamar usuario logeado y obtener su id
-        let usuario_ID = 1;
-        const estado = "active";
-        //agregar estado aca y en la base de datos
-        //ver horario en bd
-        const [result] = await connection.query(
-            `INSERT INTO servicios (nombre, precio,duracion_hora, descripcion, categoria, ubicacion,ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-            [nombre, precio,duracion_hora, descripcion, categoria, ubicacion,ciudad, telefono,dia_semana,hora_inicio, hora_fin, estado, usuario_ID]
-        );
-        const servicio_ID = result.insertId;
-
-        // Insertar imágenes
-        if (dataService.imagenes) {
-            for (const imagen of dataService.imagenes) {
-                await connection.query(
-                    `INSERT INTO imagenes (url,  servicio_ID) VALUES (?, ?)`,
-                    [imagen.url,  servicio_ID]
-                );
-            }
-        }
-
-        // Insertar horarios
-        /* if (dataService.horarios) {
-            for (const horario of dataService.horarios) {
-                await connection.query(
-                    `INSERT INTO horarios (dia_semana, hora_inicio, hora_fin, servicio_ID) VALUES (?, ?, ?, ?)`,
-                    [horario.dia_semana, horario.hora_inicio, horario.hora_fin, servicio_ID]
-                );
-            }
-        } */
-
-        await connection.commit();
-        return servicio_ID;
-    } catch (error) {
-        await connection.rollback();
-        throw error;
-    } finally {
-        connection.release();
-    }
+    // Importante: retornar el ID del servicio insertado
+    return result.insertId;
 };
 
 export const updateService = async (id, dataService) => {

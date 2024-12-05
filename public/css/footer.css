@@ -1,14 +1,18 @@
 footer {
     background-color: #B3B3B3;
-    padding: 2rem;
     text-align: left;
-    font-size: 16pt;
+    font-size: 14pt;
+    padding: 2rem 4rem;
 }
 .footer-container {
     display: flex;
     align-items: center;
-    flex-wrap: wrap;
-    margin: 50px;
+    flex-wrap: nowrap;
+    gap: 1rem;
+}
+.footer-container a{
+    margin: 0;
+    padding: 0;
 }
 .footer-container a img{
     width: 8rem;
@@ -16,32 +20,36 @@ footer {
 .social{
     display: flex;
     flex-direction: column;
-    margin:0 auto 0 3rem;
+    margin: 0
 }
 .social p{
-    margin-left:  1rem;
+    margin: 1rem 0;
     color: #10002b;
 }
 .social-media{
-    margin-top: 1rem;
     display: flex;
+    gap: .5rem;
 }
 .social-media h3 {
     margin-bottom: 10px;
 }
 .social-media a{
     text-decoration: none;
+    height: min-content;
 }
 .social-media a svg {
     width: 60px;
-    margin: 0 10px;
+    height: 60px;
 }
 .footer-container ul{
     display: grid;
-    grid-template-columns: 1fr 2fr;
-    list-style: none;
+    grid-template-columns: 1fr 1fr;
     gap: 1rem;
-    column-gap: 300px;
+    list-style: none;
+    width: 100%;
+}
+.footer-container ul li{
+    width: min-content;
 }
 .footer-container ul li a{
     text-decoration: none;
@@ -52,5 +60,5 @@ footer {
 }
 .copy{
     text-align: center;
-    margin: 2rem 0;
+    color: #10002b;
 }

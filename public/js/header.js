@@ -19,20 +19,17 @@ export const menuData = [
         name: "Crear Servicio",
         img: "https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff",
         url:"../../views/createServicio.html"
-    },
-    {
-        name: "Registrarse",
-        img: "https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff",
-        url:"../../views/register.html"
     }
 ]
+
 export function renderNav(root, menuItems) {
     let nav = document.createElement('nav');
     root.appendChild(nav);
     let ul = document.createElement('ul');
     nav.appendChild(ul);
 
-    for(let i  = 0; i < 1; i++){
+    // Agregar elementos fijos del menú
+    for(let i = 0; i < menuItems.length; i++){
         let li = document.createElement('li');
         li.innerHTML = `
                         <a href="${menuItems[i].url}">
@@ -42,6 +39,7 @@ export function renderNav(root, menuItems) {
                         `;
         ul.appendChild(li);
     }
+
     let divBuscador = document.createElement('div')
     divBuscador.setAttribute('class', 'buscador');
     divBuscador.innerHTML = `
@@ -51,16 +49,28 @@ export function renderNav(root, menuItems) {
             </form>
     `
     ul.appendChild(divBuscador);
-    for(let i  = 1; i < menuItems.length; i++){
-        let li = document.createElement('li');
-        li.innerHTML = `
-                        <a href="${menuItems[i].url}">
-                            <img src="${menuItems[i].img}" alt="">
-                            ${menuItems[i].name}
-                        </a>
-                        `;
-        ul.appendChild(li);
-    }
-}
 
-/*Agregar un boton para ir para atras */
+    // Añadir elemento de inicio de sesión/mi cuenta dinámicamente
+    let liAuth = document.createElement('li');
+    const token = sessionStorage.getItem('token');
+
+    if (token) {
+        // Usuario autenticado
+        liAuth.innerHTML = `
+            <a href="../../views/myaccount.html">
+                <img src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff" alt="">
+                Mi Cuenta
+            </a>
+        `;
+    } else {
+        // Usuario no autenticado
+        liAuth.innerHTML = `
+            <a href="../../views/login.html">
+                <img src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff" alt="">
+                Ingresar
+            </a>
+        `;
+    }
+
+    ul.appendChild(liAuth);
+}

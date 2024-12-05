@@ -17,10 +17,14 @@
     position: relative;
 }
 .data-user{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1rem;
     padding: 1rem;
+}
+.data-user div p{
+    display: inline;
+    font-size: 20pt;
 }
 .data-user a,
 .reserva-list a{

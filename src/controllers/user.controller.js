@@ -1,5 +1,10 @@
 import * as UsuarioModel from '../models/user.model.js';
 import pool from "../config/conection.js";
+import jwt from 'jsonwebtoken';
+import bcrypt from 'bcryptjs';
+import dotenv from 'dotenv'
+
+dotenv.config({ path: './credenciales.env' });
 
 export const getAllUsers = async (req, res) => {
     try {
@@ -10,11 +15,11 @@ export const getAllUsers = async (req, res) => {
     }
 };
 
-export const getUserById = async (req, res) => {
+export const getUserId = async (req, res) => {
     try {
-        const usuario = await UsuarioModel.getUserById(req.params.id);
+        const usuario = await UsuarioModel.getUserId(req.params.id);
         if (!usuario) {
-            return res.status(404).json({ message: 'Servicio no encontrado' });
+            return res.status(404).json({ message: 'Usuario no encontrado' });
         }
         res.json(usuario);
     } catch (error) {
@@ -24,7 +29,7 @@ export const getUserById = async (req, res) => {
 
 export const createUser = async (req, res) => {
     try {
-        const newUsuarioId = await UsuarioModel.createUser(req.body);
+        await UsuarioModel.createUser(req.body);
         /* res.status(201).json({ id: newUsuarioId }); */
         res.redirect('/views/login.html');
     } catch (error) {
@@ -51,54 +56,74 @@ export const deleteUser = async (req, res) => {
 };
 
 export const loginUser = async (req, res) => {
+    const { email, password } = req.body;
+
     try {
-        const { email} = req.body;
-        // Recuperar información del usuario
-        const [rows] = await pool.query("SELECT * FROM usuarios WHERE mail = ?", [email]);
+        const [rows] = await pool.query('SELECT * FROM usuarios WHERE mail = ?', [email]);
+        if (rows.length === 0) {
+            return res.status(401).json({ message: 'Credenciales incorrectas' });
+        }
+
         const user = rows[0];
+        const passwordMatch = await bcrypt.compare(password, user.contrasenia);
+        if (!passwordMatch) {
+            return res.status(401).json({ message: 'Credenciales incorrectas' });
+        }
 
-        // Almacenar datos del usuario en la sesión del servidor
-        req.session.userId = user.ID;
-        req.session.userName = user.nombre;
-        req.session.userLastName = user.apellido;
-        req.session.userEmail = user.mail;
-        req.session.userPhoto = user.foto;
-        req.session.userAddress = user.direccion;
-        req.session.userEntrepreneur = user.emprendimiento;
+        // Incluye el ID en el token
+        const token = jwt.sign(
+            { 
+                id: user.ID,  // Asegúrate de usar el nombre correcto del campo ID en tu base de datos
+                email: user.mail, 
+                nombre: user.nombre, 
+                apellido: user.apellido,
+                fechaNacimiento: user.fecha_nacimiento
+            },
+            process.env.JWT_SECRET,
+            { expiresIn: '1h' }
+        );
 
-        // Respuesta exitosa
-        res.redirect('/views/myaccount.html');
+        res.json({ token });
     } catch (error) {
-        console.error('Error al iniciar sesión:', error);
-        res.status(500).json({ message: 'Ocurrió un error en el servidor.' });
+        console.error('Error en login:', error);
+        res.status(500).json({ message: 'Error interno del servidor' });
     }
 };
 
-//ver esto para mostrar los datos de dal sesion en myaccount.html
-export const getUserSessionData = (req, res) => {
-    // Recuperar datos del sessionStorage
-    const userId = sessionStorage.getItem('userId');
-    const userName = sessionStorage.getItem('userName');
-    const userLastName = sessionStorage.getItem('userLastName');
-    const userEmail = sessionStorage.getItem('userEmail');
-    const userPhoto = sessionStorage.getItem('userPhoto');
-    const userAddress = sessionStorage.getItem('userAddress');
-    const userEntrepreneur = sessionStorage.getItem('userEntrepreneur');
 
-    if (userId) {
-        res.json({
-            id: userId,
-            nombre: userName,
-            apellido: userLastName,
-            email: userEmail,
-            foto: userPhoto,
-            direccion: userAddress,
-            emprendimiento: userEntrepreneur,
-        });
-    } else {
-        res.status(401).json({ message: 'No hay sesión activa.' });
+// Controlador para obtener datos del usuario autenticado
+export const getUserSessionData = async (req, res) => {
+    try {
+        if (!req.user) {
+            return res.status(401).json({ message: 'Usuario no autenticado' });
+        }
+
+        const [rows] = await pool.query('SELECT * FROM usuarios WHERE ID = ?', [req.user.id]);
+
+        if (rows.length === 0) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+
+        const user = rows[0];
+        const userData = {
+            id: user.ID,
+            nombre: user.nombre || '',
+            apellido: user.apellido || '',
+            email: user.mail || '',
+            direccion: user.direccion || '',
+            telefono: user.telefono || '',
+            fechaNacimiento: user.fecha_nacimiento || null,
+            foto: user.foto || '',
+            emprendimiento: user.emprendimiento || false
+        };
+        
+        res.json(userData);
+    } catch (error) {
+        console.error('Error interno del servidor:', error.message);
+        res.status(500).json({ message: 'Error interno del servidor' });
     }
 };
+
 
 export const logoutUser  = (req, res) => {
     // Limpiar sessionStorage
