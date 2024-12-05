@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (response.ok) {
                 const data = await response.json();
+                console.log("Token recibido:", data.token); // Añade este log
                 sessionStorage.setItem('token', data.token);
-                sessionStorage.setItem('userData', JSON.stringify(data.userData));
                 window.location.href = '/views/myaccount.html';
                 /* window.location.href = '/'; */
             } else {

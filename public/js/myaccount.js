@@ -17,15 +17,14 @@ document.addEventListener('DOMContentLoaded', async () => {
         const response = await fetch('/api/user/session', {
             headers: { Authorization: `Bearer ${token}` },
         });
-        console.log(response);
 
         if (response.ok) {
             const userData = await response.json();
-            console.log('Datos del usuario:', userData);
             document.getElementById('userName').innerText = userData.nombre || 'N/A';
             document.getElementById('userLastName').innerText = userData.apellido || 'N/A';
-            document.getElementById('userAddress').innerText = userData.direccion || 'N/A';
             document.getElementById('userEmail').innerText = userData.email || 'N/A';
+            document.getElementById('userAddress').innerText = userData.direccion || 'N/A';
+            //document.getElementById('date').innerText = userData.direccion || 'N/A';
 
             // Cargar y renderizar las cards
             const cardJson = await getAllCards();

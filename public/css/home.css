@@ -61,21 +61,16 @@
 #section-categorias{
     background-color: #59189a85;
     margin: 2rem;
-    padding: 4rem;
+    padding: 2rem 10rem;
     border-radius: .5rem;
-}
-.container-categorias{
-    display: flex;
-    gap: 2rem;
 }
 .btn-Category{
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     text-align: center;
-    gap: 3rem;
-    margin: 0 5rem 2rem;
     width: 100%;
+    margin-bottom: 1.5rem;
 }
 .btn-Category:hover{
     cursor: pointer;
@@ -89,8 +84,16 @@
     border: 4px solid #5A189A;
     box-shadow: 3px 3px 5px #555555;
 }
+.btn-Category a{
+    padding: 0;
+    flex: 1 1 calc(33.33% - 1rem);
+    margin: 0.5rem;
+}
+.btn-Category a div{
+    margin: auto;
+}
 .btn-Category a .active p {
-    color: #ffffff; /* Cambia este color al que prefieras */
+    color: #ffffff; 
 }
 .btn-Category a div:hover{
     background-color: #dadada;
@@ -123,7 +126,7 @@
     background-color: #a26bda;
 }
 .buttons-carrusel img{
-    width: 3rem;
+    width: 2rem;
 }
 .container-buttons{
     margin: auto;

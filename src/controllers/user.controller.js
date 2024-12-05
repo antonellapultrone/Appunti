@@ -55,45 +55,6 @@ export const deleteUser = async (req, res) => {
     }
 };
 
-/* export const loginUser = async (req, res) => {
-    const { email, password } = req.body;
-
-    try {
-        const [rows] = await pool.query("SELECT * FROM usuarios WHERE mail = ?", [email]);
-        const user = rows[0];
-
-        if (!user) {
-            return res.status(401).json({ message: 'Credenciales incorrectas' });
-        }
-
-        // Verificar la contraseña
-        const passwordMatch = await bcrypt.compare(password, user.contrasenia);
-        if (!passwordMatch) {
-            return res.status(401).json({ message: 'Credenciales incorrectas' });
-        }
-
-        // Generar un token JWT
-        const token = jwt.sign(
-            { userId: user.id,email: user.mail }
-            ,process.env.SESSION_SECRET,
-            {expiresIn: '1h'});
-        // Enviar el token y los datos del usuario (sin contraseñas)
-        res.json({
-            token,
-            userData: {
-                id: user.id,
-                nombre: user.nombre,
-                email: user.mail,
-                direccion: user.direccion,
-            },
-        });
-    } catch (error) {
-        console.error('Error en loginUser:', error);
-        res.status(500).json({ message: 'Error interno del servidor' });
-    }
-};
- */
-
 export const loginUser = async (req, res) => {
     const { email, password } = req.body;
 
@@ -109,9 +70,14 @@ export const loginUser = async (req, res) => {
             return res.status(401).json({ message: 'Credenciales incorrectas' });
         }
 
-        // Generar el token
+        // Incluye el ID en el token
         const token = jwt.sign(
-            { id: user.id, email: user.mail, nombre: user.nombre, apellido: user.apellido
+            { 
+                id: user.ID,  // Asegúrate de usar el nombre correcto del campo ID en tu base de datos
+                email: user.mail, 
+                nombre: user.nombre, 
+                apellido: user.apellido,
+                fechaNacimiento: user.fecha_nacimiento
             },
             process.env.JWT_SECRET,
             { expiresIn: '1h' }
@@ -126,15 +92,20 @@ export const loginUser = async (req, res) => {
 
 
 // Controlador para obtener datos del usuario autenticado
-export const getUserSessionData = (req, res) => {
-    const user = req.user; // Dato adjuntado por `requireAuth`
-    if (!user) {
+export const getUserSessionData = (req, res, next) => {
+    if (!req.user) {
         return res.status(401).json({ message: 'Usuario no autenticado' });
     }
-    res.json(user);
+    
+    // Asegúrate de pasar el usuario al siguiente middleware
+    req.sessionUser = req.user;
+    
+    if (next) {
+        next();
+    } else {
+        res.json(req.user);
+    }
 };
-
-
 
 export const logoutUser  = (req, res) => {
     // Limpiar sessionStorage

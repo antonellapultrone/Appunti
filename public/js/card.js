@@ -21,7 +21,7 @@ export function renderCards(root, cardJson, carouselId) {
             <div>
                 <h3>${card.nombre}</h3>
                 <p><span>Ubicación:</span> ${card.ubicacion}</p>
-                <p>${card.descripcion}</p>
+                <p class="description">${card.descripcion}</p>
             </div>
             <button class="btn-reservar">Reservar</button>
         `;

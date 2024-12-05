@@ -1,4 +1,5 @@
 import * as servicioModel from '../models/service.model.js';
+import pool from '../config/conection.js'
 
 export const getAllService = async (req,res) =>{
     try{
@@ -23,10 +24,48 @@ export const getServiceById = async (req, res) => {
 
 export const createService = async (req, res) => {
     try {
-        const newServiceId = await servicioModel.createService(req.body);
+        // Busca el ID del usuario en la base de datos usando el email
+        const [userRows] = await pool.query(
+            'SELECT ID FROM usuarios WHERE mail = ?', 
+            [req.user.email]
+        );
+
+        if (userRows.length === 0) {
+            return res.status(401).json({ message: 'Usuario no encontrado' });
+        }
+
+        const usuarioID = userRows[0].ID;
+
+        // Validar campos requeridos
+        const { 
+            nombre, 
+            precio, 
+            duracion_hora, 
+            categoria 
+        } = req.body;
+
+        if (!nombre || !precio || !duracion_hora || !categoria) {
+            return res.status(400).json({ 
+                message: 'Faltan campos obligatorios', 
+                camposFaltantes: {
+                    nombre: !nombre,
+                    precio: !precio,
+                    duracion_hora: !duracion_hora,
+                    categoria: !categoria
+                }
+            });
+        }
+
+        const dataService = {
+            ...req.body,
+            usuario_ID: usuarioID
+        };
+
+        const newServiceId = await servicioModel.createService(dataService);
         res.status(201).json({ message: "Servicio creado correctamente", id: newServiceId });
     } catch (error) {
-        res.status(500).json({ message: 'Error al crear el servicio: ' + error });
+        console.error('Error completo:', error);
+        res.status(500).json({ message: 'Error al crear el servicio: ' + error.message });
     }
 };
 

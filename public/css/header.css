@@ -41,7 +41,6 @@ nav ul li:first-child a img{
     margin-bottom: 0;
 }
 .buscador{
-    position: sticky;
     top: 142px;
     z-index: 10;
     width: 100%;
