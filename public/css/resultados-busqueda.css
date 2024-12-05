@@ -1,10 +1,18 @@
+
 .busqueda-container{
-  max-width: 50%;
-  margin: auto;
-  align-items: center;
   display: flex;
-  justify-content: center;
   flex-direction: column;
+  align-items: flex-start;
+  padding: 2rem;
+
+}
+.filter-section{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
 }
 .busqueda-container h2{
   font-family: 'Staatliches', sans-serif;
@@ -24,15 +32,21 @@
     background-color: #59189a8a;
     width: 300px;
     float: left;
+    border-radius: 0.5rem;
   }
   
   .cards-container-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
     margin-left: 320px;
     padding: 20px;
   }
   
   
   #button-filter {
+    width: 100%;
+    margin-top: 1rem;
     padding: 10px;
     background-color: purple;
     color: white;
