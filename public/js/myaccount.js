@@ -66,4 +66,31 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al obtener los datos del usuario:', error);
         window.location.href = 'http://localhost:3000/views/login.html';
     }
+
+    const toggleButtons = document.querySelectorAll('.toggleDataUser, .toggleReservas, .toggleFav, #togglePubli');
+
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Encuentra el contenedor padre más cercano con la clase 'data-user-style'
+            const parentContainer = button.closest('.data-user-style');
+            
+            // Encuentra el contenedor de contenido específico para este botón
+            let contentContainer;
+            
+            if (button.classList.contains('toggleDataUser')) {
+                contentContainer = parentContainer.querySelector('#dataUserContainer');
+            } else if (button.classList.contains('toggleReservas')) {
+                contentContainer = parentContainer.querySelector('#dataReservas');
+            } else if (button.classList.contains('toggleFav')) {
+                contentContainer = parentContainer.querySelector('#favoritos-contenedor');
+            } else if (button.id === 'togglePubli') {
+                contentContainer = parentContainer.querySelector('#dataPublicaciones');
+            }
+
+            // Alternar la clase 'expanded'
+            if (contentContainer) {
+                contentContainer.classList.toggle('expanded');
+            }
+        });
+    });
 });

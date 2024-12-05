@@ -16,29 +16,31 @@
         <!-- datos usuario -->
         <div class="data-user-style">
             <div class="title">
-                <img src="" alt="icon">
+                <img src="https://img.icons8.com/?size=100&amp;id=ABBSjQJK83zf&amp;format=png&amp;color=ffffff" alt="icon">
                 <p>Datos del Usuario</p>
-                <img src="" alt="flecha">
+                <img src="../assets/img/desplegar-datos.png" alt="flecha" class="toggleDataUser">
             </div>
-            <div class="data-user">
+            <div class="data-user" id="dataUserContainer">
                 <div>
                     <p id="userName"></p>
                     <p id="userLastName"></p>
                 </div>
-                <p id="userEmail"></p>
-                <p id="userAddress"></p>
-                <p id="userPhone"></p>
-                <p id="userDate"></p>
-                <p id="userEmprendimiento"></p>
+                <div class="data-2">
+                    <p id="userEmail"></p>
+                    <p id="userAddress"></p>
+                    <p id="userPhone"></p>
+                    <p id="userDate"></p>
+                    <p id="userEmprendimiento"></p>
+                </div>
                 <a class="edit-btn" href="">Editar</a>
             </div>
         </div>
         <!-- Favoritos -->
         <div class="data-user-style">
             <div class="title">
-                <img src="" alt="icon">
+                <img src="https://img.icons8.com/?size=100&id=7856&format=png&color=ffffff" alt="icon">
                 <p>Favoritos</p>
-                <img src="" alt="flecha">
+                <img src="../assets/img/desplegar-datos.png" alt="flecha" class="toggleFav">
             </div>
             <!-- Renderizar cards favoritos -->
             <div id="favoritos-contenedor">
@@ -48,11 +50,11 @@
         <!-- Reservas -->
         <div class="data-user-style">
             <div class="title">
-                <img src="" alt="icon">
+                <img src="https://img.icons8.com/?size=100&amp;id=10053&amp;format=png&amp;color=ffffff" alt="icon">
                 <p>Reservas</p>
-                <img src="" alt="flecha">
+                <img src="../assets/img/desplegar-datos.png" alt="flecha" class="toggleReservas">
             </div>
-            <div class="reserva-list">
+            <div class="reserva-list"  id="dataReservas">
                 <div class="item-reserva">
                     <img class="" src="../assets/img/cancha-padle.png" alt="img-reserva">
                     <div>
@@ -70,7 +72,7 @@
                     </div>
                 </div>
                 <div class="item-reserva">
-                    <img class="" src="../assets/img/card-futbol1.jpg" alt="img-reserva">
+                    <img class="" src="../assets/img/card-futbol1.jpg" class="togglePubli">
                     <div>
                         <div class="date">
                             <p>10/02/2024</p>
@@ -91,11 +93,11 @@
         <!-- Publicaciones -->
         <div class="data-user-style">
             <div class="title">
-                <img src="" alt="icon">
+                <img src="https://img.icons8.com/?size=100&id=78802&format=png&color=ffffff" alt="icon">
                 <p>Publicaciones</p>
-                <img src="" alt="flecha">
+                <img src="../assets/img/desplegar-datos.png" alt="flecha" id="togglePubli">
             </div>
-            <div class="reserva-list">
+            <div class="reserva-list"  id="dataPublicaciones">
                 <div class="item-reserva">
                     <img class="" src="../assets/img/alliance-football-club-xtvnC2FuJSg-unsplash 1.png" alt="img-reserva">
                     <div>
