@@ -11,6 +11,7 @@ html, body {
     width: 100%;
 }
 body {
+    background-image: url(../assets/img/3184565.jpg);
     font-family: 'Montserrat', sans-serif;
     background-color: #f5f5f5;
     color: #333;
