@@ -8,20 +8,20 @@ const duracionSelect = document.getElementById("duracion_hora");
 const filterButton = document.getElementById("button-filter");
 const cardsResults = document.getElementById("cards-container-filter");
 
-window.onload = function() {
+window.onload = async function() {
     // Obtener el parámetro "ciudad" de la URL
     const urlParams = new URLSearchParams(window.location.search);
-    const ciudad = urlParams.get('ciudad');  // Obtiene el valor de "ciudad"
+    const urlCiudad = urlParams.get('ciudad');  // Obtiene el valor de "ciudad"
 
     // Si existe el parámetro "ciudad", mostrarlo en la página
-    if (ciudad && ciudad !== "Todos") {
-        document.getElementById('resultadoBusqueda').innerHTML = `${ciudad}`;
+    if (urlCiudad && urlCiudad !== "Todos") {
+        document.getElementById('resultadoBusqueda').innerHTML = `${urlCiudad}`;
     } else {
         document.getElementById('resultadoBusqueda').innerHTML = 'Por favor, ingrese una ciudad para buscar.';
     }
 
     // Inicializar la búsqueda con los servicios
-    init();
+    await init(urlCiudad);
 };
 
 async function fetchServices() {
@@ -74,12 +74,12 @@ function renderCards(services) {
     }
 }
 // Función para aplicar los filtros
-function filterServices(services) {
-    const ciudad = ciudadSelect.value;
-    const categoria = categorySelect.value;
-    const precio = priceSelect.value;
-    const dias = diasSelect.value;
-    const duracion = duracionSelect.value;
+function filterServices(services,urlCiudad) {
+    const ciudadFilter = urlCiudad || (ciudadSelect ? ciudadSelect.value : "Todos");
+    const categoria = categorySelect ? categorySelect.value : "Todos";
+    const precio = priceSelect ? priceSelect.value : "Todos";
+    const dias = diasSelect ? diasSelect.value : "Todos";
+    const duracion = duracionSelect ? duracionSelect.value : "Todos";
 
     const precioRangos = {
         "0 a 5000": [0.00, 5000.00],
@@ -93,7 +93,7 @@ function filterServices(services) {
 
         return (
             
-            (ciudad === "Todos" || service.ciudad === ciudad) &&
+            (ciudadFilter === "Todos" || service.ciudad === ciudadFilter) &&
             (categoria === "Todos" || service.categoria === categoria) &&
             (precio === "Todos" || (service.precio >= min && service.precio <= max)) &&
             (dias === "Todos" || service.dia_semana === dias)) && // Para listas o strings
@@ -114,7 +114,9 @@ filterButton.addEventListener("click", async () => {
     }
 });
 
-async function init() {
+async function init(urlCiudad) {
     const servicios = await fetchServices(); // Sin argumentos
+    const filteredServices = urlCiudad ? filterServices(servicios, urlCiudad) : servicios;
+    renderCards(filteredServices);
     renderCards(servicios);
 }

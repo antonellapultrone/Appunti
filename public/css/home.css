@@ -22,7 +22,14 @@
 #section-descubreTuZona{
     background-color: #10002B;
     padding: 2rem 10rem;
+    transition: 0.8s ease-in;
 }
+#section-descubreTuZona:hover{
+    background-color:  #a048f8a6;
+    padding: 2rem 10rem;
+    transition: 0.8s ease-in;
+}
+
 #section-descubreTuZona h2{
     font-size: 30pt;
     font-weight: 400;
@@ -52,18 +59,42 @@
     gap: 2rem;
 }
 .container-publicidad div{
-    background-color: #a26bda;
+
     width: 50%;
     padding: 2rem;
     border-radius: 1rem;
+    border-radius: 10px;
+    filter: drop-shadow(0 5px 10px 0 #59189a85);
+    height: 180px;
+    background-color: #b475f3;
+    padding: 20px;
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    transition: 0.6s ease-in;
+
 }
+.container-publicidad div:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+
 /* categorias */
 #section-categorias{
-    background-color: #59189a85;
+    background-color: #59189ab2;
     margin: 2rem;
     padding: 2rem 10rem;
     border-radius: .5rem;
+    transition: 0.8s ease-in;
 }
+#section-categorias:hover{
+    background-color: #a557f3a6;
+    padding: 2rem 10rem;
+    transition: 0.8s ease-in;
+    
+}
+
 .btn-Category{
     display: flex;
     justify-content: center;
