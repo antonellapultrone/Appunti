@@ -8,26 +8,25 @@ const duracionSelect = document.getElementById("duracion_hora");
 const filterButton = document.getElementById("button-filter");
 const cardsResults = document.getElementById("cards-container-filter");
 
-window.onload = async function() {
-    // Obtener el parámetro "ciudad" de la URL
+window.onload = async function () {
     const urlParams = new URLSearchParams(window.location.search);
-    const urlCiudad = urlParams.get('ciudad');  // Obtiene el valor de "ciudad"
-
-    // Si existe el parámetro "ciudad", mostrarlo en la página
-    if (urlCiudad && urlCiudad !== "Todos") {
-        document.getElementById('resultadoBusqueda').innerHTML = `${urlCiudad}`;
+    const searchQuery = urlParams.get('query'); // Obtiene el término de búsqueda
+    console.log(urlParams);
+    // Si existe el término de búsqueda, lo mostramos y buscamos los servicios
+    if (searchQuery) {
+        document.getElementById('resultadoBusqueda').innerText = `Resultados para: "${searchQuery}"`;
+        await init(searchQuery); // Pasa el término de búsqueda para filtrar servicios
     } else {
-        document.getElementById('resultadoBusqueda').innerHTML = 'Por favor, ingrese una ciudad para buscar.';
+        document.getElementById('resultadoBusqueda').innerText = 'Por favor, ingresa un término para buscar.';
+        await init(); // Llamar a init sin parámetro si no hay término de búsqueda
     }
-
-    // Inicializar la búsqueda con los servicios
-    await init(urlCiudad);
 };
 
-async function fetchServices() {
+async function fetchServices(searchQuery) {
     cardsResults.innerHTML = "<p>Cargando servicios...</p>";
     try {
-        const response = await fetch("http://localhost:3000/api/cards");
+        const url = searchQuery ? `http://localhost:3000/api/service/search/${encodeURIComponent(searchQuery)}`  : "http://localhost:3000/api/service";
+        const response = await fetch(url);
         if (!response.ok) throw new Error("Error al obtener los datos");
             const services = await response.json();
         return services;
@@ -73,9 +72,9 @@ function renderCards(services) {
 
     }
 }
-// Función para aplicar los filtros
-function filterServices(services,urlCiudad) {
-    const ciudadFilter = urlCiudad || (ciudadSelect ? ciudadSelect.value : "Todos");
+function filterServices(services, searchQuery = "") {
+    // Parámetros obtenidos de los selectores y filtros
+    const ciudadFilter = ciudadSelect ? ciudadSelect.value : "Todos";
     const categoria = categorySelect ? categorySelect.value : "Todos";
     const precio = priceSelect ? priceSelect.value : "Todos";
     const dias = diasSelect ? diasSelect.value : "Todos";
@@ -88,19 +87,28 @@ function filterServices(services,urlCiudad) {
         "20000 o más": [20001.00, Infinity],
     };
 
+    const lowerSearchQuery = searchQuery.toLowerCase();
+
+    // Filtrar servicios según todos los criterios
     return services.filter(service => {
         const [min, max] = precioRangos[precio] || [0, Infinity];
 
+        const matchesSearchQuery =
+            !searchQuery || // Si no hay término, no filtrar por búsqueda
+            service.nombre.toLowerCase().includes(lowerSearchQuery) ||
+            service.categoria.toLowerCase().includes(lowerSearchQuery) ||
+            service.ciudad.toLowerCase().includes(lowerSearchQuery);
+
         return (
-            
+            matchesSearchQuery && // Filtro por búsqueda
             (ciudadFilter === "Todos" || service.ciudad === ciudadFilter) &&
             (categoria === "Todos" || service.categoria === categoria) &&
             (precio === "Todos" || (service.precio >= min && service.precio <= max)) &&
-            (dias === "Todos" || service.dia_semana === dias)) && // Para listas o strings
-            (duracion === "Todos" || service.duracion_hora === parseInt(duracion)) // Convertir a string si es necesario
+            (dias === "Todos" || service.dia_semana === dias) && // Si es lista/string
+            (duracion === "Todos" || service.duracion_hora === parseInt(duracion)) // Si es número
+        );
     });
 }
-
 
 // Evento para el botón de filtrar
 filterButton.addEventListener("click", async () => {
@@ -114,9 +122,8 @@ filterButton.addEventListener("click", async () => {
     }
 });
 
-async function init(urlCiudad) {
-    const servicios = await fetchServices(); // Sin argumentos
-    const filteredServices = urlCiudad ? filterServices(servicios, urlCiudad) : servicios;
-    renderCards(filteredServices);
-    renderCards(servicios);
+async function init(searchQuery) {
+    const servicios = await fetchServices(); // Obtener servicios
+    const filteredServices = filterServices(servicios, searchQuery); // Aplicar búsqueda y filtros
+    renderCards(filteredServices); // Mostrar resultados
 }

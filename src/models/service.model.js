@@ -43,6 +43,37 @@ export const getServiceById = async (id) => {
     }
 };
 
+
+export const getServiceByNombreCategoriaCiudad = async (data) => {
+    try {
+        // Obtener los datos básicos del servicio
+        const keywords = data.split(' ');
+        const conditions = keywords.map(() => `nombre LIKE ? OR categoria LIKE ? OR ciudad LIKE ?`).join(' OR ');
+        const params = keywords.flatMap(keyword => [`%${keyword}%`, `%${keyword}%`, `%${keyword}%`]);
+
+        const query = `SELECT * FROM servicios WHERE ${conditions}`;
+        const [servicios] = await pool.query(query, params);
+
+        if (servicios.length === 0) return null; // Si no existen servicios
+
+
+        // Mapear los servicios para incluir imágenes y horarios
+        const serviciosConDetalles = await Promise.all(
+            servicios.map(async (servicio) => {
+                const [imagenes] = await pool.query(`SELECT * FROM imagenes WHERE servicio_ID = ?`, [servicio.ID]);
+
+                return {
+                    ...servicio,
+                    imagenes
+                };
+            })
+        );
+        return serviciosConDetalles;
+    } catch (error) {
+        throw new Error("Error al obtener el servicio: " + error.message);
+    }
+};
+
 export const createService = async (dataService) => {
     // Desestructura con valores por defecto
     const { 

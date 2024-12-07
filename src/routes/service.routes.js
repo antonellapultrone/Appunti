@@ -7,6 +7,7 @@ const router = express.Router();
 
 router.get('/', serviceController.getAllService);
 router.get('/:id', serviceController.getServiceById);
+router.get('/search/:data',serviceController.getServiceByNombreCategoriaCiudad);
 router.post(
     '/createService',
     requireAuth,  // Primero autentica
