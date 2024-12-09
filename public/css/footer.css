@@ -53,6 +53,8 @@ footer {
 }
 .footer-container ul li{
     width: min-content;
+    height: min-content;
+    align-self: center;
 }
 .footer-container ul li a{
     text-decoration: none;
