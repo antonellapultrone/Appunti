@@ -25,6 +25,7 @@
     padding: 1rem;
     position: relative;
     flex-shrink: 0;
+    transition: .3s;
 }
 
 .img-contenedor img {
@@ -94,7 +95,7 @@
 }
 .card:hover{
     transform: translateY(-2px);
-  box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
 .card button:hover {
     background-color: #8E5DC2;

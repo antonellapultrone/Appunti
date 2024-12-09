@@ -26,7 +26,6 @@
   margin: 1rem 0;
   width: 100%;
 }
-
 .filters {
     padding: 20px;
     background-color: #59189a8a;
@@ -34,23 +33,20 @@
     float: left;
     border-radius: 0.5rem;
   }
-  
-  .cards-container-filter {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin-left: 320px;
-    padding: 20px;
-  }
-  
-  
-  #button-filter {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 10px;
-    background-color: purple;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-  }
+.cards-container-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-left: 320px;
+  padding: 20px;
+}
+#button-filter {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 10px;
+  background-color: purple;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
