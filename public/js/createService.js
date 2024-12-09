@@ -9,7 +9,8 @@ form.addEventListener('submit', async (event) => {
         console.log('No estás autenticado. Por favor, inicia sesión.');
         return;
     }
-    
+    console.log('ubicacion',document.getElementById('ubicacion').value);
+
     const dataService = {
         nombre: document.getElementById('nombre').value,
         precio: parseFloat(document.getElementById('precio').value),
@@ -23,8 +24,6 @@ form.addEventListener('submit', async (event) => {
         hora_inicio: document.getElementById('hora_inicio').value,
         hora_fin: document.getElementById('hora_fin').value,
     };
-
-    console.log('Datos a enviar:', dataService);
 
     try {
         const response = await fetch('/api/service/createService', {
@@ -43,9 +42,7 @@ form.addEventListener('submit', async (event) => {
             
             // Verifica exactamente qué devuelve el servidor
             if (result.serviceId) {
-                console.log('Servicio creado con ID:', result.serviceId);
-                // Descomentar si quieres redirigir
-                // window.location.href = '/views/myaccount.html';
+                window.location.href = '/';
             } else {
                 console.error('La respuesta no contiene un ID de servicio');
                 document.getElementById('formMessage').innerText = 'Error: Respuesta inesperada del servidor';

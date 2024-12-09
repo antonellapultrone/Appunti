@@ -31,6 +31,8 @@ export function btnActive() {
                 const p = b.querySelector('p');
                 if (p) {
                     p.style.color = '#575757'; // Color del texto para botones no activos
+                    p.style.backgroundColor = 'transparent';
+                    p.style.borderRadius = '0';
                 }
             });
             // Añadir la clase activa solo al botón clicado
@@ -38,7 +40,9 @@ export function btnActive() {
             // Cambia el color del p en el botón activo
             const activeP = this.querySelector('p');
             if (activeP) {
-                activeP.style.color = '#FFFFFF'; // Cambia este color al que prefieras
+                activeP.style.color = '#000000'; // Cambia este color al que prefieras
+                activeP.style.backgroundColor = '#ffffff';
+                activeP.style.borderRadius = '.5rem';
             }
         });
     });

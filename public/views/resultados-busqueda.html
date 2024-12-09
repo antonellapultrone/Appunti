@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filtrado de Resultados</title>
+  <link rel="shortcut icon" href="./assets/icon/mago-pesc-light.png" type="image/x-icon">
+  <link rel="stylesheet" href="../css/global.css">
+  <link rel="stylesheet" href="../css/resultados-busqueda.css">
+  <script type="module" src="../js/app.js"></script>
+  <script type="module" src="../js/resultados-busqueda.js"></script>
+</head>
+<body class="body-style">
+    <header>
+        <!-- render de nav -->
+    </header>
+    <main class="busqueda-container">
+      <div id="resultadoBusqueda"></div>
+      <section class="filters-section">
+  <div class="filters">
+    <h3>RESULTADOS</h3>
+    <label for="ciudad">Ciudad:</label>
+    <select id="ciudad">
+      <option value="Todos">Todos</option>
+      <option value="Buenos Aires">Buenos Aires</option>
+      <option value="Rosario">Rosario</option>
+      <option value="Cordoba">Córdoba</option>
+      <option value="Mar del Plata">Mar del Plata</option>
+      <option value="San Miguel de Tucumán">San Miguel de Tucumán</option>
+      <option value="Salta">Salta</option>
+      <option value="Santa Fe">Santa Fe</option>
+      <option value="Corrientes">Corrientes</option>
+      <option value="Resistencia">Resistencia</option>
+      <option value="San Luis">San Luis</option>
+
+    </select>
+    <label for="categoria">Categoría:</label>
+    <select id="categoria">
+      <option value="Todos">Todos</option>
+      <option value="deportes">Deportes</option>
+      <option value="estetica">Estetica</option>
+      <option value="comida">Comida</option>
+      <option value="oficio">Oficio</option>
+      <option value="vehiculos">Vehiculos</option>
+      <option value="salud">Salud</option>
+      <option value="bienestar">Bienestar</option>
+      <option value="mascotas">Mascotas</option>
+      <option value="eventos">Eventos</option>
+      <option value="otros">Otros</option>
+    </select>
+                                <br><br>
+    <label for="precio">Rango de precio:</label>
+    <select id="precio">
+      <option value="Todos">Todos</option>
+      <option value="0 a 5000">$0 a $5000</option>
+      <option value="5000 a 10000">$5000 a $10000</option>
+      <option value="15000 a 20000">$15000 a $20000</option>
+      <option value="15000 a más">$20000 o más</option>
+    </select>
+    <br><br>
+    <label for="dia_semana">Dias disponibles:</label>
+    <select id="dia_semana">
+      <option value="Todos">Todos</option>
+      <option value="lunes a viernes">Lunes a viernes</option>
+      <option value="sabado">Sábado</option>
+      <option value="domingos y feriados">Domingos y feriados</option>
+    </select>
+    <label for="duracion_hora">Duración</label> 
+                        <select name="duracion_hora" id="duracion_hora">
+                          <option value="Todos">Todos</option>      
+                          <option value="1">1 Hora</option>
+                                <option value="2">2 Horas</option>
+                                <option value="3">3 Horas</option>
+                                <option value="4">4 Horas</option>
+                                <option value="5">5 Horas</option>
+                                <option value="6">6 Horas</option>
+                        </select>
+    <button id="button-filter">Filtrar</button>
+  </div>
+  <div class="cards-container-filter" id="cards-container-filter">
+    
+    <!-- Aquí se generarán las tarjetas -->
+    
+  </div>
+</section>
+  </main>
+  <footer>
+
+  </footer>
+</body>
+</html>

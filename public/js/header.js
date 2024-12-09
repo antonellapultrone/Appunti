@@ -43,8 +43,8 @@ export function renderNav(root, menuItems) {
     let divBuscador = document.createElement('div')
     divBuscador.setAttribute('class', 'buscador');
     divBuscador.innerHTML = `
-            <form action="">
-                <input id="ubicacion" type="text" placeholder="Busca reservas, servicios y mas...">
+            <form action="/views/resultados-busqueda.html" method="get">
+                <input id="bucador" name="query"" type="text" placeholder="Busca reservas, servicios y mas...">
                 <button><img src="https://img.icons8.com/?&id=132&format=png&color=ffffff" alt=""></button>
             </form>
     `

@@ -22,15 +22,22 @@ export const getServiceById = async (req, res) => {
     }
 };
 
+export const getServiceByNombreCategoriaCiudad = async (req, res) => {
+    try {
+        const servicio = await servicioModel.getServiceByNombreCategoriaCiudad(req.params.data);
+        if (!servicio) {
+            return res.status(404).json({ message: 'Servicio no encontrado' });
+        }
+        res.json(servicio);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener el servicio' + error });
+    }
+};
+
+
 // service.controller.js
 export const createService = async (req, res) => {
     try {
-        console.log('Solicitud completa:', {
-            body: req.body,
-            user: req.user,
-            headers: req.headers
-        });
-
         const usuarioID = req.user?.id;
 
         if (!usuarioID) {
@@ -60,6 +67,7 @@ export const createService = async (req, res) => {
         if (!nombre) camposFaltantes.push('nombre');
         if (!precio) camposFaltantes.push('precio');
         if (!duracion_hora) camposFaltantes.push('duracion_hora');
+        if (!ubicacion) camposFaltantes.push('ubicacion');
         if (!categoria) camposFaltantes.push('categoria');
         if (!dia_semana) camposFaltantes.push('dia_semana');
         if (!hora_inicio) camposFaltantes.push('hora_inicio');
@@ -88,8 +96,6 @@ export const createService = async (req, res) => {
             estado: 'active',
             usuario_ID: usuarioID
         };
-
-        console.log('Datos a insertar en la base de datos:', dataService);
 
         try {
             const newServiceId = await servicioModel.createService(dataService);

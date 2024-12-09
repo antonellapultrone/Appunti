@@ -98,7 +98,7 @@ input[type="date"] {
     text-wrap: nowrap;
     border-radius: 1rem;
 }
-a{
+.link{
     display: block;
     color: #ececec;
     border-radius: 1rem;
@@ -110,7 +110,7 @@ a{
     margin-top: 1rem;
     text-decoration: none;
 }
-a:hover{
+.link:hover{
     text-shadow: 1px 1px 10px #fff;
     text-decoration: underline;
 }
