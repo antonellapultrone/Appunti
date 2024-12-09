@@ -7,12 +7,12 @@ export const menuData = [
     {
         name: "Promos",
         img: "https://img.icons8.com/?size=100&id=a99zM4y8YPut&format=png&color=ffffff",
-        url:"../../views/promos.html"
+        url:"../../views/notfound.html"
     },
     {
         name: "Categorias",
         img: "https://img.icons8.com/?size=100&id=Ah8SLaXAg94W&format=png&color=ffffff",
-        url:"../../views/categorias.html"
+        url:"/#section-categorias"
     
     },
     {

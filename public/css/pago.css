@@ -1,0 +1,74 @@
+.body-pago{
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.payment-container{
+    margin: 5rem;
+}
+
+.payment-container h2{
+    font-family: 'Staatliches', sans-serif;
+    background-color: #59189a8a;
+    border-radius: 10px;
+    text-align: center;
+    text-wrap: nowrap;
+    font-size: 30px;
+    color: #10002B;
+    padding: .5rem;
+    margin: 1rem 0;
+    width: 50%;
+    max-width: 50%;
+    justify-self: center;
+}
+
+.lista-reservas{
+    font-family: 'Montserrat',sans-serif;
+    background-color: #59189a8a;
+    width: 50%;
+    max-width: 50%;
+    justify-self: center;
+    border-radius: 10px;
+    justify-items: center;
+}
+
+.lista-reservas h3{
+    background-color: #5A189A;
+    border-radius: 10px;
+    color:#fff;
+    font-family: 'Montserrat', sans-serif;
+    width: min-content;
+    text-wrap: nowrap;
+    width:100%;
+    text-align: start;
+    padding-left: 3rem;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 0.5rem;
+}
+
+.pagar-btn{
+    font-family: 'Montserrat', sans-serif;
+    padding: .3rem 1rem .3rem 1rem;
+    border-radius: .3rem;
+    margin: 1rem 1.5rem 1.5rem 1.5rem;
+    color: #fff;
+    background-color: #5A189A;
+    width: 400px;
+    height: 40px;
+    border: none;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.pagar-btn:hover{
+    cursor: pointer;
+    background-color: #10002B;
+    transform: scale(1.1);
+    box-shadow: 1px 2px 8px 1px #cecece;
+}

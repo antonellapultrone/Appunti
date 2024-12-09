@@ -10,7 +10,20 @@
     font-size: 90pt;
     font-weight: 400;
     color: #10002B;
+    height:min-content;
 }
+
+.tituloprincipal{
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+}
+
+.tituloprincipal img{
+    width: auto;
+    height: 105pt; 
+}
+
 .container-principal p{
     width: 50%;
     margin: 0 auto;
@@ -59,6 +72,19 @@
     gap: 2rem;
 }
 .container-publicidad div{
+    background-color: #a26bda;
+    border-radius: 1rem;
+    width: 678px;
+    height: 200px;
+    left: 23px;
+    top: 1646px;
+    
+}
+.container-publicidad div img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position:0px -30px;
 
     width: 50%;
     padding: 2rem;
