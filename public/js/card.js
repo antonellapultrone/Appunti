@@ -29,8 +29,8 @@ export function renderCards(root, cardJson, carouselId) {
         const btnReservar = article.querySelector(".btn-reservar");
         btnReservar.addEventListener("click", () => {
             // Puedes pasarle el ID del servicio o cualquier otro dato que necesites para la página de detalles
-            const servicioId = service.ID;  // Asumiendo que tienes un campo 'id' en tu servicio
-            window.location.href = `/detalle-reserva.html?id=${servicioId}`;  // Redirige con el ID del servicio
+            const servicioId = card.ID;  // Asumiendo que tienes un campo 'id' en tu servicio
+            window.location.href = `/detail.html?id=${servicioId}`;  // Redirige con el ID del servicio
         });
         cardsWrapper.appendChild(article); // Añadir cada tarjeta al contenedor de tarjetas
     });

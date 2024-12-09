@@ -28,10 +28,11 @@
 }
 
 body{
-background-image: url(../assets/img/J9bhvIREQ_qmt81_b2mS5A.webp);
+    background-image: url(../assets/img/fondo-not-2.jpg);
     background-repeat: no-repeat;
     background-position-x:center;
     background-size: cover;
+    background-color: #382370;
 }
 
 #not-found{
