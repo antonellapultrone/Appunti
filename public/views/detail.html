@@ -19,25 +19,27 @@
                 <p>800 reservas</p>
             </div>
             <div class="detalle-reserva">
-                <div class="contenedor-img">
+                <div class="contenedor-img" id="contenedor-img">
                     <div id="detalle-imagen" class="carousel">
+                        <div class="cards-wrapper">
                         <img src="" alt="Imagen del servicio" id="imagen-servicio">
+                        </div>
                     </div>
                     <div id="detalle-boton"></div>
                 </div>
-                <div class="detalle-info">
+                <div class="detalle-info" id="detalle-info">
                     <h2 id="nombre-servicio">Cargando...</h2>
                     <h3><strong>Precio por hora: $<span id="precio-servicio">0</span></strong></h3>
                     <label for="fecha">Fecha de Reserva</label>
-                    <input type="date" id="fecha-reserva">
+                    <input type="date" id="fecha_reserva">
                     <label for="horas">Horas</label>
-                    <div class="fecha-reserva">
+                    <div class="fecha_reserva">
                         <label for="fecha">Fecha de Reserva</label>
-                        <input type="date" id="fecha-reserva">
-                        <label for="hora-inicio">Hora de Inicio</label>
-                        <input type="time" id="hora-inicio">
-                        <label for="hora-fin">Hora de Fin</label>
-                        <input type="time" id="hora-fin">
+                        <input type="date" id="fecha_reserva">
+                        <label for="hora_inicio">Hora de Inicio</label>
+                        <input type="time" id="hora_inicio">
+                        <label for="hora_fin">Hora de Fin</label>
+                        <input type="time" id="hora_fin">
                     </div>
                     <select id="horas-reserva">
                         <option value="1">1 hora</option>
@@ -46,7 +48,7 @@
                     </select>
                     <p>Política de cancelación: Cancelación Gratis. Reembolso completo con de anticipación.</p>
                     <div class="buttons">
-                        <button class="reservar-btn" id="reservar-btn">Reservar ahora</button>
+                        <button type="submit" class="reservar-btn" id="reservar-btn">Reservar ahora</button>
                         <button class="agregar-btn" id="agregar-btn">Agrgar reserva</button>
                     </div>
                 </div>

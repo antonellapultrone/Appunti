@@ -36,7 +36,7 @@ export const getReservaById = async (req, res) => {
 export const createReserva = async (req, res) => {
     try {
         const newReservaId = await reservaModel.createReserva(req.body);
-        res.status(201).json({ id: newReservaId });
+        res.status(201).json({ reservaId: newReservaId });
     } catch (error) {
         res.status(500).json({ message: 'Error al crear la reserva' + error });
     }

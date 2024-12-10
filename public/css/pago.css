@@ -7,6 +7,7 @@
 
 .payment-container{
     margin: 5rem;
+
 }
 
 .payment-container h2{
@@ -22,9 +23,10 @@
     width: 50%;
     max-width: 50%;
     justify-self: center;
+    max-width: 700px;
 }
 
-.lista-reservas{
+.datos-pago{
     font-family: 'Montserrat',sans-serif;
     background-color: #59189a8a;
     width: 50%;
@@ -32,9 +34,10 @@
     justify-self: center;
     border-radius: 10px;
     justify-items: center;
+    max-width: 700px;
 }
 
-.lista-reservas h3{
+.datos-pago h3{
     background-color: #5A189A;
     border-radius: 10px;
     color:#fff;
