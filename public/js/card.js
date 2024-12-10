@@ -23,15 +23,20 @@ export function renderCards(root, cardJson, carouselId) {
                 <p><span>Ubicación:</span> ${card.ubicacion}</p>
                 <p class="description">${card.descripcion}</p>
             </div>
-            <button class="btn-reservar">Reservar</button>
+            <a href="#" class="btn-reservar" data-id="${card.ID}">Reservar</a>
         `;
+        
+        // Agregar el evento al botón "Reservar"
         // Agregar el evento al botón "Reservar"
         const btnReservar = article.querySelector(".btn-reservar");
-        btnReservar.addEventListener("click", () => {
-            // Puedes pasarle el ID del servicio o cualquier otro dato que necesites para la página de detalles
-            const servicioId = card.ID;  // Asumiendo que tienes un campo 'id' en tu servicio
-            window.location.href = `/detail.html?id=${servicioId}`;  // Redirige con el ID del servicio
+        btnReservar.addEventListener("click", async (event) => {
+            event.preventDefault(); // Evitar el comportamiento por defecto del enlace
+            const servicioId = btnReservar.getAttribute('data-id'); // Obtener el ID del servicio
+
+            // Redirigir a details.html con el ID del servicio
+            window.location.href = `/views/detail.html?id=${servicioId}`; // Asegúrate de que la ruta sea correcta
         });
+
         cardsWrapper.appendChild(article); // Añadir cada tarjeta al contenedor de tarjetas
     });
 
