@@ -8,6 +8,10 @@
     background-position: center;
     background-attachment: fixed;
 }
+#createServiceForm{
+    display: flex;
+    flex-direction: column;
+}
 .service-container{
     max-width: 50%;
     margin: auto;
@@ -32,19 +36,10 @@
 .container-image h3,
 .container-data h3{
     background-color: #5A189A;
-    border-radius: 10px;
-    font-family: 'Montserrat', sans-serif;
-    width: min-content;
+    border-radius: 10px 10px 0 0;
     text-wrap: nowrap;
-    width:100%;
-    text-align: start;
-    padding-left: 3rem;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    font-weight: 600;
-    font-size: 18px;
-    margin-bottom: 0.5rem;
+    width: 100%;
+    padding: 1rem;
 }
 input:not(#image),
 select,
@@ -73,20 +68,27 @@ textarea{
     color: #fff;
     width: 100%;
 }
-.container-data{
-    margin-bottom: 20px;
+.container-data,
+.container-price,
+.container-image{
+    display: block;
     background-color: #9a63d1da;
     border-radius: 10px;
     justify-content: center;
-    padding-bottom: 30px;
     box-shadow: 5px 10px 20px 2px #cecece;
+    width: 100%;
 }
 .contenedor-input{
-    padding: 0 1.5rem;
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    margin: 0;
 }
 .form-group{
     display: flex;
     gap: 1rem;
+    width: 100%;
+    margin: 0;
 }
 .input-container{
     display: flex;
@@ -98,14 +100,6 @@ textarea{
 }
 .input-container label{
     text-wrap: nowrap;
-}
-.container-price{
-    border-radius: 10px;
-    background-color: #9a63d1da;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-    display: flex;
-    box-shadow: 5px 10px 20px 2px #cecece;
 }
 .container-price div{
     flex: 0 50%; /* Ancho del 50% menos un margen */
@@ -134,14 +128,6 @@ div.cancelacion{
 .label,
 #cancelacion_gratuita{
     height: min-content;
-}
-.container-image{
-    display: flex;
-    flex-direction: column;
-    height: 300px;
-    border-radius: 10px;
-    background-color: #9a63d1da;
-    box-shadow: 5px 10px 20px 2px #cecece;
 }
 .container-image label{
     padding-left: 1.5rem;
@@ -209,10 +195,4 @@ div.cancelacion{
     color: green; /* para éxitos */
     text-align: center;
     margin: 10px 0;
-}
-
-@media screen and (width < 890) {
-    /* .form-group{
-        
-    }*/
 }

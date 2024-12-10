@@ -49,15 +49,11 @@
 .welcome-container p{
     font-size: 18pt;
 }
-label {
-    display: block;
-    margin-top: 1rem;
-    color: #fff
-}
 input[type="text"],
 input[type="email"],
 input[type="password"],
-input[type="date"] {
+input[type="date"],
+input[type="tel"] {
     width: 100%;
     padding: 10px;
     margin-top: 5px;
@@ -66,12 +62,23 @@ input[type="date"] {
     transition: .3s;
     border: 2px solid #fff;
 }
-:is(input[type="text"], input[type="email"], input[type="password"]):hover{
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"]):hover{
     background-color: #acacac;
     border: 2px solid #acacac;
 }
-:is(input[type="text"], input[type="email"], input[type="password"]):focus{
+:is(input[type="text"], input[type="email"], input[type="password"],input[type="date"], input[type="tel"]):focus{
     background-color: #acacac;
+}
+form div{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    align-self: center;
+    margin-top: 2rem;
+    gap: 1rem;
+}
+.form-container form div label{
+    margin: 0;
 }
 .btn-form {
     width: 100%;

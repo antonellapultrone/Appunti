@@ -4,11 +4,9 @@
     background-position: center;
     background-attachment: fixed;
 }
-
 .payment-container{
     margin: 5rem;
 }
-
 .payment-container h2{
     font-family: 'Staatliches', sans-serif;
     background-color: #59189a8a;
@@ -23,7 +21,6 @@
     max-width: 50%;
     justify-self: center;
 }
-
 .lista-reservas{
     font-family: 'Montserrat',sans-serif;
     background-color: #59189a8a;
@@ -33,7 +30,6 @@
     border-radius: 10px;
     justify-items: center;
 }
-
 .lista-reservas h3{
     background-color: #5A189A;
     border-radius: 10px;
@@ -51,7 +47,6 @@
     font-size: 18px;
     margin-bottom: 0.5rem;
 }
-
 .pagar-btn{
     font-family: 'Montserrat', sans-serif;
     padding: .3rem 1rem .3rem 1rem;
@@ -65,7 +60,6 @@
     font-weight: 600;
     font-size: 15px;
 }
-
 .pagar-btn:hover{
     cursor: pointer;
     background-color: #10002B;
