@@ -32,7 +32,6 @@ async function fetchServiceData() {
 document.addEventListener('DOMContentLoaded', async () => {
     try {
         const serviceData = await fetchServiceData(); // Espera la resolución
-        console.log(serviceData); // Aquí obtendrás el objeto JSON directamente
 
         // Renderiza los datos en la página
         document.getElementById("imagen-servicio").src = serviceData.imagenes[0] || ''; // Usa la primera imagen si existe

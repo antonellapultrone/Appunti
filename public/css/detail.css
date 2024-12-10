@@ -4,9 +4,9 @@ body{
     background-color: #e7e7e7;
 }
 section{
-    background-color: white;
+    background-color: rgb(245, 245, 245);
     border-radius: 1.5rem;
-    margin: 1rem;
+    margin: 2rem 5rem;
     display: flex;
     flex-direction: column;
 }
@@ -21,23 +21,13 @@ section{
     display: flex;
     gap: 1rem;
     justify-content: space-between;
-    max-width: 1200px;
-    margin: 0 auto;
     padding: 20px;
+    width: 100%;
 }
 /* Imagen del servicio */
 #detalle-imagen {
     flex: 3; /* Ocupa el espacio restante */
     text-align: center;
-}
-@media (max-width: 768px) {
-    .detalle-reserva {
-        width: 400px;
-        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
-    }
-    #detalle-imagen {
-      flex: 0 0 100%; /* Ocupa todo el ancho en pantallas pequeñas */
-    }
 }
 #imagen-servicio {
     width: 100%;
@@ -51,9 +41,16 @@ section{
     padding: 20px;
     padding-right: -20px;
     border-radius: 10px;
-    width: 350px; /* Ajusta el ancho según tu diseño */
+    width: 500px; /* Ajusta el ancho según tu diseño */
 }
-
+.detalle-info label{
+    margin: 1rem 0;
+}
+.detalle-info h2,
+.detalle-info h3,
+.detalle-info label{
+    text-wrap: nowrap;
+}
 .detalle-info label,
 .detalle-info{
     color: #10002B;
@@ -144,4 +141,19 @@ section{
     height: auto; /* Mantiene las proporciones */
     border-radius: 10px;
     object-fit: cover; /* Recorta si es necesario */
-}  
+}
+.contenedor-img{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .detalle-reserva {
+        width: 400px;
+        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+    }
+    #detalle-imagen {
+      flex: 0 0 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+    }
+}
