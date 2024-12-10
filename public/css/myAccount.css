@@ -49,11 +49,20 @@
 .data-user div p{
     font-size: 18pt;
 }
+.data-user p{
+    font-weight: 600;
+}
+.data-user p span{
+    font-weight: 400;
+}
 .data-user a,
 .reserva-list a{
     color: #fff
-}.data-2{
+}
+.data-2{
     display: flex;
+    flex-direction: column;
+    gap: .5rem;
     justify-content: space-around;
 }
 .title{
@@ -90,11 +99,14 @@
     width: min-content;
     top: 120px;
     right: 2rem;
+    height: 38px;
+    width: 81px;
 }
 .edit-btn:hover,
 .item-reserva div:last-child a:hover{
     background-color: #f3f3f3;
     color: #5A189A;
+    border: 2px solid #5A189A;
 }
 .reserva-list{
     display: flex;
@@ -131,7 +143,6 @@
     background-color: #3a1368;
 }
 .item-reserva div:last-child{
-    margin-left: auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -148,6 +159,10 @@
 .date{
     display: flex;
     gap: 2rem;
+    margin-bottom: 10px;
+}
+.btn-publi{
+    margin-left: auto;
 }
 #favoritos-contenedor .card{
     height: 480px;
