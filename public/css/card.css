@@ -15,6 +15,8 @@
     display: none; /* Chrome, Safari, Opera */
 }
 .card {
+    display: flex;
+    flex-direction: column;
     background-color: #5A189A;
     color: #FFFFFF;
     border-radius: 10px;
@@ -96,6 +98,7 @@
     cursor: pointer;
     border-radius: 1rem;
     transition: .3s;
+    text-decoration: none;
 }
 .btn-reservar:hover {
     background-color: #8E5DC2;

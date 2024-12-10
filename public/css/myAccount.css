@@ -82,6 +82,7 @@
     margin-left: auto;
     background-color: #9f6ad4;
     border-radius: 50%;
+    transition: 0.5s;
 }
 .reserva-list{
     display: flex;
@@ -177,4 +178,7 @@
 #favoritos-contenedor .card p {
     font-size: 12pt; /* Ajusta el tamaño del texto */
     margin: 8px 0; /* Cambia el margen si es necesario */
+}
+.rotate {
+    transform: rotate(180deg);
 }
