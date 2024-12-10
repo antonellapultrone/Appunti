@@ -69,6 +69,7 @@
 }
 .container-publicidad{
     display: flex;
+    justify-content: center;
     gap: 2rem;
 }
 .container-publicidad div{

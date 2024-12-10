@@ -13,11 +13,9 @@ section{
 .titulo{
     padding: 20px;
 }
-
 .titulo h2{
     text-align: left;
 }
-
 /* Sección de detalle de la reserva */
 .detalle-reserva {
     display: flex;
@@ -27,13 +25,11 @@ section{
     margin: 0 auto;
     padding: 20px;
 }
-
 /* Imagen del servicio */
 #detalle-imagen {
     flex: 3; /* Ocupa el espacio restante */
     text-align: center;
 }
-
 @media (max-width: 768px) {
     .detalle-reserva {
         width: 400px;
@@ -43,13 +39,11 @@ section{
       flex: 0 0 100%; /* Ocupa todo el ancho en pantallas pequeñas */
     }
 }
-
 #imagen-servicio {
     width: 100%;
     max-height: 400px; /* Ajusta el tamaño máximo según tu imagen */
     object-fit: cover;
 }
-
 /* Información del servicio */
 .detalle-info {
     background-color: #9a63d1da;
@@ -64,18 +58,11 @@ section{
 .detalle-info{
     color: #10002B;
 }
-
 /* Títulos y texto */
-h2 {
+#nombre-servicio{
     font-size: 24px;
     margin-bottom: 10px;
 }
-
-p {
-    font-size: 16px;
-    line-height: 1.5;
-}
-
 .buttons{
     display: flex;
     flex-direction: column;
@@ -84,7 +71,6 @@ p {
     margin-top: 10px;
     width: 100%; /* Make buttons occupy full width */
 }
-
 /* Botón de reservar */
 .reservar-btn, 
 .agregar-btn{
@@ -102,7 +88,6 @@ p {
     border:none;
     font-weight: 600;
 }
-
 /* Botón de agregar reserva */
 .agregar-btn{
     color: #10002B;
@@ -111,61 +96,46 @@ p {
     border:none;  
     font-weight: 600;  
 }
-
 #reservar-btn,
 #agregar-btn{
     transition: .3s ease-in-out;
 }
-
 #reservar-btn:hover{
     cursor: pointer;
     background-color: #10002B;
     transform: scale(1.1);
     box-shadow: 5px 10px 20px 2px #cecece;
 }
-
 #agregar-btn:hover{
     cursor: pointer;
     background-color: #c6c5c5;
     transform: scale(1.1);
     box-shadow: 5px 10px 20px 2px #cecece;
 }
-
 /* Personalización adicional (ajusta según tu diseño) */
 .detalle-info p strong{
     font-size: 1rem;
 }
-
 .detalle-info p{
     font-size: .75rem;
 }
-
-/* Para el calendario de reservas (si lo tienes) */
-.calendario-reservas {
-  /* Estilos para el calendario */
-}
-
 /* Sección de descripción */
 .detalle-ubicacion, .detalle-descripcion {
     padding: 20px;
 }
-
 .detalle-ubicacion h3, .detalle-descripcion h3 {
     font-size: 18px;
     margin-bottom: 10px;
     color: #333;
 }
-
 .detalle-ubicacion p, .detalle-descripcion p {
     padding: 1rem;
     color: #666;
     margin-left: 1rem;
 }
-
 #detalle-imagen img{
     width: 100%;
 }
-
 #detalle-imagen {
     margin: 25px;
     overflow: hidden; /* Permite que se vea todo el contenido */
@@ -174,5 +144,4 @@ p {
     height: auto; /* Mantiene las proporciones */
     border-radius: 10px;
     object-fit: cover; /* Recorta si es necesario */
-
 }  
