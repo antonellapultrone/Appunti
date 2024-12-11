@@ -46,6 +46,7 @@ CREATE TABLE IF NOT EXISTS `appunti`.`favoritos` (
 CREATE TABLE IF NOT EXISTS `appunti`.`imagenes` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `url` VARCHAR(255) NOT NULL,
+  `descripcion` VARCHAR(255),
   `servicio_ID` INT NOT NULL,
   PRIMARY KEY (`ID`),
   FOREIGN KEY (`servicio_ID`) REFERENCES `servicios`(`ID`) ON DELETE CASCADE

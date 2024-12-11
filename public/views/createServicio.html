@@ -131,7 +131,13 @@
                 <h3>Imagenes del servicio</h3>
                 <div>
                     <label for="image">Subir Imágenes (2 minimo):</label>
-                    <input type="file" id="image" name="image[]" accept="image/*" multiple onchange="previewImages()">
+                    <input type="file" 
+                        id="image" 
+                        name="image[]" 
+                        accept="image/*" 
+                        multiple 
+                        onchange="previewImages()"
+                    >
                 </div>
                 <div class="image-preview" id="image-preview"></div>
             </div>

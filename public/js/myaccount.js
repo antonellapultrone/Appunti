@@ -24,8 +24,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             } else if (button.id === 'togglePubli') {
                 contentContainer = parentContainer.querySelector('#dataPublicaciones');
             }
-
-            console.log(contentContainer);
             // Alternar la clase 'expanded'
             if (contentContainer) {
                 contentContainer.classList.toggle('expanded');

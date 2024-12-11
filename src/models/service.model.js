@@ -2,22 +2,17 @@ import pool from "../config/conection.js";
 
 export const getAllService = async () => {
     try {
-        // Obtener todos los servicios
-        const [servicios] = await pool.query(`SELECT * FROM servicios`);
+        // Obtener todos los servicios con sus imágenes
+        const [servicios] = await pool.query(`
+            SELECT s.*, 
+                    (SELECT url FROM imagenes WHERE servicio_ID = s.ID LIMIT 1) as imagen_url 
+            FROM servicios s;
+        `);
 
-        // Mapear los servicios para incluir imágenes y horarios
-        const serviciosConDetalles = await Promise.all(
-            servicios.map(async (servicio) => {
-                const [imagenes] = await pool.query(`SELECT * FROM imagenes WHERE servicio_ID = ?`, [servicio.ID]);
-
-                return {
-                    ...servicio,
-                    imagenes
-                };
-            })
-        );
-
-        return serviciosConDetalles;
+        return servicios.map(servicio => ({
+            ...servicio,
+            imagenes: servicio.imagen_url ? [servicio.imagen_url] : []
+        }));
     } catch (error) {
         throw new Error("Error al obtener los servicios: " + error.message);
     }
@@ -75,32 +70,70 @@ export const getServiceByNombreCategoriaCiudad = async (data) => {
 };
 
 export const createService = async (dataService) => {
-    // Desestructura con valores por defecto
-    const { 
-        nombre, 
-        precio, 
-        duracion_hora = 1,  // Valor por defecto de 1 hora
-        descripcion = '', 
-        categoria = '', 
-        ubicacion = '', 
-        ciudad = '', 
-        telefono = '', 
-        dia_semana = '', 
-        hora_inicio = '00:00', 
-        hora_fin = '23:59', 
-        usuario_ID 
-    } = dataService;
-    
-    const estado = true;
+    try {
+        // Iniciar transacción
+        await pool.query('START TRANSACTION');
 
-    const [result] = await pool.query(
-        `INSERT INTO servicios (nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID) 
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
-        [nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID]
-    );
+        // Insertar servicio
+        const [serviceResult] = await pool.query(
+            `INSERT INTO servicios 
+            (nombre, precio, duracion_hora, descripcion, categoria, ubicacion, ciudad, telefono, dia_semana, hora_inicio, hora_fin, estado, usuario_ID) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+            [
+                dataService.nombre, 
+                dataService.precio, 
+                dataService.duracion_hora,
+                dataService.descripcion,
+                dataService.categoria,
+                dataService.ubicacion,
+                dataService.ciudad,
+                dataService.telefono,
+                dataService.dia_semana,
+                dataService.hora_inicio,
+                dataService.hora_fin,
+                true,
+                dataService.usuario_ID
+            ]
+        );
 
-    // Importante: retornar el ID del servicio insertado
-    return result.insertId;
+        const serviceId = serviceResult.insertId;
+
+        // Insertar imágenes con validación
+        if (dataService.imagenes && dataService.imagenes.length > 0) {
+            const validImages = dataService.imagenes.filter(imagen => 
+                imagen.url && imagen.url.trim() !== ''
+            );
+
+            if (validImages.length > 0) {
+                const imageInsertPromises = validImages.map(imagen => 
+                    pool.query(
+                        `INSERT INTO imagenes (url, descripcion, servicio_ID) VALUES (?, ?, ?)`,
+                        [
+                            imagen.url, 
+                            imagen.descripcion || 'Imagen de servicio', 
+                            serviceId  // Aquí se usa el ID del servicio recién creado
+                        ]
+                    )
+                );
+
+                await Promise.all(imageInsertPromises);
+            } else {
+                throw new Error('No hay imágenes válidas para subir');
+            }
+        } else {
+            throw new Error('Debe subir al menos una imagen');
+        }
+
+        // Confirmar transacción
+        await pool.query('COMMIT');
+
+        return serviceId;
+    } catch (error) {
+        // Revertir transacción en caso de error
+        await pool.query('ROLLBACK');
+        console.error('Error en createService:', error);
+        throw error;
+    }
 };
 
 export const updateService = async (id, dataService) => {
