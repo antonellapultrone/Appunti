@@ -1,6 +1,6 @@
 import express from 'express';
 import * as serviceController from '../controllers/service.controller.js';
-import * as userController from '../controllers/user.controller.js';
+import { upload } from '../config/cloudinary.config.js';
 import { requireAuth } from '../middlewares/session.middleware.js';
 
 const router = express.Router();
@@ -15,5 +15,7 @@ router.post(
 );
 router.put('/:id', serviceController.updateService);
 router.delete('/:id', serviceController.deleteService);
+
+router.post('/upload', requireAuth, upload.array('images', 2), serviceController.updateImg);
 
 export default router;

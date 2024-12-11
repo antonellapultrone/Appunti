@@ -1,14 +1,18 @@
 import * as servicioModel from '../models/service.model.js';
-import pool from '../config/conection.js'
+import { upload, uploadToCloudinary } from '../config/cloudinary.config.js';
 
-export const getAllService = async (req,res) =>{
-    try{
+export const getAllService = async (req, res) => {
+    try {
         const servicio = await servicioModel.getAllService();
         res.json(servicio);
-    } catch(error){
-        res.status(500).json({ message: 'Error al obtener los servicios: ' + error});
+    } catch (error) {
+        console.error('Error al obtener servicios:', error);
+        res.status(500).json({ 
+            message: 'Error al obtener los servicios', 
+            error: error.message 
+        });
     }
-}
+};
 
 export const getServiceById = async (req, res) => {
     try {
@@ -34,94 +38,77 @@ export const getServiceByNombreCategoriaCiudad = async (req, res) => {
     }
 };
 
-
-// service.controller.js
 export const createService = async (req, res) => {
     try {
         const usuarioID = req.user?.id;
 
         if (!usuarioID) {
-            console.error('Error: No se encontró el ID de usuario');
             return res.status(401).json({ 
-                message: 'Usuario no autenticado', 
-                details: 'No se pudo obtener el ID de usuario' 
-            });
-        }
-
-        const { 
-            nombre, 
-            precio, 
-            duracion_hora, 
-            categoria,
-            descripcion = '', 
-            ubicacion = '',
-            ciudad = '',
-            telefono = '',
-            dia_semana,
-            hora_inicio,
-            hora_fin
-        } = req.body;
-
-        // Validaciones más detalladas
-        const camposFaltantes = [];
-        if (!nombre) camposFaltantes.push('nombre');
-        if (!precio) camposFaltantes.push('precio');
-        if (!duracion_hora) camposFaltantes.push('duracion_hora');
-        if (!ubicacion) camposFaltantes.push('ubicacion');
-        if (!categoria) camposFaltantes.push('categoria');
-        if (!dia_semana) camposFaltantes.push('dia_semana');
-        if (!hora_inicio) camposFaltantes.push('hora_inicio');
-        if (!hora_fin) camposFaltantes.push('hora_fin');
-
-        if (camposFaltantes.length > 0) {
-            console.error('Campos faltantes:', camposFaltantes);
-            return res.status(400).json({
-                message: 'Faltan campos obligatorios',
-                camposFaltantes
+                message: 'Usuario no autenticado'
             });
         }
 
         const dataService = {
-            nombre, 
-            precio, 
-            duracion_hora, 
-            categoria,
-            descripcion: descripcion || 'Sin descripción',
-            ubicacion,
-            ciudad,
-            telefono,
-            dia_semana,
-            hora_inicio,
-            hora_fin,
-            estado: 'active',
+            ...req.body,
             usuario_ID: usuarioID
         };
 
-        try {
-            const newServiceId = await servicioModel.createService(dataService);
-            
-            console.log('Servicio creado con ID:', newServiceId);
-            
-            // Modificado para devolver específicamente el ID del servicio
-            res.status(201).json({ 
-                message: 'Servicio creado correctamente', 
-                serviceId: newServiceId 
-            });
-        } catch (dbError) {
-            console.error('Error en la base de datos:', dbError);
-            res.status(500).json({ 
-                message: 'Error al crear el servicio en la base de datos', 
-                error: dbError.message 
+        // Validaciones adicionales de imágenes
+        if (!dataService.imagenes || dataService.imagenes.length === 0) {
+            return res.status(400).json({
+                message: 'Debe subir al menos una imagen'
             });
         }
+
+        if (dataService.imagenes.length > 2) {
+            return res.status(400).json({
+                message: 'No se pueden subir más de 2 imágenes por servicio'
+            });
+        }
+
+        const newServiceId = await servicioModel.createService(dataService);
+        
+        res.status(201).json({ 
+            message: 'Servicio creado correctamente', 
+            serviceId: newServiceId 
+        });
     } catch (error) {
-        console.error('Error completo en createService:', error);
+        console.error('Error en createService:', error);
         res.status(500).json({ 
-            message: 'Error interno del servidor', 
+            message: 'Error al crear el servicio', 
             error: error.message 
         });
     }
 };
+
+export const updateImg = async (req, res) => {
+    try {
+        // Si no hay archivos, devuelve un error
+        if (!req.files || req.files.length === 0) {
+            return res.status(400).json({ message: 'No se han subido imágenes' });
+        }
+
+        // Subir cada imagen a Cloudinary
+        const uploadPromises = req.files.map(uploadToCloudinary);
+        const uploadResults = await Promise.all(uploadPromises);
+
+        const imageUrls = uploadResults.map(result => ({
+            url: result.secure_url,
+            public_id: result.public_id
+        }));
+
+        res.status(200).json({
+            message: 'Imágenes subidas correctamente',
+            images: imageUrls
+        });
+    } catch (error) {
+        console.error('Error al subir imágenes:', error);
+        res.status(500).json({ 
+            message: 'Error al subir imágenes', 
+            error: error.message 
+        });
+    }
+}
 
 export const updateService = async (req, res) => {
     try {

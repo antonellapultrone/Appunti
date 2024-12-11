@@ -6,43 +6,48 @@ export function renderCards(root, cardJson, carouselId) {
 
     // Crear el contenedor para las tarjetas
     const cardsWrapper = document.createElement('div');
-    cardsWrapper.setAttribute('class', "cards-wrapper"); // Clase para el contenedor de las tarjetas
+    cardsWrapper.setAttribute('class', "cards-wrapper");
     carouselContainer.appendChild(cardsWrapper);
 
-    // Renderizar las tarjetas
     cardJson.forEach(card => {
+
         const article = document.createElement("article");
         article.setAttribute('class', "card");
+        
+        // Manejar múltiples formas de obtener la URL de la imagen
+        const imageUrl = card.imagenes && card.imagenes.length > 0 
+            ? card.imagenes[0] 
+            : card.imagen_url 
+            ? card.imagen_url 
+            : '../assets/img/mago-frente.jpg';
+
         article.innerHTML = `
             <div class="img-contenedor">
-                <img src="${card.imagenes}" alt="Imagen de ${card.nombre}">
+                <img src="${imageUrl}" alt="Imagen de ${card.nombre}">
             </div>
             <button class="btn-favorito">
                 <img src="../../assets/img/star.png" alt="Favorito">
             </button>
             <div>
                 <h3>${card.nombre}</h3>
-                <p><span>Ubicación:</span> ${card.ubicacion}</p>
+                <p><span>Ubicación:</span> ${card.ubicacion || 'No especificado'}</p>
                 <p class="description">${card.descripcion}</p>
             </div>
             <a href="#" class="btn-reservar" data-id="${card.ID}">Reservar</a>
         `;
         
         // Agregar el evento al botón "Reservar"
-        // Agregar el evento al botón "Reservar"
         const btnReservar = article.querySelector(".btn-reservar");
         btnReservar.addEventListener("click", async (event) => {
-            event.preventDefault(); // Evitar el comportamiento por defecto del enlace
-            const servicioId = btnReservar.getAttribute('data-id'); // Obtener el ID del servicio
-
-            // Redirigir a details.html con el ID del servicio
-            window.location.href = `/views/detail.html?id=${servicioId}`; // Asegúrate de que la ruta sea correcta
+            event.preventDefault();
+            const servicioId = btnReservar.getAttribute('data-id');
+            window.location.href = `/views/detail.html?id=${servicioId}`;
         });
 
-        cardsWrapper.appendChild(article); // Añadir cada tarjeta al contenedor de tarjetas
+        cardsWrapper.appendChild(article);
     });
 
-    root.appendChild(carouselContainer); // Añadir el contenedor del carrusel al root
+    root.appendChild(carouselContainer);
 }
 
 export async function getAllCards() {

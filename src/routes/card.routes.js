@@ -1,7 +1,7 @@
 import express from 'express';
-import * as cardcontroller from '../controllers/card.controller.js';
+import * as serviceController from '../controllers/service.controller.js';
 const router = express.Router();
 
-router.get('/api/cards', cardcontroller.getAllCards);
+router.get('/api/cards', serviceController.getAllService);
 
 export default router;

@@ -1,11 +1,12 @@
 import express from 'express';
 import session from 'express-session';
 import dotenv from 'dotenv';
+import cors from 'cors';
+
 import userRoutes from './routes/usuario.routes.js';
 import serviceRoutes from './routes/service.routes.js';
-import cardsRoutes from './routes/card.routes.js';
+//import cardsRoutes from './routes/card.routes.js';
 import reservaRoutes from './routes/reserva.routes.js';
-import cors from 'cors';
 
 const app = express();
 dotenv.config({ path: './credenciales.env' });
@@ -33,7 +34,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/user', userRoutes);
 app.use('/views', userRoutes);
 app.use('/api/service', serviceRoutes);
-app.get('/api/cards', cardsRoutes);
+app.use('/api/cards', serviceRoutes);
 app.use('/api/reserva', reservaRoutes);
+
+app.use('/api/upload', serviceRoutes);
 
 export default app;
