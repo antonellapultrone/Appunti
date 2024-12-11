@@ -12,18 +12,15 @@
     color: #10002B;
     height:min-content;
 }
-
 .tituloprincipal{
     display: flex;
     flex-direction: row;
     align-self: center;
 }
-
 .tituloprincipal img{
     width: auto;
     height: 105pt; 
 }
-
 .container-principal p{
     width: 50%;
     margin: 0 auto;
@@ -42,26 +39,12 @@
     padding: 2rem 10rem;
     transition: 0.8s ease-in;
 }
-
 #section-descubreTuZona h2{
     font-size: 30pt;
     font-weight: 400;
     color: #ddd;
     text-align: center;
     margin-bottom: 2rem;
-}
-#section-descubreTuZona a{
-    display: block;
-    font-size: 25pt;
-    width: min-content;
-    text-wrap: nowrap;
-    margin: 3em auto 1rem;
-    text-align: center;
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #59189a;
-    padding: 1rem 1.5rem;
-    border-radius: 3rem;
 }
 /* publicidad */
 #section-publicidad{

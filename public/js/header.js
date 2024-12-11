@@ -57,7 +57,7 @@ export function renderNav(root, menuItems) {
     if (token) {
         // Usuario autenticado
         liAuth.innerHTML = `
-            <a href="../../views/myaccount.html">
+            <a id="miCuenta" href="../../views/myaccount.html">
                 <img src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff" alt="">
                 Mi Cuenta
             </a>

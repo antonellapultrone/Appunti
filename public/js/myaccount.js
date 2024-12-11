@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         window.location.href = 'http://localhost:3000/views/login.html';
     }
 
-    const toggleButtons = document.querySelectorAll('.toggleDataUser, .toggleReservas, .toggleFav, #togglePubli');
+    const toggleButtons = document.querySelectorAll('#toggleDataUser,#toggleReservas, #toggleFav, #togglePubli');
 
     toggleButtons.forEach(button => {
         button.addEventListener('click', () => {
@@ -77,19 +77,28 @@ document.addEventListener('DOMContentLoaded', async () => {
             // Encuentra el contenedor de contenido específico para este botón
             let contentContainer;
             
-            if (button.classList.contains('toggleDataUser')) {
+            if (button.id === 'toggleDataUser') {
                 contentContainer = parentContainer.querySelector('#dataUserContainer');
-            } else if (button.classList.contains('toggleReservas')) {
+            } else if (button.id === 'toggleReservas') {
                 contentContainer = parentContainer.querySelector('#dataReservas');
-            } else if (button.classList.contains('toggleFav')) {
+            } else if (button.id === 'toggleFav') {
                 contentContainer = parentContainer.querySelector('#favoritos-contenedor');
             } else if (button.id === 'togglePubli') {
                 contentContainer = parentContainer.querySelector('#dataPublicaciones');
             }
 
+            console.log(contentContainer);
             // Alternar la clase 'expanded'
             if (contentContainer) {
                 contentContainer.classList.toggle('expanded');
+            }
+
+            // Seleccionar solo la imagen específica que deseas rotar
+            const flechaImg = parentContainer.querySelector('img[src="../assets/img/desplegar-datos.png"]');
+            
+            // Rotar la imagen si existe
+            if (flechaImg) {
+                flechaImg.classList.toggle('rotate'); // Agrega o quita la clase de rotación
             }
         });
     });
