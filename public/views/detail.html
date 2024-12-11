@@ -28,29 +28,24 @@
                     <div id="detalle-boton"></div>
                 </div>
                 <div class="detalle-info" id="detalle-info">
-                    <h2 id="nombre-servicio">Cargando...</h2>
-                    <h3><strong>Precio por hora: $<span id="precio-servicio">0</span></strong></h3>
-                    <label for="fecha">Fecha de Reserva</label>
-                    <input type="date" id="fecha_reserva">
-                    <label for="horas">Horas</label>
-                    <div class="fecha_reserva">
-                        <label for="fecha">Fecha de Reserva</label>
-                        <input type="date" id="fecha_reserva">
-                        <label for="hora_inicio">Hora de Inicio</label>
-                        <input type="time" id="hora_inicio">
-                        <label for="hora_fin">Hora de Fin</label>
-                        <input type="time" id="hora_fin">
-                    </div>
-                    <select id="horas-reserva">
-                        <option value="1">1 hora</option>
-                        <option value="2">2 horas</option>
-                        <option value="3">3 horas</option>
-                    </select>
-                    <p>Política de cancelación: Cancelación Gratis. Reembolso completo con de anticipación.</p>
-                    <div class="buttons">
-                        <button type="submit" class="reservar-btn" id="reservar-btn">Reservar ahora</button>
-                        <button class="agregar-btn" id="agregar-btn">Agrgar reserva</button>
-                    </div>
+                    <form id="detalle-info-form" method="post">
+                        <h2 id="nombre-servicio">Cargando...</h2>
+                        <h3><strong>Precio: $<span id="precio-servicio">0</span></strong></h3>
+                        
+                        <div class="fecha_reserva">
+                            <label for="fecha_reserva">Fecha de Reserva</label>
+                            <input type="date" id="fecha_reserva" name="fecha_reserva" >
+                            <label for="hora_inicio">Hora de Inicio</label>
+                            <input type="time" id="hora_inicio" name="hora_inicio">
+                        </div>
+                        <h3>Horas de reserva</h3>
+                        <h4 ><span id="horas-reserva">Cargando...</span> Hs.</h4>
+                        <p>Política de cancelación: Cancelación Gratis. Reembolso completo con de anticipación.</p>
+                        <div class="buttons">
+                            <button type="submit" class="reservar-btn" id="reservar-btn">Reservar ahora</button>
+                            <button type="button" class="agregar-btn" id="agregar-btn">Agrgar reserva</button>
+                        </div>
+                    </form>
                 </div>
                 </div>
             </div>

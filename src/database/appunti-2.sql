@@ -55,7 +55,8 @@ CREATE TABLE IF NOT EXISTS `appunti`.`reservas` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `fecha_reserva` DATE NOT NULL,
   `hora_inicio` TIME NOT NULL,
-  `hora_fin` TIME NOT NULL,
+  `duracion` INT NOT NULL,
+  `pago_total` DECIMAL(10,2) NOT NULL,
   `estado` ENUM('pendiente', 'confirmada', 'cancelada', 'completada') DEFAULT 'pendiente',
   `usuario_ID` INT NOT NULL,
   `servicio_ID` INT NOT NULL,
@@ -63,4 +64,5 @@ CREATE TABLE IF NOT EXISTS `appunti`.`reservas` (
   FOREIGN KEY (`usuario_ID`) REFERENCES `usuarios`(`ID`) ON DELETE CASCADE,
   FOREIGN KEY (`servicio_ID`) REFERENCES `servicios`(`ID`) ON DELETE CASCADE
 );
+
 
