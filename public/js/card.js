@@ -32,9 +32,7 @@ export function renderCards(root, cardJson, carouselId) {
         btnReservar.addEventListener("click", async (event) => {
             event.preventDefault(); // Evitar el comportamiento por defecto del enlace
             const servicioId = btnReservar.getAttribute('data-id'); // Obtener el ID del servicio
-
-            // Redirigir a details.html con el ID del servicio
-            window.location.href = `/views/detail.html?id=${servicioId}`; // Asegúrate de que la ruta sea correcta
+            window.location.href = `/views/detail.html?id=${servicioId}`;
         });
 
         cardsWrapper.appendChild(article); // Añadir cada tarjeta al contenedor de tarjetas
