@@ -13,9 +13,11 @@ router.post(
     requireAuth,  // Primero autentica
     serviceController.createService  // Luego crea el servicio
 );
+//ediatar servicio
 router.put('/:id', serviceController.updateService);
+//eliminar servicio
 router.delete('/:id', serviceController.deleteService);
-
+//subir imagen
 router.post('/upload', requireAuth, upload.array('images', 2), serviceController.updateImg);
 
 export default router;

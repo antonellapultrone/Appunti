@@ -44,20 +44,27 @@ function renderCards(services) {
     } else {
 
         services.forEach(service => {
+            const imageUrl = service.imagenes && service.imagenes.length > 0 
+            ? service.imagenes[0] 
+            : service.imagen_url 
+            ? service.imagen_url 
+            : '../assets/img/mago-frente.jpg';
+
             const article = document.createElement("article");
             article.setAttribute('class', "card");
             article.innerHTML = `
                 <div class="img-contenedor">
-                    <img src="${service.imagenes}" alt="Imagen de ${service.nombre}">
-                </div>
-                <button class="btn-favorito"><img src="../../assets/img/star.png" alt="Favorito"></button>
-                <div>
-                    <h3>${service.nombre}</h3>
-                    <p><span>Ubicación:</span> ${service.ubicacion}</p>
-                    <p><span>Ciudad:</span> ${service.ciudad}</p>
-                    <p>${service.descripcion}</p>
-                </div>
-                <a href="#" class="btn-reservar" data-id="${service.ID}">Reservar</a>
+                <img src="${imageUrl}" alt="Imagen de ${service.nombre}">
+            </div>
+            <button class="btn-favorito">
+                <img src="../../assets/img/star.png" alt="Favorito">
+            </button>
+            <div>
+                <h3>${service.nombre}</h3>
+                <p><span>Ubicación:</span> ${service.ubicacion || 'No especificado'}</p>
+                <p class="description">${service.descripcion}</p>
+            </div>
+            <a href="#" class="btn-reservar" data-id="${service.ID}">Reservar</a>
             `;
             // Agregar el evento al botón "Reservar"
             const btnReservar = article.querySelector(".btn-reservar");

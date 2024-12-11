@@ -13,14 +13,9 @@ export const menuData = [
         name: "Categorias",
         img: "https://img.icons8.com/?size=100&id=Ah8SLaXAg94W&format=png&color=ffffff",
         url:"/#section-categorias"
-    
-    },
-    {
-        name: "Crear Servicio",
-        img: "https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff",
-        url:"../../views/createServicio.html"
     }
-]
+    // No se incluye "Crear Servicio" aquí
+];
 
 export function renderNav(root, menuItems) {
     let nav = document.createElement('nav');
@@ -40,20 +35,32 @@ export function renderNav(root, menuItems) {
         ul.appendChild(li);
     }
 
+    // Verificar si el usuario está autenticado
+    const token = sessionStorage.getItem('token');
+    if (token) {
+        // Solo agregar "Crear Servicio" si el usuario está autenticado
+        let liCrearServicio = document.createElement('li');
+        liCrearServicio.innerHTML = `
+            <a href="../../views/createServicio.html">
+                <img src="https://img.icons8.com/?size=100&id=10053&format=png&color=ffffff" alt="">
+                Crear Servicio
+            </a>
+        `;
+        ul.appendChild(liCrearServicio);
+    }
+
     let divBuscador = document.createElement('div')
     divBuscador.setAttribute('class', 'buscador');
     divBuscador.innerHTML = `
             <form action="/views/resultados-busqueda.html" method="get">
-                <input id="bucador" name="query"" type="text" placeholder="Busca reservas, servicios y mas...">
+                <input id="bucador" name="query" type="text" placeholder="Busca reservas, servicios y mas...">
                 <button><img src="https://img.icons8.com/?&id=132&format=png&color=ffffff" alt=""></button>
             </form>
-    `
+    `;
     ul.appendChild(divBuscador);
 
     // Añadir elemento de inicio de sesión/mi cuenta dinámicamente
-    let liAuth = document.createElement('li');'¿'
-    const token = sessionStorage.getItem('token');
-
+    let liAuth = document.createElement('li');
     if (token) {
         // Usuario autenticado
         liAuth.innerHTML = `
@@ -86,7 +93,6 @@ export function renderNav(root, menuItems) {
 
     ul.appendChild(liAuth);
 }
-
 document.addEventListener('DOMContentLoaded', async () => {
     const miCuenta = document.getElementById("miCuenta");
     const popup = document.getElementById("popup-session");
