@@ -17,7 +17,9 @@ export function renderCards(root, cardJson, carouselId) {
             <div class="img-contenedor">
                 <img src="${card.imagenes}" alt="Imagen de ${card.nombre}">
             </div>
-            <button class="btn-favorito"><img src="../../assets/img/star.png" alt="Favorito"></button>
+            <button class="btn-favorito">
+                <img src="../../assets/img/star.png" alt="Favorito">
+            </button>
             <div>
                 <h3>${card.nombre}</h3>
                 <p><span>Ubicación:</span> ${card.ubicacion}</p>

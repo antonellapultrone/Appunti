@@ -125,6 +125,6 @@ nav ul li:first-child a img{
     display: block;
     box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
 }
-.active{
+.active-header{
     background-color: #3a1368;
 }

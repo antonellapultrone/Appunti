@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const popup = document.getElementById("popup-session");
 
     miCuenta.addEventListener('click', (event) => {
-        miCuenta.classList.toggle("active");
+        miCuenta.classList.toggle("active-header");
         popup.classList.toggle("display-b");
 
         // Detenemos la propagación para que este evento no dispare el listener global en el documento
@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.addEventListener('click', (event) => {
         // Verifica si el clic NO ocurrió dentro de 'miCuenta' o 'popup'
         if (!miCuenta.contains(event.target) && !popup.contains(event.target)) {
-            miCuenta.classList.remove("active");
+            miCuenta.classList.remove("active-header");
             popup.classList.remove("display-b");
         }
     });
