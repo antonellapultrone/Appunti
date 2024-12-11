@@ -124,10 +124,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (response.ok) {
                 // Limpiar toda la información de sesión
-                sessionStorage.clear(); // Borra todo lo almacenado en sessionStorage
-                // O específicamente:
-                // sessionStorage.removeItem('token');
-
+                sessionStorage.clear();
                 // Redirigir al login
                 window.location.href = '/views/login.html';
             } else {

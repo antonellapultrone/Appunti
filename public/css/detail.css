@@ -1,5 +1,4 @@
 @import url(./global.css);
-/* Contenedor principal de la página */
 body{
     background-color: #e7e7e7;
 }
@@ -16,7 +15,6 @@ section{
 .titulo h2{
     text-align: left;
 }
-/* Sección de detalle de la reserva */
 .detalle-reserva {
     display: flex;
     gap: 1rem;
@@ -24,24 +22,22 @@ section{
     padding: 20px;
     width: 100%;
 }
-/* Imagen del servicio */
 #detalle-imagen {
-    flex: 3; /* Ocupa el espacio restante */
+    flex: 3;
     text-align: center;
 }
 #imagen-servicio {
     width: 100%;
-    max-height: 400px; /* Ajusta el tamaño máximo según tu imagen */
+    max-height: 400px;
     object-fit: cover;
 }
-/* Información del servicio */
 .detalle-info {
     background-color: #9a63d1da;
     box-shadow: 5px 10px 20px 2px #cecece;
     padding: 20px;
     padding-right: -20px;
     border-radius: 10px;
-    width: 500px; /* Ajusta el ancho según tu diseño */
+    width: 500px;
 }
 .detalle-info label{
     margin: 1rem 0;
@@ -50,6 +46,7 @@ section{
 .detalle-info h3,
 .detalle-info label{
     text-wrap: nowrap;
+    margin: 0;
 }
 .detalle-info label,
 .detalle-info{
@@ -66,17 +63,15 @@ section{
     justify-content: center;
     gap: 1rem;
     margin-top: 10px;
-    width: 100%; /* Make buttons occupy full width */
+    width: 100%;
 }
-/* Botón de reservar */
 .reservar-btn, 
 .agregar-btn{
     padding: .5rem 0;
     text-wrap: nowrap;
     width: 100%;
     display: block;
-    flex-grow: 1; /* Make buttons grow to fill available space */
-  /* ... other styles ... */
+    flex-grow: 1;
 }
 .reservar-btn {
     color: #fff;
@@ -85,7 +80,6 @@ section{
     border:none;
     font-weight: 600;
 }
-/* Botón de agregar reserva */
 .agregar-btn{
     color: #10002B;
     border-radius: 10px;
@@ -109,14 +103,12 @@ section{
     transform: scale(1.1);
     box-shadow: 5px 10px 20px 2px #cecece;
 }
-/* Personalización adicional (ajusta según tu diseño) */
 .detalle-info p strong{
     font-size: 1rem;
 }
 .detalle-info p{
     font-size: .75rem;
 }
-/* Sección de descripción */
 .detalle-ubicacion, .detalle-descripcion {
     padding: 20px;
 }
@@ -135,25 +127,30 @@ section{
 }
 #detalle-imagen {
     margin: 25px;
-    overflow: hidden; /* Permite que se vea todo el contenido */
-    width: 90%; /* Adapta la imagen al contenedor */
-    max-width: 650px; /* Limita el ancho máximo */
-    height: auto; /* Mantiene las proporciones */
+    overflow: hidden;
+    width: 90%;
+    max-width: 650px;
+    height: auto;
     border-radius: 10px;
-    object-fit: cover; /* Recorta si es necesario */
+    object-fit: cover;
 }
 .contenedor-img{
     display: flex;
     flex-direction: column;
     width: 100%;
 }
+.fecha_reserva{
+    flex-direction: column;
+    margin: 1rem 0;
+    gap: 1rem;
+}
 
 @media (max-width: 768px) {
     .detalle-reserva {
         width: 400px;
-        flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+        flex-direction: column;
     }
     #detalle-imagen {
-      flex: 0 0 100%; /* Ocupa todo el ancho en pantallas pequeñas */
+        flex: 0 0 100%;
     }
 }
