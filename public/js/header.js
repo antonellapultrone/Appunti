@@ -51,16 +51,28 @@ export function renderNav(root, menuItems) {
     ul.appendChild(divBuscador);
 
     // Añadir elemento de inicio de sesión/mi cuenta dinámicamente
-    let liAuth = document.createElement('li');
+    let liAuth = document.createElement('li');'¿'
     const token = sessionStorage.getItem('token');
 
     if (token) {
         // Usuario autenticado
         liAuth.innerHTML = `
-            <a id="miCuenta" href="../../views/myaccount.html">
+            <a id="miCuenta">
                 <img src="https://img.icons8.com/?size=100&id=ABBSjQJK83zf&format=png&color=ffffff" alt="">
                 Mi Cuenta
             </a>
+            <div id="popup-session" class="popup-session">
+                <div>
+                    <div>
+                        <img src="https://img.icons8.com/?size=100&id=t0sXJJOlHoXc&format=png&color=000000" alt="">
+                        <a href="../../views/myaccount.html">Ver Cuenta</a>
+                    </div>
+                    <div>
+                        <img src="https://img.icons8.com/?size=100&id=2445&format=png&color=000000" alt="">
+                        <a id="logout" href="">Cerrar Sesión</a>
+                    </div>
+                </div>
+            </div>
         `;
     } else {
         // Usuario no autenticado
@@ -74,3 +86,59 @@ export function renderNav(root, menuItems) {
 
     ul.appendChild(liAuth);
 }
+
+document.addEventListener('DOMContentLoaded', async () => {
+    const miCuenta = document.getElementById("miCuenta");
+    const popup = document.getElementById("popup-session");
+
+    miCuenta.addEventListener('click', (event) => {
+        miCuenta.classList.toggle("active");
+        popup.classList.toggle("display-b");
+
+        // Detenemos la propagación para que este evento no dispare el listener global en el documento
+        event.stopPropagation();
+    });
+
+    document.addEventListener('click', (event) => {
+        // Verifica si el clic NO ocurrió dentro de 'miCuenta' o 'popup'
+        if (!miCuenta.contains(event.target) && !popup.contains(event.target)) {
+            miCuenta.classList.remove("active");
+            popup.classList.remove("display-b");
+        }
+    });
+
+    const cerrarSesion = document.getElementById("logout");
+    cerrarSesion.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        try {
+            const token = sessionStorage.getItem('token');
+            
+            const response = await fetch('/api/user/logout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${token}` // Agregar token para autenticación
+                },
+            });
+
+            if (response.ok) {
+                // Limpiar toda la información de sesión
+                sessionStorage.clear(); // Borra todo lo almacenado en sessionStorage
+                // O específicamente:
+                // sessionStorage.removeItem('token');
+
+                // Redirigir al login
+                window.location.href = '/views/login.html';
+            } else {
+                const errorData = await response.json();
+                console.error('Error al cerrar sesión:', errorData.message);
+                // Opcional: mostrar mensaje de error al usuario
+                alert(errorData.message || 'Error al cerrar sesión');
+            }
+        } catch (error) {
+            console.error('Error de red al cerrar sesión:', error);
+            alert('No se pudo cerrar sesión. Compruebe su conexión.');
+        }
+    });
+});

@@ -3,9 +3,45 @@ import { renderButtonsCarrusel, initCarrusel } from './carrusel.js';
 import { renderCards, getAllCards } from './card.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
+    //=================================FRONTEND=================================
     const rootFavoritos = document.getElementById("favoritos-contenedor");
-    const token = sessionStorage.getItem('token');
+    const toggleButtons = document.querySelectorAll('#toggleDataUser,#toggleReservas, #toggleFav, #togglePubli');
 
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Encuentra el contenedor padre más cercano con la clase 'data-user-style'
+            const parentContainer = button.closest('.data-user-style');
+            
+            // Encuentra el contenedor de contenido específico para este botón
+            let contentContainer;
+            
+            if (button.id === 'toggleDataUser') {
+                contentContainer = parentContainer.querySelector('#dataUserContainer');
+            } else if (button.id === 'toggleReservas') {
+                contentContainer = parentContainer.querySelector('#dataReservas');
+            } else if (button.id === 'toggleFav') {
+                contentContainer = parentContainer.querySelector('#favoritos-contenedor');
+            } else if (button.id === 'togglePubli') {
+                contentContainer = parentContainer.querySelector('#dataPublicaciones');
+            }
+
+            console.log(contentContainer);
+            // Alternar la clase 'expanded'
+            if (contentContainer) {
+                contentContainer.classList.toggle('expanded');
+            }
+
+            // Seleccionar solo la imagen específica que deseas rotar
+            const flechaImg = parentContainer.querySelector('img[src="../assets/img/desplegar-datos.png"]');
+            
+            // Rotar la imagen si existe
+            if (flechaImg) {
+                flechaImg.classList.toggle('rotate'); // Agrega o quita la clase de rotación
+            }
+        });
+    });
+    //=================================RENDERIZADO CON BACKEND=================================
+    const token = sessionStorage.getItem('token');
     if (!token) {
         console.error('Token no encontrado. Redirigiendo a login.');
         window.location.href = 'http://localhost:3000/views/login.html';
@@ -66,40 +102,4 @@ document.addEventListener('DOMContentLoaded', async () => {
         console.error('Error al obtener los datos del usuario:', error);
         window.location.href = 'http://localhost:3000/views/login.html';
     }
-
-    const toggleButtons = document.querySelectorAll('#toggleDataUser,#toggleReservas, #toggleFav, #togglePubli');
-
-    toggleButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Encuentra el contenedor padre más cercano con la clase 'data-user-style'
-            const parentContainer = button.closest('.data-user-style');
-            
-            // Encuentra el contenedor de contenido específico para este botón
-            let contentContainer;
-            
-            if (button.id === 'toggleDataUser') {
-                contentContainer = parentContainer.querySelector('#dataUserContainer');
-            } else if (button.id === 'toggleReservas') {
-                contentContainer = parentContainer.querySelector('#dataReservas');
-            } else if (button.id === 'toggleFav') {
-                contentContainer = parentContainer.querySelector('#favoritos-contenedor');
-            } else if (button.id === 'togglePubli') {
-                contentContainer = parentContainer.querySelector('#dataPublicaciones');
-            }
-
-            console.log(contentContainer);
-            // Alternar la clase 'expanded'
-            if (contentContainer) {
-                contentContainer.classList.toggle('expanded');
-            }
-
-            // Seleccionar solo la imagen específica que deseas rotar
-            const flechaImg = parentContainer.querySelector('img[src="../assets/img/desplegar-datos.png"]');
-            
-            // Rotar la imagen si existe
-            if (flechaImg) {
-                flechaImg.classList.toggle('rotate'); // Agrega o quita la clase de rotación
-            }
-        });
-    });
 });

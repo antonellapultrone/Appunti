@@ -10,10 +10,8 @@ router.post('/validateLogin', Validate.validateLoginUser, UserController.loginUs
 router.post('/validateRegister', Validate.validateRegisterUser, UserController.createUser);
 
 // Rutas protegidas
-router.get('/session', 
-    requireAuth, 
-    UserController.getUserSessionData
-);
+router.get('/session', requireAuth, UserController.getUserSessionData);
+router.post('/logout', requireAuth, UserController.logoutUser);
 
 // CRUD de usuarios
 router.get('/', UserController.getAllUsers);

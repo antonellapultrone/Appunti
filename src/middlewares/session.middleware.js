@@ -1,26 +1,37 @@
 import jwt from 'jsonwebtoken';
 
 export const requireAuth = (req, res, next) => {
-
-    const authHeader = req.headers['authorization'] || req.headers['Authorization'] || req.get('Authorization');
+    const authHeader = req.headers['authorization'];
 
     if (!authHeader) {
-        return res.status(403).json({ message: 'Token no proporcionado' });
+        return res.status(401).json({ message: 'No autorizado' });
     }
 
-    const tokenParts = authHeader.split(' ');
-    const token = tokenParts.length > 1 ? tokenParts[1] : tokenParts[0];
+    const token = authHeader.split(' ')[1];
 
-    if (!token) {
-        return res.status(403).json({ message: 'Token no válido' });
-    }
-    
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        
+        // Verificar si el token está cerca de expirar
+        const currentTime = Math.floor(Date.now() / 1000);
+        if (decoded.exp - currentTime < 300) { // Si quedan menos de 5 minutos
+            // Generar un nuevo token
+            const newToken = jwt.sign(
+                { 
+                    id: decoded.id, 
+                    email: decoded.email 
+                }, 
+                process.env.JWT_SECRET, 
+                { expiresIn: '1h' }
+            );
+            
+            // Puedes enviar el nuevo token en la respuesta si lo deseas
+            res.set('New-Token', newToken);
+        }
+
         req.user = decoded;
         next();
     } catch (error) {
-        console.error('Error verificando el token:', error.message);
-        return res.status(403).json({ message: 'Token no válido o expirado' });
+        return res.status(401).json({ message: 'Token inválido o expirado' });
     }
 };

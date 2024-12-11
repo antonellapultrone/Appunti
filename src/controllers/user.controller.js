@@ -90,6 +90,29 @@ export const loginUser = async (req, res) => {
     }
 };
 
+export const logoutUser = (req, res) => {
+    try {        
+        // Limpiar la sesión del servidor si estás usando express-session
+        if (req.session) {
+            req.session.destroy((err) => {
+                if (err) {
+                    console.error('Error al destruir la sesión:', err);
+                }
+            });
+        }
+        // Responder con éxito
+        res.json({ 
+            message: 'Sesión cerrada correctamente',
+            redirectUrl: '/views/login.html'
+        });
+    } catch (error) {
+        console.error('Error en logout:', error);
+        res.status(500).json({ 
+            message: 'Error al cerrar sesión', 
+            error: error.message 
+        });
+    }
+};
 
 // Controlador para obtener datos del usuario autenticado
 export const getUserSessionData = async (req, res) => {
@@ -122,18 +145,4 @@ export const getUserSessionData = async (req, res) => {
         console.error('Error interno del servidor:', error.message);
         res.status(500).json({ message: 'Error interno del servidor' });
     }
-};
-
-
-export const logoutUser  = (req, res) => {
-    // Limpiar sessionStorage
-    sessionStorage.removeItem('userId');
-    sessionStorage.removeItem('userName');
-    sessionStorage.removeItem('userLastName');
-    sessionStorage.removeItem('userEmail');
-    sessionStorage.removeItem('userPhoto');
-    sessionStorage.removeItem('userAddress');
-    sessionStorage.removeItem('userEntrepreneur');
-
-    res.json({ message: 'Usuario ha cerrado sesión.' });
 };
