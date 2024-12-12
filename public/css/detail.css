@@ -109,11 +109,14 @@ section{
     transform: scale(1.1);
     box-shadow: 5px 10px 20px 2px #cecece;
 }
+#detalle-info-form{
+    gap: 1rem;
+}
 .detalle-info p strong{
     font-size: 1rem;
 }
 .detalle-info p{
-    font-size: .75rem;
+    font-size: 10pt;
 }
 .detalle-ubicacion, .detalle-descripcion {
     padding: 20px;
