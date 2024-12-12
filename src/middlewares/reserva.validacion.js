@@ -1,5 +1,4 @@
-import { body, validationResult} from 'express-validator';
-import pool from '../config/conection.js';
+import { body} from 'express-validator';
 
 export const validateReserva =[
 

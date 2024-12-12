@@ -17,7 +17,7 @@ router.post('/logout', requireAuth, UserController.logoutUser);
 router.get('/', UserController.getAllUsers);
 router.get('/get/:id', UserController.getUserId);
 router.post('/', UserController.createUser);
-router.put('/:id', UserController.updateUser);
-router.delete('/:id', UserController.deleteUser);
+router.put('/update', requireAuth, UserController.updateUser);
+router.delete('/delete', requireAuth, UserController.deleteUser);
 
 export default router;

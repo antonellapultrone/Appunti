@@ -54,10 +54,55 @@ export const createUser = async (data) => {
 };
 
 export const updateUser = async (id, data) => {
-    const { nombre, apellido, email, password } = data;
-    await pool.query('UPDATE usuarios SET nombre = ?, apellido = ?, mail = ?, contrasenia = ? WHERE ID = ?', [nombre,apellido, email,password, id]);
+    // Construir la consulta dinámicamente basada en los campos proporcionados
+    const fields = [];
+    const values = [];
+
+    if (data.nombre) {
+        fields.push('nombre = ?');
+        values.push(data.nombre);
+    }
+    if (data.apellido) {
+        fields.push('apellido = ?');
+        values.push(data.apellido);
+    }
+    if (data.direccion) {
+        fields.push('direccion = ?');
+        values.push(data.direccion);
+    }
+    if (data.telefono) {
+        fields.push('telefono = ?');
+        values.push(data.telefono);
+    }
+    if (data.fecha_nacimiento) {
+        fields.push('fecha_nacimiento = ?');
+        values.push(data.fecha_nacimiento);
+    }
+
+    // Agregar el ID al final de los valores
+    values.push(id);
+
+    // Construir la consulta completa
+    const query = `UPDATE usuarios SET ${fields.join(', ')} WHERE ID = ?`;
+
+    try {
+        await pool.query(query, values);
+    } catch (error) {
+        console.error('Error en updateUser:', error);
+        throw error;
+    }
 };
 
 export const deleteUser = async (id) => {
-    await pool.query('DELETE FROM usuarios WHERE id = ?', [id]);
+    try {
+        // Primero, eliminar registros relacionados en otras tablas
+        await pool.query('DELETE FROM reservas WHERE usuario_ID = ?', [id]);
+        await pool.query('DELETE FROM servicios WHERE usuario_ID = ?', [id]);
+        
+        // Luego, eliminar el usuario
+        await pool.query('DELETE FROM usuarios WHERE ID = ?', [id]);
+    } catch (error) {
+        console.error('Error en deleteUser:', error);
+        throw error;
+    }
 };

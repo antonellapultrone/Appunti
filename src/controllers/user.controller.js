@@ -39,19 +39,54 @@ export const createUser = async (req, res) => {
 
 export const updateUser = async (req, res) => {
     try {
-        await UsuarioModel.updateUser(req.params.id, req.body);
-        res.json({ message: 'Servicio actualizado correctamente' });
+        // Obtener el ID del usuario desde el token
+        const usuarioId = req.user.id;
+
+        // Datos a actualizar
+        const { nombre, apellido, direccion, telefono, fechaNacimiento } = req.body;
+
+        // Preparar objeto de actualización (solo incluir campos que tienen valor)
+        const updateData = {};
+        if (nombre) updateData.nombre = nombre;
+        if (apellido) updateData.apellido = apellido;
+        if (direccion) updateData.direccion = direccion;
+        if (telefono) updateData.telefono = telefono;
+        if (fechaNacimiento) updateData.fecha_nacimiento = fechaNacimiento;
+
+        // Llamar al modelo para actualizar
+        await UsuarioModel.updateUser(usuarioId, updateData);
+
+        res.json({ 
+            message: 'Datos de usuario actualizados correctamente',
+            updatedFields: Object.keys(updateData)
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Error al actualizar el servicio' + error });
+        console.error('Error al actualizar usuario:', error);
+        res.status(500).json({ 
+            message: 'Error al actualizar los datos del usuario', 
+            error: error.message 
+        });
     }
 };
 
 export const deleteUser = async (req, res) => {
     try {
-        await UsuarioModel.deleteUser(req.params.id);
-        res.json({ message: 'Servicio eliminado correctamente' });
+        // Obtener el ID del usuario desde el token
+        const usuarioId = req.user.id;
+
+        // Llamar al modelo para eliminar
+        await UsuarioModel.deleteUser(usuarioId);
+
+        res.json({ 
+            message: 'Cuenta eliminada correctamente',
+            redirectUrl: '/views/login.html'
+        });
     } catch (error) {
-        res.status(500).json({ message: 'Error al eliminar el servicio' + error });
+        console.error('Error al eliminar usuario:', error);
+        res.status(500).json({ 
+            message: 'Error al eliminar la cuenta', 
+            error: error.message 
+        });
     }
 };
 
