@@ -33,6 +33,7 @@
     background-color: #10002B;
     padding: 2rem 5rem;
     transition: 0.8s ease-in;
+    height: 804px;
 }
 #section-descubreTuZona .container-cards{
     background-color: #f3f3f3;
@@ -87,6 +88,7 @@
     padding: 2rem 5rem;
     border-radius: .5rem;
     transition: 0.8s ease-in;
+    height: 874px;
 }
 #section-categorias:hover{
     background-color: #a557f3a6;
