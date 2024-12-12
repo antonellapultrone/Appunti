@@ -19,7 +19,16 @@
     color: #fff;
 }
 .editar-container form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
     width: 100%;
+    margin-top: 1rem;
+}
+.editar-container form div{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
 }
 .editar-container p{
     color: #fff;
@@ -43,12 +52,15 @@
     transition: .3s;
 }
 .confirm-edit:hover{
-    background-color: #dddddd;
+    background-color: #007dc5;
+    color: #fff;
+    transform: scale(1.05);
 }
 .delete-account{
-    background-color: #ff5858;
+    background-color: #fd6868;
     color: #fff;
 }
 .delete-account:hover{
     background-color: #fc2f2f;
+    transform: scale(1.05);
 }
