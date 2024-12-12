@@ -12,7 +12,7 @@ const app = express();
 dotenv.config({ path: './credenciales.env' });
 
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'http://localhost:3000, https://appunti-ewc3.onrender.com/',
     credentials: true
 }));
 // Middleware para manejar sesiones
