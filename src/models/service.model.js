@@ -38,6 +38,24 @@ export const getServiceById = async (id) => {
     }
 };
 
+export const getServiceByCategory = async (categoria) => {
+    try {
+        // Obtener todos los servicios con sus imágenes
+        const [servicios] = await pool.query(`
+            SELECT s.*, 
+                    (SELECT url FROM imagenes WHERE servicio_ID = s.ID LIMIT 1) as imagen_url 
+            FROM servicios s WHERE categoria like ?;
+        `, [categoria]);
+
+        return servicios.map(servicio => ({
+            ...servicio,
+            imagenes: servicio.imagen_url ? [servicio.imagen_url] : []
+        }));
+    } catch (error) {
+        throw new Error("Error al obtener los servicios: " + error.message);
+    }
+};
+
 
 export const getServiceByNombreCategoriaCiudad = async (data) => {
     try {

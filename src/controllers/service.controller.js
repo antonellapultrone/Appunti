@@ -26,6 +26,19 @@ export const getServiceById = async (req, res) => {
     }
 };
 
+export const getServiceByCategory = async (req, res) => {
+    try {
+        const servicio = await servicioModel.getServiceByCategory(req.params.categoria);
+        if (!servicio) {
+            return res.status(404).json({ message: 'Servicio no encontrado' });
+        }
+        res.json(servicio);
+    } catch (error) {
+        res.status(500).json({ message: 'Error al obtener el servicio' + error });
+    }
+};
+
+
 export const getServiceByNombreCategoriaCiudad = async (req, res) => {
     try {
         const servicio = await servicioModel.getServiceByNombreCategoriaCiudad(req.params.data);
