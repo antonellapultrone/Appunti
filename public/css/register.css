@@ -69,7 +69,7 @@ input[type="tel"] {
 :is(input[type="text"], input[type="email"], input[type="password"],input[type="date"], input[type="tel"]):focus{
     background-color: #acacac;
 }
-form div{
+#registerForm div{
     display: flex;
     flex-direction: row-reverse;
     justify-content: flex-end;
