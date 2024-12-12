@@ -97,11 +97,10 @@
     font-weight: bold;
     text-decoration: none;
     transition: 0.3s ease;
-    width: min-content;
+    width: 110px;
     top: 120px;
     right: 2rem;
     height: 38px;
-    width: 81px;
 }
 .edit-btn:hover,
 .item-reserva div:last-child a:hover{

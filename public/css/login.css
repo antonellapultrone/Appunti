@@ -46,7 +46,7 @@
     display: flex;
     justify-content: center;
     padding: 50px 20px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     height: min-content;
 }
 /* Bienvenida y registro */
@@ -92,7 +92,10 @@
     color: #fff;
 }
 
-@media (width < 1060px) {
+@media (width < 768px) {
+    .main-container{
+        flex-wrap: wrap;
+    }
     .welcome-container {
         max-width: 600px;
         width: 100%;
@@ -101,6 +104,9 @@
     .form-container{
         border-radius: 0 0 1rem 1rem;
         padding: 1rem 3rem;
+    }
+    .form-container form{
+        width: 100%;
     }
     #formMessage{
         margin-bottom: 2rem;

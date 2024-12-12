@@ -1,8 +1,8 @@
 footer {
     background-color: #B3B3B3;
     text-align: left;
-    font-size: 14pt;
-    padding: 2rem 4rem;
+    font-size: 12pt;
+    padding: 1rem 2rem;
     position: absolute;
     bottom: 0;
     width: 100%;
@@ -10,6 +10,7 @@ footer {
 .footer-container {
     display: flex;
     align-items: center;
+    justify-content: space-around;
     flex-wrap: nowrap;
     gap: 1rem;
 }
@@ -18,12 +19,12 @@ footer {
     padding: 0;
 }
 .footer-container a img{
-    width: 8rem;
+    width: 5rem;
 }
 .social{
     display: flex;
     flex-direction: column;
-    margin: 0
+    margin-bottom: auto;
 }
 .social p{
     margin: 1rem 0;
@@ -41,15 +42,15 @@ footer {
     height: min-content;
 }
 .social-media a svg {
-    width: 60px;
-    height: 60px;
+    width: 40px;
+    height: 40px;
 }
 .footer-container ul{
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     list-style: none;
-    width: 100%;
+    width: 50%;
 }
 .footer-container ul li{
     width: min-content;
@@ -66,4 +67,5 @@ footer {
 .copy{
     text-align: center;
     color: #10002b;
+    margin-top: 1rem;
 }

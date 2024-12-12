@@ -123,7 +123,10 @@ input[type="tel"] {
 }
 
 /* media para  1060*/
-@media (width < 1060px) {
+@media (width < 768px) {
+    .main-container{
+        flex-wrap: wrap;
+    }
     .welcome-container {
         max-width: 600px;
         width: 100%;
