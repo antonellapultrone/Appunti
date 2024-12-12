@@ -8,15 +8,14 @@ export function renderCards(root, cardJson, carouselId) {
     const cardsWrapper = document.createElement('div');
     cardsWrapper.setAttribute('class', "cards-wrapper" );
     carouselContainer.appendChild(cardsWrapper);
-    console.log(cardJson);
     if(!cardJson || cardJson.length === 0){
         root.appendChild(carouselContainer);
         const noResultsContainer = document.createElement('div');
     noResultsContainer.setAttribute('class', "no-results-container");
     noResultsContainer.innerHTML = `
-  <img src="../assets/img/find_15065056.png" alt="No se encontraron resultados">
-  <p class="sinResultado">No se encontraron resultados</p>
-`;
+                                <img src="../assets/img/find_15065056.png" alt="No se encontraron resultados">
+                                <p class="sinResultado">No se encontraron resultados</p>
+                            `;
 carouselContainer.appendChild(noResultsContainer);
     }else{
         
