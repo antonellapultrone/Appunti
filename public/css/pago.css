@@ -6,6 +6,7 @@
 }
 .payment-container{
     margin: 5rem;
+    justify-items: center;
 
 }
 .payment-container h2{
