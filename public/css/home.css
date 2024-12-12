@@ -61,7 +61,7 @@
     gap: 2rem;
 }
 .container-publicidad div{
-    background-color: #a26bda;
+
     border-radius: 1rem;
     width: 678px;
     height: 200px;
@@ -81,6 +81,47 @@
     overflow: hidden;
     border-radius: 1rem;
 }
+
+#enlace-nosotros{
+    background-image:url("../assets/img/mago-frente.jpg");
+    background-position: top left; 
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+#enlace-donar{
+    background-image:url("../assets/img/J9bhvIREQ_qmt81_b2mS5A.webp");
+    background-position: top left; 
+    background-repeat: no-repeat;
+    background-size:contain;
+}
+
+
+#enlace-nosotros a,
+#enlace-donar a{
+    font-family: 'Staatliches', sans-serif;
+    font-size: 25pt;
+    color:#ffffff;
+    width: 300px;
+    height: 100%;
+    background-color: #10002B;
+    display: block;
+    margin-left: auto;
+    border-radius: 0 1rem 1rem 0;
+    text-decoration: none;
+    text-align: center;
+    align-content: center;
+}
+
+:is(#enlace-nosotros,#enlace-donar):hover{
+    cursor: pointer;
+    transition: .3s ease-in;
+}
+
+:is(#enlace-nosotros a, #enlace-donar a):active{
+    color:#59189a;
+}
+
 /* categorias */
 #section-categorias{
     background-color: #59189ab2;
