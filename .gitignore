@@ -5,7 +5,6 @@ Thumbs.db
 # Archivos de Node.js
 node_modules/
 package-lock.json
-package.json
 
 #Credenciales
 credenciales.env
