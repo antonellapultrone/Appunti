@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/assets/icon/mago-pesc-light.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/detail.css">
+    <script type="module" src="../js/detail.js"></script>
+    <script type="module" src="../js/app.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <title>Appunti - Detalle</title>
+</head>
+<body>
+    <header></header> <!-- Header dinámico -->
+
+    <main>
+        <section>
+            <div class="titulo">
+                <h2>Detalle de reserva</h2>
+                <p>800 reservas</p>
+            </div>
+            <div class="detalle-reserva">
+                <div class="contenedor-img" id="contenedor-img">
+                    <div id="detalle-imagen" class="carousel">
+                        <div class="cards-wrapper">
+                        <img src="" alt="Imagen del servicio" id="imagen-servicio">
+                        </div>
+                    </div>
+                    <div id="detalle-boton"></div>
+                </div>
+                <div class="detalle-info" id="detalle-info">
+                    <form id="detalle-info-form" method="post">
+                        <h2 id="nombre-servicio">Cargando...</h2>
+                        <h3><strong>Precio: $<span id="precio-servicio">0</span></strong></h3>
+                        
+                        <div class="fecha_reserva">
+                            <label for="fecha_reserva">Fecha de Reserva</label>
+                            <input type="date" id="fecha_reserva" name="fecha_reserva" >
+                            <label for="hora_inicio">Hora de Inicio</label>
+                            <input type="time" id="hora_inicio" name="hora_inicio">
+                        </div>
+                        <h3>Horas de reserva</h3>
+                        <h4 ><span id="horas-reserva">Cargando...</span> Hs.</h4>
+                        <p>Política de cancelación: Cancelación Gratis. Reembolso completo con de anticipación.</p>
+                        <div class="buttons">
+                            <button type="submit" class="reservar-btn" id="reservar-btn">Reservar ahora</button>
+                        </div>
+                    </form>
+                </div>
+                </div>
+            </div>
+
+            <div class="detalle-descripcion">
+                <h3>Descripción</h3>
+                <p id="descripcion-servicio">Cargando descripción...</p>
+            </div>
+
+            <div class="detalle-ubicacion">
+                <h3>Ubicación</h3>
+                <p id="ubicacion-servicio">Cargando ubicación...</p>
+                <div id="mapa-ubicacion" style="width: 100%; height: 300px;"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer></footer> <!-- Footer dinámico -->
+</body>
+</html>

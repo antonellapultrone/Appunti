@@ -1,0 +1,130 @@
+header{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    height: min-content;
+    width: 100%;
+}
+nav {
+    background-color: #10002B;
+    padding: 0 1rem;
+}
+header nav ul{
+    display: flex;
+    gap: 4rem;
+    justify-content: space-between;
+    list-style: none;
+}
+nav ul li{
+    align-content: center;
+    cursor: pointer;
+}
+nav ul li a{
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    text-align: center;
+    text-wrap: nowrap;
+    align-items: center;
+    color: #ffffff;
+    margin: 0;
+    padding: .5rem;
+}
+nav ul li a img{
+    width: 30px;
+    margin-bottom: .5rem;
+}
+nav ul li:first-child{
+    margin-left: 1rem;
+}
+nav ul li:first-child a img{
+    width: 40px;
+    margin-bottom: 0;
+}
+.buscador{
+    top: 142px;
+    z-index: 10;
+    width: 100%;
+    height: min-content;
+    border-radius: 0 0 3rem 3rem;
+    padding: 1rem 0
+}
+.buscador form{
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    justify-content: space-between;
+    align-items: center;
+}
+.buscador form input{
+    border-radius: 1rem;
+    font-size: 12pt;
+    padding: .5rem 2rem;
+    width: 100%;
+    border: none;
+    margin-top: 0 !important;
+}
+.buscador form input:focus{
+    outline: 2px solid #b48eda;
+}
+.buscador form button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #10002B;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    height: 40px;
+    min-width: 40px;
+    padding: 0;
+}
+.buscador form button:hover{
+    background-color: #1b0049af;
+}
+.buscador form button img {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+.popup-session{
+    position: absolute;
+    top: 85px;
+    right: 15px;
+    background-color: #e2e2e2;
+    padding: 1rem;
+    border-radius: 1rem;
+    display: none;
+}
+.popup-session div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.popup-session div a{
+    color: #10002B;
+    padding: .5rem;
+    border-radius: 10px;
+    transition: .3s;
+}
+.popup-session div div:hover{
+    background-color: #cacaca;
+}
+.popup-session div div{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    border-radius: 10px;
+    transition: .3s;
+}
+.popup-session div div img{
+    width: 30px;
+    height: auto;
+}
+.display-b{
+    display: block;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.25), 0 5px 5px rgba(0, 0, 0, 0.22);
+}
+.active-header{
+    background-color: #3a1368;
+}

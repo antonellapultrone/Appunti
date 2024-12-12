@@ -1,0 +1,166 @@
+@import url(./global.css);
+body{
+    background-color: #e7e7e7;
+}
+section{
+    background-color: rgb(245, 245, 245);
+    border-radius: 1.5rem;
+    margin: 2rem 5rem;
+    display: flex;
+    flex-direction: column;
+}
+.titulo{
+    padding: 20px;
+}
+.titulo h2{
+    text-align: left;
+}
+.detalle-reserva {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: 20px;
+    width: 100%;
+}
+#detalle-imagen {
+    flex: 3;
+    text-align: center;
+}
+#imagen-servicio {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+.detalle-info {
+    background-color: #9a63d1da;
+    box-shadow: 5px 10px 20px 2px #cecece;
+    padding: 20px;
+    padding-right: -20px;
+    border-radius: 10px;
+    width: 500px;
+}
+.detalle-info form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+.detalle-info label{
+    margin: 1rem 0;
+}
+.detalle-info h2,
+.detalle-info h3,
+.detalle-info label{
+    text-wrap: nowrap;
+    margin: 0;
+}
+.detalle-info label,
+.detalle-info{
+    color: #10002B;
+}
+/* Títulos y texto */
+#nombre-servicio{
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+.buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0;
+    width: 100%;
+}
+.reservar-btn, 
+.agregar-btn{
+    padding: .5rem 0;
+    text-wrap: nowrap;
+    width: 100%;
+    display: block;
+    flex-grow: 1;
+}
+.reservar-btn {
+    color: #fff;
+    border-radius: 10px;
+    background-color: #5A189A;
+    border:none;
+    font-weight: 600;
+}
+.agregar-btn{
+    color: #10002B;
+    border-radius: 10px;
+    background-color: #D9D9D9;
+    border:none;  
+    font-weight: 600;  
+}
+#reservar-btn,
+#agregar-btn{
+    transition: .3s ease-in-out;
+}
+#reservar-btn:hover{
+    cursor: pointer;
+    background-color: #10002B;
+    transform: scale(1.1);
+    box-shadow: 5px 10px 20px 2px #cecece;
+}
+#agregar-btn:hover{
+    cursor: pointer;
+    background-color: #c6c5c5;
+    transform: scale(1.1);
+    box-shadow: 5px 10px 20px 2px #cecece;
+}
+#detalle-info-form{
+    gap: 1rem;
+}
+.detalle-info p strong{
+    font-size: 1rem;
+}
+.detalle-info p{
+    font-size: 10pt;
+}
+.detalle-ubicacion, .detalle-descripcion {
+    padding: 20px;
+}
+.detalle-ubicacion h3, .detalle-descripcion h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #333;
+}
+.detalle-ubicacion p, .detalle-descripcion p {
+    padding: 1rem;
+    color: #666;
+    margin-left: 1rem;
+}
+#detalle-imagen img{
+    width: 100%;
+}
+#detalle-imagen {
+    margin: auto;
+    overflow: hidden;
+    width: 90%;
+    max-width: 650px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+}
+.contenedor-img{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+.fecha_reserva{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .detalle-reserva {
+        width: 400px;
+        flex-direction: column;
+    }
+    #detalle-imagen {
+        flex: 0 0 100%;
+    }
+}

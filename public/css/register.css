@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(./login.css);
+/* Reset de márgenes y padding */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+.body-style{
+    background-image: url(../assets/img/3184565.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+/* Bienvenida y registro */
+.social-icons {
+    margin-top: 3rem;
+}
+.icon {
+    width: 50px;
+    margin: 0 2rem;
+    cursor: pointer;
+    background-color: #ccc;
+    border-radius: 50%;
+}
+/* Formulario de registro */
+.form-container {
+    background-color: #5A189A;
+    border-radius: 0 1rem 1rem 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    height: 100%;
+    padding: 2rem;
+}
+.form-container form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+}
+.welcome-container h2 {
+    font-family: 'Staatliches', sans-serif;
+    font-size: 60pt;
+    font-weight: 400;
+    margin-bottom: 15px;
+    color: #10002B;
+}
+.welcome-container p{
+    font-size: 18pt;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="date"],
+input[type="tel"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    outline: none;
+    border-radius: 1rem;
+    transition: .3s;
+    border: 2px solid #fff;
+}
+:is(input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="tel"]):hover{
+    background-color: #acacac;
+    border: 2px solid #acacac;
+}
+:is(input[type="text"], input[type="email"], input[type="password"],input[type="date"], input[type="tel"]):focus{
+    background-color: #acacac;
+}
+#registerForm div{
+    display: flex;
+    justify-content: flex-end;
+    align-self: center;
+    gap: 1rem;
+}
+.form-container form div label{
+    margin: 0;
+}
+.form-group{
+    display: flex;
+    width: 100%;
+}
+.form-group div{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+}
+.btn-form {
+    width: 100%;
+    padding: 1rem;
+    margin: auto;
+    margin-top: 2rem;
+    background-color: #10002B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-form:hover {
+    background-color: #190142;;
+}
+#formMessage {
+    display: none;
+    font-weight: 600;
+    margin-top: 15px;
+    text-align: center;
+    color: #fff;
+    background-color: #8222e2;
+    padding: .5rem 1rem;
+    width: min-content;
+    margin: auto auto 1rem;
+    text-wrap: nowrap;
+    border-radius: 1rem;
+}
+.link{
+    display: block;
+    color: #ececec;
+    border-radius: 1rem;
+    padding: 1rem;
+    width: min-content;
+    text-wrap: nowrap;
+    text-align: center;
+    margin: auto;
+    margin-top: 1rem;
+    text-decoration: none;
+}
+.link:hover{
+    text-shadow: 1px 1px 10px #fff;
+    text-decoration: underline;
+}
+
+/* media para  1060*/
+@media (width < 768px) {
+    .main-container{
+        flex-wrap: wrap;
+    }
+    .welcome-container {
+        max-width: 600px;
+        width: 100%;
+        border-radius: 1rem 1rem 0 0;
+    }
+    .form-container{
+        border-radius: 0 0 1rem 1rem;
+        padding: 1rem 3rem;
+    }
+    .form-container form{
+        width: 100%;
+    }
+    #formMessage{
+        margin-bottom: 2rem;
+    }
+}

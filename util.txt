@@ -1,0 +1,17 @@
+PASO 1:
+    npm init
+PASO 2:
+     npm install --save-dev nodemon
+PASO 3: 
+    -modificar en package.json : 
+     abajo de main {} agregar   
+        "type": "module",
+PASO 4:
+    modificar script: 
+        "scripts": {
+            "start": "nodemon src/server.js",
+            "install-deps": "npm install express mysql dotenv bcrypt validator express-validator express-session"
+        },
+PASO 5:
+    npm install-deps
+    npm start

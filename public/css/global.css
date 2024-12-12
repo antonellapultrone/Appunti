@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+@import url(./body.css);
+@import url(./home.css);
+@import url(./footer.css);
+@import url(./header.css);
+@import url(./card.css);
+@import url(./createServicio.css);
+@import url(./nosotros.css);
+@import url(./register.css);
+@import url(./login.css);
+@import url(./myAccount.css);
+@import url(./resultados-busqueda.css);
+@import url(./pago.css);
