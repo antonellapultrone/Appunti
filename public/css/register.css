@@ -95,13 +95,15 @@ input[type="tel"] {
     background-color: #190142;;
 }
 #formMessage {
+    display: none;
     font-weight: 600;
     margin-top: 15px;
     text-align: center;
     color: #fff;
+    background-color: #8222e2;
     padding: .5rem 1rem;
     width: min-content;
-    margin: auto;
+    margin: auto auto 1rem;
     text-wrap: nowrap;
     border-radius: 1rem;
 }

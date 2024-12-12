@@ -17,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 sessionStorage.setItem('token', data.token);
                 window.location.href = '/';
             } else {
+                document.getElementById('formMessage').style.display= 'block'
                 document.getElementById('formMessage').innerText = "Credenciales Incorrectas";
             }
             

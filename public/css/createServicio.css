@@ -51,6 +51,7 @@ textarea{
     padding: .5rem;
     transition: .3s ease-in-out;
     width: 100%;
+    margin-top: 0;
 }
 :is(input:not(#image),select,textarea):hover{
     box-shadow: 2px 2px 15px 2px #4444448c;
@@ -95,9 +96,13 @@ textarea{
 .form-group:last-child .input-container:first-child{
     margin-bottom: auto;
 }
+.form-group label{
+    margin-bottom: .5rem;
+}
 .input-container{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     flex-wrap: nowrap;
     flex: 0 50%; /* Ancho del 50% menos un margen */
     width: 100%;
@@ -121,15 +126,14 @@ textarea{
     margin: 0;
     padding: 0;
 }
-.label{
-    margin: auto 0;
+.container-input-price label{
+    margin-bottom: .5rem;
 }
-.label{
-    height: min-content;
-}
+
 .container-image label{
     padding-left: 1.5rem;
     padding-top: 1rem;
+    margin-bottom: 1rem;
 }
 .container-image div{
     display: flex;
@@ -137,7 +141,7 @@ textarea{
 }
 .buttons{
     display: flex;
-    gap: 1rem;
+    gap: 2rem;
     margin: auto;
     justify-self: end;
     margin: auto;
