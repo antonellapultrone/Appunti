@@ -14,6 +14,18 @@
 .cards-wrapper::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Opera */
 }
+.no-results-container{
+    display: flex;
+    width: 55rem;
+    font-size: 20pt;
+    align-self: center;
+    justify-content: center;
+    margin-top: 5rem;
+}
+.no-results-container img{
+    width: 10rem;
+    align-self: center;
+}
 .card {
     display: flex;
     flex-direction: column;

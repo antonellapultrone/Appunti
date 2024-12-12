@@ -13,12 +13,19 @@
 
     </header>
         <div class="payment-container">
-            <h2>Finalizar Reserva</h2>
+            <h2>¡Reserva Exitosa!</h2>
             <div class="datos-pago">
             <h3>Datos de tu reserva</h3>
             <!--Reserva-->
-            <p>Total:</p>
-            <button class="pagar-btn" id="pagar-btn">Realizar Pago</button>
+            <form id="pago-form" method="post">
+                <h4>Precio Total: <span id="pago_total"></span></h4>
+                <h4>Fecha de reserva: <span id="fecha_reserva"></span></h4>
+                <h4>Hora de inicio: <span id="hora_inicio"></span></h4>
+                <h4>Duración: <span id="duracion"></span></h4>
+
+            
+                <button class="pagar-btn" id="pagar-btn"><a href="/" >Volver a Inicio</a></button>
+            </form>
             </div>
         </div>
         <footer>
