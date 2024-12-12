@@ -31,12 +31,17 @@
 /* Descubre tu zona */
 #section-descubreTuZona{
     background-color: #10002B;
-    padding: 2rem 10rem;
+    padding: 2rem 5rem;
     transition: 0.8s ease-in;
+    height: 804px;
+}
+#section-descubreTuZona .container-cards{
+    background-color: #f3f3f3;
+    padding: 1rem;
+    border-radius: 1rem;
 }
 #section-descubreTuZona:hover{
-    background-color:  #a048f8a6;
-    padding: 2rem 10rem;
+    background-color:  #7a37bd;
     transition: 0.8s ease-in;
 }
 #section-descubreTuZona h2{
@@ -80,15 +85,14 @@
 #section-categorias{
     background-color: #59189ab2;
     margin: 2rem;
-    padding: 2rem 10rem;
+    padding: 2rem 5rem;
     border-radius: .5rem;
     transition: 0.8s ease-in;
+    height: 874px;
 }
 #section-categorias:hover{
     background-color: #a557f3a6;
-    padding: 2rem 10rem;
     transition: 0.8s ease-in;
-    
 }
 .btn-Category{
     display: flex;

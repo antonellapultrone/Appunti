@@ -1,31 +1,20 @@
-async function fetchReservaData(id) {
-    let idreserv = 1;
-    const response = await fetch(`/api/reserva/${id}`, {
-        method: 'GET',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    });
+document.addEventListener('DOMContentLoaded', () => {
+        const dataReserva = JSON.parse(sessionStorage.getItem('dataReserva'));
 
-    if (!response.ok) {
-        const errorText = await response.text();
-        console.error('Error response text:', errorText);
-        throw new Error(`HTTP error! status: ${response.status}, message: ${errorText}`);
+    const datosPagoDiv = document.getElementById('datos-pago');
+
+    if (dataReserva) {
+        // Crea un contenido HTML para mostrar los datos de la reserva
+        const contenido = 
+            `<p><strong>Fecha de reserva:</strong> ${dataReserva.fecha_reserva}</p>
+            <p><strong>Hora de inicio:</strong> ${dataReserva.hora_inicio}</p>
+            <p><strong>Duración:</strong> ${dataReserva.duracion} hora/s</p>
+            <p><strong>Total a pagar:</strong> $ ${dataReserva.pago_total}</p>`;
+        
+        // Inserta el contenido en el div
+        datosPagoDiv.innerHTML = contenido;
+        sessionStorage.removeItem('dataReserva');
+    } else {
+        datosPagoDiv.innerHTML = '<p>No hay datos de reserva disponibles.</p>';
     }
-
-    const reservaJson = await response.json(); // Asegúrate de usar await aquí
-    return reservaJson;
-}
-
-const getReserva = document.addEventListener('DOMContentLoaded', async () => {
-  
-    try {
-        const reservaData = await fetchReservaData(1);
-        document.getElementById("pago_total").textContent = reservaData.pago_total;
-        document.getElementById("fecha_reserva").textContent = reservaData.fecha_reserva;
-        document.getElementById("hora_inicio").textContent = reservaData.hora_inicio;
-    
-    }catch{
-
-    }
-    });
+});

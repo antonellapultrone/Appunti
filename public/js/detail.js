@@ -89,6 +89,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             if (response.ok) {
                 console.log('Respuesta del servidor:', result);
                 if (result.reservaId) {
+                    sessionStorage.setItem('dataReserva', JSON.stringify(dataReserva));
                     window.location.href = '/views/pago.html';
                 } else {
                     console.error('La respuesta no contiene un ID de servicio');

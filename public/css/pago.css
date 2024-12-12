@@ -6,6 +6,7 @@
 }
 .payment-container{
     margin: 5rem;
+    justify-items: center;
 
 }
 .payment-container h2{
@@ -25,14 +26,19 @@
 }
 
 .datos-pago{
+    color: #5A189A;
     font-family: 'Montserrat',sans-serif;
-    background-color: #59189a8a;
+    background-color: #fff;
     width: 50%;
     max-width: 50%;
     justify-self: center;
     border-radius: 10px;
     justify-items: center;
     max-width: 700px;
+    border-style: solid;
+    border-color: #5A189A;
+    padding: 1rem;
+    font-size: 15pt;
 }
 
 .datos-pago h3{
