@@ -14,7 +14,7 @@ export const getAllReservasByUserId = async (id) => {
 };
 
 export const createReserva = async (data) => {
-    const {fecha_reserva, hora_inicio, duracion, pago_total, estado, usuario_ID,servicio_ID} = data;
+    const {fecha_reserva, hora_inicio, duracion, pago_total, estado, usuario_ID ,servicio_ID} = data;
     
     const [result] = await pool.query(
         "INSERT INTO reservas (fecha_reserva, hora_inicio, duracion, pago_total, estado, usuario_ID, servicio_ID) VALUES(?, ?, ?, ?, ?, ? , ?)",

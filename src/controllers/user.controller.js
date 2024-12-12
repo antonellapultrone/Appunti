@@ -108,7 +108,7 @@ export const loginUser = async (req, res) => {
         // Incluye el ID en el token
         const token = jwt.sign(
             { 
-                id: user.ID,  // Asegúrate de usar el nombre correcto del campo ID en tu base de datos
+                id: user.ID,
                 email: user.mail, 
                 nombre: user.nombre, 
                 apellido: user.apellido,
@@ -118,7 +118,10 @@ export const loginUser = async (req, res) => {
             { expiresIn: '1h' }
         );
 
-        res.json({ token });
+        res.json({ 
+            token, 
+            id: user.ID
+        });
     } catch (error) {
         console.error('Error en login:', error);
         res.status(500).json({ message: 'Error interno del servidor' });

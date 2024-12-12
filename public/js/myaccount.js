@@ -68,7 +68,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         const formatValue = (value) => {
             return value && value.trim() !== '' ? value : 'N/A';
         };
-
         // Cargar datos del usuario con manejo de valores vacíos
         document.getElementById('userName').innerText = formatValue(userData.nombre);
         document.getElementById('userLastName').innerText = formatValue(userData.apellido);

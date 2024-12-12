@@ -5,9 +5,12 @@
     background-attachment: fixed;
 }
 .payment-container{
-    margin: 5rem;
+    display: flex;
+    flex-direction: column;
+    margin: 10rem auto;
     justify-items: center;
-
+    align-items: center;
+    width: min-content;
 }
 .payment-container h2{
     font-family: 'Staatliches', sans-serif;
@@ -19,7 +22,7 @@
     color: #10002B;
     padding: .5rem;
     margin: 1rem 0;
-    width: 50%;
+    width: 100%;
     max-width: 50%;
     justify-self: center;
     max-width: 700px;
@@ -29,7 +32,7 @@
     color: #5A189A;
     font-family: 'Montserrat',sans-serif;
     background-color: #fff;
-    width: 50%;
+    width: 100%;
     max-width: 50%;
     justify-self: center;
     border-radius: 10px;
@@ -62,7 +65,7 @@
     font-family: 'Montserrat', sans-serif;
     padding: .3rem 1rem .3rem 1rem;
     border-radius: .3rem;
-    margin: 1rem 1.5rem 1.5rem 1.5rem;
+    margin: 1rem 0;
     color: #fff;
     background-color: #5A189A;
     width: 400px;
@@ -70,6 +73,7 @@
     border: none;
     font-weight: 600;
     font-size: 15px;
+    transition: .3s;
 }
 .pagar-btn:hover{
     cursor: pointer;
