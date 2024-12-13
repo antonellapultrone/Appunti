@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     if (!categoriaSeleccionada) {
         const cardJson = await getAllCards();
         renderCards(rootCategorias, cardJson, 'carousel-2');
-      }
+    }
     
     document.querySelectorAll('.categoria').forEach((categoria) => {
         categoria.addEventListener('click', async (e) => {
@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             btnActive(e.target);
             console.log(carousel2);
              // Elimina las cards anteriores
-             cardsContainer.innerHTML = '';
-             console.log(carousel2);
+            cardsContainer.innerHTML = '';
+            console.log(carousel2);
             console.log("hasta aca" +rootCategorias);
 
             // Llama a getCardsByCategory y envía el resultado a renderCards

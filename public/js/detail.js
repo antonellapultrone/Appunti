@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
             if (!token) {
                 console.log('No estás autenticado. Por favor, inicia sesión.');
-                window.location.href = 'http://localhost:3000/views/login.html';
+                window.location.href = 'https://appunti-ewc3.onrender.com/views/login.html';
                 return;
             }
 

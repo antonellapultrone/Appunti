@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const token = sessionStorage.getItem('token');
     if (!token) {
         console.error('Token no encontrado. Redirigiendo a login.');
-        window.location.href = 'http://localhost:3000/views/login.html';
+        window.location.href = 'https://appunti-ewc3.onrender.com/views/login.html';
         return;
     }
 
@@ -97,6 +97,6 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
     } catch (error) {
         console.error('Error al obtener los datos del usuario:', error);
-        window.location.href = 'http://localhost:3000/views/login.html';
+        window.location.href = 'https://appunti-ewc3.onrender.com/views/login.html';
     }
 });

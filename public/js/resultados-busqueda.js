@@ -25,7 +25,7 @@ window.onload = async function () {
 async function fetchServices(searchQuery) {
     cardsResults.innerHTML = "<p>Cargando servicios...</p>";
     try {
-        const url = searchQuery ? `http://localhost:3000/api/service/search/${encodeURIComponent(searchQuery)}`  : "http://localhost:3000/api/service";
+        const url = searchQuery ? `https://appunti-ewc3.onrender.com/api/service/search/${encodeURIComponent(searchQuery)}`  : "https://appunti-ewc3.onrender.com/api/service";
         const response = await fetch(url);
         if (!response.ok) throw new Error("Error al obtener los datos");
             const services = await response.json();
